@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_section">
+  <sys_ui_section action="INSERT_OR_UPDATE">
+    <sys_id>us2a2b3c4d5e6f7a8b9c0d1e2f3a4b5d8</sys_id>
+    <caption>AI Outputs</caption>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <view display_value="Default">uv1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d6</view>
+    <position>1</position>
+    <columns>1</columns>
+    <sys_class_name>sys_ui_section</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <sys_ui_element_collection>
+      <sys_ui_element><element>uplifted_story</element><position>0</position></sys_ui_element>
+      <sys_ui_element><element>uplifted_acceptance_criteria</element><position>1</position></sys_ui_element>
+      <sys_ui_element><element>generated_code</element><position>2</position></sys_ui_element>
+      <sys_ui_element><element>generated_unit_tests</element><position>3</position></sys_ui_element>
+      <sys_ui_element><element>stakeholder_test_steps</element><position>4</position></sys_ui_element>
+      <sys_ui_element><element>orchestration_log</element><position>5</position></sys_ui_element>
+    </sys_ui_element_collection>
+  </sys_ui_section>
+</record_update>

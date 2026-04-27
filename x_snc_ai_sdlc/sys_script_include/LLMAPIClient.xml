@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si2a2b3c4d5e6f7a8b9c0d1e2f3a4b5ed</sys_id>
+    <name>LLMAPIClient</name>
+    <api_name>x_snc_ai_sdlc.LLMAPIClient</api_name>
+    <description>Low-level HTTP client for LLM APIs. Abstracts Anthropic and OpenAI wire formats. Provider is selected by the x_snc_ai_sdlc.llm_provider system property. Returns a normalised result object from sendMessage().</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var LLMAPIClient = Class.create();
+LLMAPIClient.prototype = {
+
+    initialize: function() {
+        this.provider    = gs.getProperty('x_snc_ai_sdlc.llm_provider', 'anthropic');
+        this.maxTokens   = parseInt(gs.getProperty('x_snc_ai_sdlc.llm_max_tokens', '4096'));
+        this.temperature = parseFloat(gs.getProperty('x_snc_ai_sdlc.llm_temperature', '0.2'));
+        this.debug       = gs.getProperty('x_snc_ai_sdlc.debug_logging', 'false') === 'true';
+    },
+
+    /**
+     * Send a system + user prompt to the configured LLM provider.
+     * @param  {string} systemPrompt
+     * @param  {string} userPrompt
+     * @returns {{ content: string, model: string, tokens: number, error: string|null }}
+     */
+    sendMessage: function(systemPrompt, userPrompt) {
+        try {
+            if (this.provider === 'openai') {
+                return this._sendOpenAI(systemPrompt, userPrompt);
+            }
+            return this._sendAnthropic(systemPrompt, userPrompt);
+        } catch (e) {
+            this._log('sendMessage error: ' + e.message);
+            return { content: '', model: '', tokens: 0, error: e.message };
+        }
+    },
+
+    // ─── Anthropic ────────────────────────────────────────────────────────────
+
+    _sendAnthropic: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_snc_ai_sdlc.anthropic_model', 'claude-3-5-sonnet-20241022');
+
+        var payload = {
+            model:       model,
+            max_tokens:  this.maxTokens,
+            temperature: this.temperature,
+            system:      systemPrompt,
+            messages: [{ role: 'user', content: userPrompt }]
+        };
+
+        this._log('Anthropic request: model=' + model + ' max_tokens=' + this.maxTokens);
+
+        var rm = new sn_ws.RESTMessageV2('AI LLM API', 'send_anthropic_message');
+        rm.setHttpTimeout(55000);
+        rm.setRequestBody(JSON.stringify(payload));
+
+        var response = rm.execute();
+        var statusCode = response.getStatusCode();
+        var body = response.getBody();
+
+        this._log('Anthropic response: status=' + statusCode);
+
+        if (statusCode < 200 || statusCode >= 300) {
+            throw new Error('Anthropic API error HTTP ' + statusCode + ': ' + body);
+        }
+
+        return this._extractAnthropicContent(body, model);
+    },
+
+    _extractAnthropicContent: function(body, model) {
+        var parsed = JSON.parse(body);
+        var rawContent = '';
+
+        if (parsed.content && parsed.content.length > 0) {
+            rawContent = parsed.content[0].text || '';
+        }
+
+        var tokens = 0;
+        if (parsed.usage) {
+            tokens = (parsed.usage.input_tokens || 0) + (parsed.usage.output_tokens || 0);
+        }
+
+        var actualModel = parsed.model || model;
+        var cleanContent = this._stripMarkdownFences(rawContent);
+
+        return { content: cleanContent, model: actualModel, tokens: tokens, error: null };
+    },
+
+    // ─── OpenAI ───────────────────────────────────────────────────────────────
+
+    _sendOpenAI: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_snc_ai_sdlc.openai_model', 'gpt-4o');
+
+        var payload = {
+            model:       model,
+            max_tokens:  this.maxTokens,
+            temperature: this.temperature,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user',   content: userPrompt }
+            ]
+        };
+
+        this._log('OpenAI request: model=' + model + ' max_tokens=' + this.maxTokens);
+
+        var rm = new sn_ws.RESTMessageV2('AI LLM API', 'send_openai_message');
+        rm.setHttpTimeout(55000);
+        rm.setRequestBody(JSON.stringify(payload));
+
+        var response = rm.execute();
+        var statusCode = response.getStatusCode();
+        var body = response.getBody();
+
+        this._log('OpenAI response: status=' + statusCode);
+
+        if (statusCode < 200 || statusCode >= 300) {
+            throw new Error('OpenAI API error HTTP ' + statusCode + ': ' + body);
+        }
+
+        return this._extractOpenAIContent(body, model);
+    },
+
+    _extractOpenAIContent: function(body, model) {
+        var parsed = JSON.parse(body);
+        var rawContent = '';
+
+        if (parsed.choices && parsed.choices.length > 0) {
+            rawContent = parsed.choices[0].message && parsed.choices[0].message.content
+                ? parsed.choices[0].message.content
+                : '';
+        }
+
+        var tokens = 0;
+        if (parsed.usage) {
+            tokens = parsed.usage.total_tokens || 0;
+        }
+
+        var actualModel = parsed.model || model;
+        var cleanContent = this._stripMarkdownFences(rawContent);
+
+        return { content: cleanContent, model: actualModel, tokens: tokens, error: null };
+    },
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
+    _stripMarkdownFences: function(text) {
+        if (!text) return '';
+        return text
+            .replace(/^```json\s*/i, '')
+            .replace(/^```javascript\s*/i, '')
+            .replace(/^```js\s*/i, '')
+            .replace(/^```\s*/i, '')
+            .replace(/\s*```\s*$/, '')
+            .trim();
+    },
+
+    _log: function(msg) {
+        if (this.debug) {
+            gs.log('[LLMAPIClient] ' + msg, 'x_snc_ai_sdlc');
+        }
+    },
+
+    type: 'LLMAPIClient'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>LLMAPIClient</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p6a2b3c4d5e6f7a8b9c0d1e2f3a4b5cb</sys_id>
+    <name>x_snc_ai_sdlc.llm_max_tokens</name>
+    <value>4096</value>
+    <description>Maximum number of completion tokens for each LLM call. Default: 4096</description>
+    <type>integer</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>llm_max_tokens</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.llm_max_tokens</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>

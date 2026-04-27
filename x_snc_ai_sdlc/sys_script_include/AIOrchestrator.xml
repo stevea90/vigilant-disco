@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si5a2b3c4d5e6f7a8b9c0d1e2f3a4b5b0</sys_id>
+    <name>AIOrchestrator</name>
+    <api_name>x_snc_ai_sdlc.AIOrchestrator</api_name>
+    <description>Main pipeline coordinator. Each public method maps to one UI Action on rm_story. Handles manifest lifecycle (find-or-create), status transitions (pending → running → completed/failed), and structured error logging. Depends on PromptTemplates, LLMAPIClient, and ATFBuilder.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var AIOrchestrator = Class.create();
+AIOrchestrator.prototype = {
+
+    initialize: function(storyGR) {
+        this.storyGR  = storyGR;
+        this.storyId  = storyGR.getUniqueValue();
+        this.llm      = new LLMAPIClient();
+        this.prompts  = new PromptTemplates();
+        this.manifest = this._getOrCreateManifest();
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PUBLIC PIPELINE STEPS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    /**
+     * Step 1: Rewrite story description and acceptance criteria using INVEST + Gherkin.
+     * Populates: uplifted_story, uplifted_acceptance_criteria
+     */
+    upliftStory: function() {
+        this._setStatus('running');
+        try {
+            var description = this._getField('description');
+            var criteria    = this._getField('acceptance_criteria');
+
+            if (!description && !criteria) {
+                throw new Error('Story has no description or acceptance criteria to uplift.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getStoryUpliftSystem(),
+                this.prompts.getStoryUpliftUser(description, criteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var parsed = JSON.parse(result.content);
+            this.manifest.setValue('uplifted_story',                  parsed.story || '');
+            this.manifest.setValue('uplifted_acceptance_criteria',    parsed.acceptance_criteria || '');
+            this.manifest.setValue('llm_model_used',                  result.model);
+            this.manifest.setValue('tokens_consumed',                 this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',                     gs.getUserID());
+            this._setStatus('completed');
+            this._log('Story uplift completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in upliftStory: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 2: Generate ServiceNow code (Script Include + Business Rule + Client Script).
+     * Requires upliftStory() to have been run first.
+     * Populates: generated_code
+     */
+    generateCode: function() {
+        this._setStatus('running');
+        try {
+            var upliftedStory    = this.manifest.getValue('uplifted_story') || '';
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+
+            if (!upliftedStory) {
+                throw new Error('Story has not been uplifted yet. Run "AI: Uplift Story" first.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getCodeGenSystem(),
+                this.prompts.getCodeGenUser(upliftedStory, upliftedCriteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var parsed = JSON.parse(result.content);
+            var codeBlocks = [
+                '// ═══════════════════════════════════════════════════════════',
+                '// SCRIPT INCLUDE',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.script_include || '// (none generated)',
+                '',
+                '// ═══════════════════════════════════════════════════════════',
+                '// BUSINESS RULE',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.business_rule || '// (none generated)',
+                '',
+                '// ═══════════════════════════════════════════════════════════',
+                '// CLIENT SCRIPT',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.client_script || '// (none generated)'
+            ].join('\n');
+
+            this.manifest.setValue('generated_code',   codeBlocks);
+            this.manifest.setValue('tokens_consumed',  this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',      gs.getUserID());
+            this._setStatus('completed');
+            this._log('Code generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateCode: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 3a: Generate Jasmine unit tests for the generated Script Include.
+     * Requires generateCode() to have been run first.
+     * Populates: generated_unit_tests
+     */
+    generateUnitTests: function() {
+        this._setStatus('running');
+        try {
+            var generatedCode = this.manifest.getValue('generated_code') || '';
+            if (!generatedCode) {
+                throw new Error('No generated code found. Run "AI: Generate Code" first.');
+            }
+
+            var siMarker = '// SCRIPT INCLUDE';
+            var brMarker = '// BUSINESS RULE';
+            var siStart  = generatedCode.indexOf(siMarker);
+            var brStart  = generatedCode.indexOf(brMarker);
+            var scriptInclude = '';
+            if (siStart !== -1 && brStart !== -1) {
+                scriptInclude = generatedCode.substring(siStart + siMarker.length, brStart).trim();
+            } else {
+                scriptInclude = generatedCode;
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getUnitTestSystem(),
+                this.prompts.getUnitTestUser(scriptInclude)
+            );
+            if (result.error) throw new Error(result.error);
+
+            this.manifest.setValue('generated_unit_tests', result.content);
+            this.manifest.setValue('tokens_consumed',      this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',          gs.getUserID());
+            this._setStatus('completed');
+            this._log('Unit test generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateUnitTests: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 3b: Generate plain-English test steps for stakeholders.
+     * Requires upliftStory() to have been run first.
+     * Populates: stakeholder_test_steps
+     */
+    generateStakeholderTestSteps: function() {
+        this._setStatus('running');
+        try {
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+            if (!upliftedCriteria) {
+                throw new Error('No uplifted acceptance criteria. Run "AI: Uplift Story" first.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getStakeholderTestSystem(),
+                this.prompts.getStakeholderTestUser(upliftedCriteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            this.manifest.setValue('stakeholder_test_steps', result.content);
+            this.manifest.setValue('tokens_consumed',        this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',            gs.getUserID());
+            this._setStatus('completed');
+            this._log('Stakeholder test step generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateStakeholderTestSteps: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 4: Generate ATF step definitions via LLM, then build ATF records.
+     * Requires upliftStory() to have been run first.
+     * Populates: atf_suite_sys_id, atf_test_sys_id
+     */
+    createATFRecords: function() {
+        this._setStatus('running');
+        try {
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+            if (!upliftedCriteria) {
+                throw new Error('No uplifted acceptance criteria. Run "AI: Uplift Story" first.');
+            }
+
+            var storyName = this._getField('short_description') || this.storyId;
+
+            var result = this.llm.sendMessage(
+                this.prompts.getATFStepSystem(),
+                this.prompts.getATFStepUser(upliftedCriteria, storyName)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var stepDefs = JSON.parse(result.content);
+            if (!Array.isArray(stepDefs)) {
+                throw new Error('LLM did not return a JSON array of step definitions. Got: ' + result.content.substring(0, 200));
+            }
+
+            var builder = new ATFBuilder(storyName, this.storyId);
+            var ids     = builder.build(stepDefs);
+
+            this.manifest.setValue('atf_suite_sys_id', ids.suiteId);
+            this.manifest.setValue('atf_test_sys_id',  ids.testId);
+            this.manifest.setValue('tokens_consumed',  this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',      gs.getUserID());
+            this._setStatus('completed');
+            this._log('ATF records created. Suite: ' + ids.suiteId + ' Test: ' + ids.testId + ' Tokens: ' + result.tokens);
+
+            return ids;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in createATFRecords: ' + e.message);
+            throw e;
+        }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PRIVATE HELPERS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    _getOrCreateManifest: function() {
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.addQuery('story', this.storyId);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) return gr;
+
+        var newGR = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        newGR.initialize();
+        newGR.setValue('story', this.storyId);
+        newGR.setValue('orchestration_status', 'pending');
+        newGR.insert();
+        return newGR;
+    },
+
+    _setStatus: function(status) {
+        this.manifest.setValue('orchestration_status', status);
+        this.manifest.update();
+    },
+
+    _log: function(msg) {
+        var timestamp = new GlideDateTime().getDisplayValue();
+        var entry     = '[' + timestamp + '] [' + gs.getUserName() + '] ' + msg;
+        this.manifest.setValue('orchestration_log', entry);
+        this.manifest.update();
+        if (gs.getProperty('x_snc_ai_sdlc.debug_logging', 'false') === 'true') {
+            gs.log(entry, 'x_snc_ai_sdlc');
+        }
+    },
+
+    _addTokens: function(newTokens) {
+        var current = parseInt(this.manifest.getValue('tokens_consumed')) || 0;
+        return current + (parseInt(newTokens) || 0);
+    },
+
+    _getField: function(fieldName) {
+        var val = this.storyGR.getValue(fieldName);
+        return val ? val.toString() : '';
+    },
+
+    type: 'AIOrchestrator'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AIOrchestrator</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>

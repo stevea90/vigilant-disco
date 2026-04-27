@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_rest_message">
+  <sys_rest_message action="INSERT_OR_UPDATE">
+    <sys_id>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a9</sys_id>
+    <name>AI LLM API</name>
+    <description>Outbound REST integration gateway for LLM providers. Supports Anthropic Claude and OpenAI GPT. API keys are resolved from system properties at runtime via header substitution variables.</description>
+    <endpoint>https://api.anthropic.com</endpoint>
+    <authentication_type>no_authentication</authentication_type>
+    <basic_auth_profile/>
+    <oauth2_profile/>
+    <mutual_auth_profile/>
+    <use_mutual_auth>false</use_mutual_auth>
+    <rest_endpoint/>
+    <active>true</active>
+    <sys_class_name>sys_rest_message</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI LLM API</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message>
+</record_update>

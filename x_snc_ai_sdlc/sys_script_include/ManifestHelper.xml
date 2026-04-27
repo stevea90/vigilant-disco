@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si4a2b3c4d5e6f7a8b9c0d1e2f3a4b5af</sys_id>
+    <name>ManifestHelper</name>
+    <api_name>x_snc_ai_sdlc.ManifestHelper</api_name>
+    <description>AbstractAjaxProcessor for the AI Command Center UI Page. Provides GlideAjax-callable methods to query manifest status and aggregate dashboard statistics without exposing orchestration internals.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>true</client_callable>
+    <script><![CDATA[var ManifestHelper = Class.create();
+ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    initialize: function(request, response) {
+        AbstractAjaxProcessor.prototype.initialize.call(this, request, response);
+    },
+
+    /**
+     * AJAX: Return manifest status JSON for a given story sys_id.
+     * Called by the AI Command Center page via GlideAjax.
+     * sysparm_name = 'getManifestStatus'
+     * sysparm_story_id = <rm_story sys_id>
+     */
+    getManifestStatus: function() {
+        var storyId = this.getParameter('sysparm_story_id');
+        if (!storyId) {
+            return JSON.stringify({ found: false, error: 'sysparm_story_id is required' });
+        }
+
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.addQuery('story', storyId);
+        gr.setLimit(1);
+        gr.query();
+
+        if (!gr.next()) {
+            return JSON.stringify({ found: false });
+        }
+
+        return JSON.stringify({
+            found:                   true,
+            sys_id:                  gr.getUniqueValue(),
+            status:                  gr.getValue('orchestration_status'),
+            model:                   gr.getValue('llm_model_used')       || '',
+            tokens:                  gr.getValue('tokens_consumed')      || 0,
+            has_uplift:              gr.getValue('uplifted_story') !== '' && gr.getValue('uplifted_story') !== null,
+            has_code:                gr.getValue('generated_code') !== '' && gr.getValue('generated_code') !== null,
+            has_unit_tests:          gr.getValue('generated_unit_tests') !== '' && gr.getValue('generated_unit_tests') !== null,
+            has_stakeholder_steps:   gr.getValue('stakeholder_test_steps') !== '' && gr.getValue('stakeholder_test_steps') !== null,
+            has_atf:                 gr.getValue('atf_suite_sys_id') !== '' && gr.getValue('atf_suite_sys_id') !== null,
+            atf_suite_id:            gr.getValue('atf_suite_sys_id') || '',
+            atf_test_id:             gr.getValue('atf_test_sys_id')  || '',
+            last_run_by:             gr.getDisplayValue('last_run_by'),
+            updated:                 gr.getDisplayValue('sys_updated_on')
+        });
+    },
+
+    /**
+     * AJAX: Return aggregate dashboard statistics across all manifests.
+     * sysparm_name = 'getDashboardStats'
+     */
+    getDashboardStats: function() {
+        var statuses = ['pending', 'running', 'completed', 'partial', 'failed'];
+        var result   = { total: 0 };
+        for (var s = 0; s < statuses.length; s++) {
+            result[statuses[s]] = 0;
+        }
+
+        var ga = new GlideAggregate('x_snc_ai_sdlc_story_manifest');
+        ga.addAggregate('COUNT', 'orchestration_status');
+        ga.groupBy('orchestration_status');
+        ga.query();
+
+        while (ga.next()) {
+            var status = ga.getValue('orchestration_status');
+            var count  = parseInt(ga.getAggregate('COUNT', 'orchestration_status')) || 0;
+            if (result.hasOwnProperty(status)) {
+                result[status] = count;
+            }
+            result.total += count;
+        }
+
+        return JSON.stringify(result);
+    },
+
+    /**
+     * AJAX: Return the most recent manifests for the command center grid.
+     * sysparm_name = 'getRecentManifests'
+     * sysparm_limit = number of records (default 100)
+     */
+    getRecentManifests: function() {
+        var limit = parseInt(this.getParameter('sysparm_limit')) || 100;
+        var rows  = [];
+
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.orderByDesc('sys_updated_on');
+        gr.setLimit(limit);
+        gr.query();
+
+        while (gr.next()) {
+            rows.push({
+                sys_id:                gr.getUniqueValue(),
+                story_sys_id:          gr.getValue('story'),
+                story_display:         gr.getDisplayValue('story'),
+                status:                gr.getValue('orchestration_status'),
+                has_uplift:            gr.getValue('uplifted_story') ? true : false,
+                has_code:              gr.getValue('generated_code') ? true : false,
+                has_unit_tests:        gr.getValue('generated_unit_tests') ? true : false,
+                has_stakeholder_steps: gr.getValue('stakeholder_test_steps') ? true : false,
+                has_atf:               gr.getValue('atf_suite_sys_id') ? true : false,
+                atf_suite_id:          gr.getValue('atf_suite_sys_id') || '',
+                tokens:                gr.getValue('tokens_consumed') || 0,
+                model:                 gr.getValue('llm_model_used') || '',
+                last_run_by:           gr.getDisplayValue('last_run_by'),
+                updated:               gr.getDisplayValue('sys_updated_on')
+            });
+        }
+
+        return JSON.stringify(rows);
+    },
+
+    type: 'ManifestHelper'
+});
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>ManifestHelper</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
