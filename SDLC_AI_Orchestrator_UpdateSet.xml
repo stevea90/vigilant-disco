@@ -1,0 +1,2228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-04-28 00:00:00">
+
+<record_update table="sys_app">
+  <sys_app action="INSERT_OR_UPDATE">
+    <sys_id>b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_id>
+    <scope>x_snc_ai_sdlc</scope>
+    <name>SDLC AI Orchestrator</name>
+    <short_description>AI-powered SDLC automation: story uplift, code generation, unit tests, ATF creation</short_description>
+    <description>Automates the transition from User Story to Verified Code. Provides LLM-powered story uplift (INVEST + Gherkin), ServiceNow code generation, Jasmine unit test generation, stakeholder test step generation, and automated ATF test suite creation. Integrates with Anthropic Claude and OpenAI APIs.</description>
+    <version>1.0.0</version>
+    <active>true</active>
+    <hide_on_ui>false</hide_on_ui>
+    <private>false</private>
+    <enforce_license>none</enforce_license>
+    <js_level>helsinki</js_level>
+    <vendor>Your Organization</vendor>
+    <vendor_prefix>x_snc</vendor_prefix>
+    <logo/>
+    <roles/>
+    <sys_class_name>sys_app</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>SDLC AI Orchestrator</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <sys_update_name>sys_app_b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_update_name>
+  </sys_app>
+</record_update>
+
+<record_update table="sys_db_object">
+  <sys_db_object action="INSERT_OR_UPDATE">
+    <sys_id>c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f8</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <label>Story AI Manifest</label>
+    <plural>Story AI Manifests</plural>
+    <super_class/>
+    <create_access>true</create_access>
+    <read_access>true</read_access>
+    <update_access>true</update_access>
+    <delete_access>false</delete_access>
+    <is_extendable>false</is_extendable>
+    <caller_access/>
+    <access>public</access>
+    <live_feed_enabled>false</live_feed_enabled>
+    <ws_access_read_only>false</ws_access_read_only>
+    <sys_class_name>sys_db_object</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_db_object>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d1a2b3c4e5f6a7b8c9d0e1f2a3b4c5d1</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>story</element>
+    <column_label>Story</column_label>
+    <internal_type display_value="Reference">reference</internal_type>
+    <reference display_value="Story [rm_story]">rm_story</reference>
+    <reference_qual/>
+    <reference_qual_condition/>
+    <mandatory>true</mandatory>
+    <max_length>32</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>true</display>
+    <unique>true</unique>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d2a2b3c4e5f6a7b8c9d0e1f2a3b4c5d2</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>uplifted_story</element>
+    <column_label>Uplifted Story</column_label>
+    <internal_type display_value="HTML">html</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d3a2b3c4e5f6a7b8c9d0e1f2a3b4c5d3</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>uplifted_acceptance_criteria</element>
+    <column_label>Uplifted Acceptance Criteria</column_label>
+    <internal_type display_value="HTML">html</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d4a2b3c4e5f6a7b8c9d0e1f2a3b4c5d4</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>generated_code</element>
+    <column_label>Generated Code</column_label>
+    <internal_type display_value="Script">script</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d5a2b3c4e5f6a7b8c9d0e1f2a3b4c5d5</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>generated_unit_tests</element>
+    <column_label>Generated Unit Tests</column_label>
+    <internal_type display_value="Script">script</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d6a2b3c4e5f6a7b8c9d0e1f2a3b4c5d6</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>stakeholder_test_steps</element>
+    <column_label>Stakeholder Test Steps</column_label>
+    <internal_type display_value="HTML">html</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d7a2b3c4e5f6a7b8c9d0e1f2a3b4c5d7</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>atf_suite_sys_id</element>
+    <column_label>ATF Suite Sys ID</column_label>
+    <internal_type display_value="Sys ID (GUID)">sys_id</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>32</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d8a2b3c4e5f6a7b8c9d0e1f2a3b4c5d8</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>atf_test_sys_id</element>
+    <column_label>ATF Test Sys ID</column_label>
+    <internal_type display_value="Sys ID (GUID)">sys_id</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>32</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d9a2b3c4e5f6a7b8c9d0e1f2a3b4c5d9</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <column_label>Orchestration Status</column_label>
+    <internal_type display_value="Choice">choice</internal_type>
+    <reference/>
+    <choice>1</choice>
+    <mandatory>false</mandatory>
+    <max_length>40</max_length>
+    <default_value>pending</default_value>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>true</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>daa2b3c4e5f6a7b8c9d0e1f2a3b4c5da</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_log</element>
+    <column_label>Orchestration Log</column_label>
+    <internal_type display_value="Journal Input">journal_input</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>65000</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>false</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>dba2b3c4e5f6a7b8c9d0e1f2a3b4c5db</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>llm_model_used</element>
+    <column_label>LLM Model Used</column_label>
+    <internal_type display_value="String">string</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>100</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>true</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>dca2b3c4e5f6a7b8c9d0e1f2a3b4c5dc</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>tokens_consumed</element>
+    <column_label>Tokens Consumed</column_label>
+    <internal_type display_value="Integer">integer</internal_type>
+    <reference/>
+    <mandatory>false</mandatory>
+    <max_length>40</max_length>
+    <default_value>0</default_value>
+    <active>true</active>
+    <read_only>true</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>dda2b3c4e5f6a7b8c9d0e1f2a3b4c5dd</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>last_run_by</element>
+    <column_label>Last Run By</column_label>
+    <internal_type display_value="Reference">reference</internal_type>
+    <reference display_value="User [sys_user]">sys_user</reference>
+    <reference_qual/>
+    <mandatory>false</mandatory>
+    <max_length>32</max_length>
+    <default_value/>
+    <active>true</active>
+    <read_only>true</read_only>
+    <display>false</display>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_choice">
+  <sys_choice action="INSERT_OR_UPDATE">
+    <sys_id>ch1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <value>pending</value>
+    <label>Pending</label>
+    <sequence>0</sequence>
+    <inactive>false</inactive>
+    <language>en</language>
+    <sys_class_name>sys_choice</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_choice>
+</record_update>
+
+<record_update table="sys_choice">
+  <sys_choice action="INSERT_OR_UPDATE">
+    <sys_id>ch2a2b3c4d5e6f7a8b9c0d1e2f3a4b5d</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <value>running</value>
+    <label>Running</label>
+    <sequence>1</sequence>
+    <inactive>false</inactive>
+    <language>en</language>
+    <sys_class_name>sys_choice</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_choice>
+</record_update>
+
+<record_update table="sys_choice">
+  <sys_choice action="INSERT_OR_UPDATE">
+    <sys_id>ch3a2b3c4d5e6f7a8b9c0d1e2f3a4b5e</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <value>completed</value>
+    <label>Completed</label>
+    <sequence>2</sequence>
+    <inactive>false</inactive>
+    <language>en</language>
+    <sys_class_name>sys_choice</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_choice>
+</record_update>
+
+<record_update table="sys_choice">
+  <sys_choice action="INSERT_OR_UPDATE">
+    <sys_id>ch4a2b3c4d5e6f7a8b9c0d1e2f3a4b5f</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <value>partial</value>
+    <label>Partial Success</label>
+    <sequence>3</sequence>
+    <inactive>false</inactive>
+    <language>en</language>
+    <sys_class_name>sys_choice</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_choice>
+</record_update>
+
+<record_update table="sys_choice">
+  <sys_choice action="INSERT_OR_UPDATE">
+    <sys_id>ch5a2b3c4d5e6f7a8b9c0d1e2f3a4b60</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <element>orchestration_status</element>
+    <value>failed</value>
+    <label>Failed</label>
+    <sequence>4</sequence>
+    <inactive>false</inactive>
+    <language>en</language>
+    <sys_class_name>sys_choice</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_choice>
+</record_update>
+
+<record_update table="sys_rest_message">
+  <sys_rest_message action="INSERT_OR_UPDATE">
+    <sys_id>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a9</sys_id>
+    <name>AI LLM API</name>
+    <description>Outbound REST integration gateway for LLM providers. Supports Anthropic Claude and OpenAI GPT. API keys are resolved from system properties at runtime via header substitution variables.</description>
+    <endpoint>https://api.anthropic.com</endpoint>
+    <authentication_type>no_authentication</authentication_type>
+    <basic_auth_profile/>
+    <oauth2_profile/>
+    <mutual_auth_profile/>
+    <use_mutual_auth>false</use_mutual_auth>
+    <rest_endpoint/>
+    <active>true</active>
+    <sys_class_name>sys_rest_message</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI LLM API</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message>
+</record_update>
+
+<record_update table="sys_rest_message_fn">
+  <sys_rest_message_fn action="INSERT_OR_UPDATE">
+    <sys_id>e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5ba</sys_id>
+    <name>send_anthropic_message</name>
+    <function_name>send_anthropic_message</function_name>
+    <http_method>POST</http_method>
+    <relative_path>/v1/messages</relative_path>
+    <rest_message display_value="AI LLM API">d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a9</rest_message>
+    <use_mutual_auth>false</use_mutual_auth>
+    <content_type>application/json</content_type>
+    <request_body_template/>
+    <authentication_type>inherit_from_parent</authentication_type>
+    <basic_auth_profile/>
+    <oauth2_profile/>
+    <active>true</active>
+    <sys_class_name>sys_rest_message_fn</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>send_anthropic_message</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn>
+</record_update>
+
+<record_update table="sys_rest_message_fn">
+  <sys_rest_message_fn action="INSERT_OR_UPDATE">
+    <sys_id>f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5cb</sys_id>
+    <name>send_openai_message</name>
+    <function_name>send_openai_message</function_name>
+    <http_method>POST</http_method>
+    <relative_path>/v1/chat/completions</relative_path>
+    <rest_message display_value="AI LLM API">d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a9</rest_message>
+    <endpoint>https://api.openai.com</endpoint>
+    <use_mutual_auth>false</use_mutual_auth>
+    <content_type>application/json</content_type>
+    <request_body_template/>
+    <authentication_type>inherit_from_parent</authentication_type>
+    <basic_auth_profile/>
+    <oauth2_profile/>
+    <active>true</active>
+    <sys_class_name>sys_rest_message_fn</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>send_openai_message</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn>
+</record_update>
+
+<record_update table="sys_rest_message_fn_headers">
+  <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+    <sys_id>h1a2b3c4d5e6f7a8b9c0d1e2f3a4b5cc</sys_id>
+    <name>x-api-key</name>
+    <value>${x_snc_ai_sdlc.anthropic_api_key}</value>
+    <rest_message_function display_value="send_anthropic_message">e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5ba</rest_message_function>
+    <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x-api-key</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn_headers>
+</record_update>
+
+<record_update table="sys_rest_message_fn_headers">
+  <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+    <sys_id>h2a2b3c4d5e6f7a8b9c0d1e2f3a4b5cd</sys_id>
+    <name>anthropic-version</name>
+    <value>2023-06-01</value>
+    <rest_message_function display_value="send_anthropic_message">e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5ba</rest_message_function>
+    <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>anthropic-version</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn_headers>
+</record_update>
+
+<record_update table="sys_rest_message_fn_headers">
+  <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+    <sys_id>h3a2b3c4d5e6f7a8b9c0d1e2f3a4b5ce</sys_id>
+    <name>Content-Type</name>
+    <value>application/json</value>
+    <rest_message_function display_value="send_anthropic_message">e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5ba</rest_message_function>
+    <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Content-Type</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn_headers>
+</record_update>
+
+<record_update table="sys_rest_message_fn_headers">
+  <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+    <sys_id>h4a2b3c4d5e6f7a8b9c0d1e2f3a4b5cf</sys_id>
+    <name>Authorization</name>
+    <value>Bearer ${x_snc_ai_sdlc.openai_api_key}</value>
+    <rest_message_function display_value="send_openai_message">f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5cb</rest_message_function>
+    <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Authorization</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn_headers>
+</record_update>
+
+<record_update table="sys_rest_message_fn_headers">
+  <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+    <sys_id>h5a2b3c4d5e6f7a8b9c0d1e2f3a4b5d0</sys_id>
+    <name>Content-Type</name>
+    <value>application/json</value>
+    <rest_message_function display_value="send_openai_message">f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5cb</rest_message_function>
+    <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Content-Type</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_rest_message_fn_headers>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6</sys_id>
+    <name>x_snc_ai_sdlc.llm_provider</name>
+    <value>anthropic</value>
+    <description>LLM provider to use for all AI operations. Valid values: anthropic, openai</description>
+    <type>string</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>llm_provider</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.llm_provider</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p2a2b3c4d5e6f7a8b9c0d1e2f3a4b5c7</sys_id>
+    <name>x_snc_ai_sdlc.anthropic_api_key</name>
+    <value/>
+    <description>Anthropic API key for Claude models. Set after importing — value is encrypted and intentionally blank in source control.</description>
+    <type>password2</type>
+    <private>true</private>
+    <read_roles>x_snc_ai_sdlc.admin</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>anthropic_api_key</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.anthropic_api_key</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p3a2b3c4d5e6f7a8b9c0d1e2f3a4b5c8</sys_id>
+    <name>x_snc_ai_sdlc.openai_api_key</name>
+    <value/>
+    <description>OpenAI API key for GPT models. Set after importing — value is encrypted and intentionally blank in source control.</description>
+    <type>password2</type>
+    <private>true</private>
+    <read_roles>x_snc_ai_sdlc.admin</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>openai_api_key</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.openai_api_key</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p4a2b3c4d5e6f7a8b9c0d1e2f3a4b5c9</sys_id>
+    <name>x_snc_ai_sdlc.anthropic_model</name>
+    <value>claude-3-5-sonnet-20241022</value>
+    <description>Anthropic model ID to use for LLM calls. Default: claude-3-5-sonnet-20241022</description>
+    <type>string</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>anthropic_model</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.anthropic_model</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p5a2b3c4d5e6f7a8b9c0d1e2f3a4b5ca</sys_id>
+    <name>x_snc_ai_sdlc.openai_model</name>
+    <value>gpt-4o</value>
+    <description>OpenAI model ID to use for LLM calls. Default: gpt-4o</description>
+    <type>string</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>openai_model</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.openai_model</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p6a2b3c4d5e6f7a8b9c0d1e2f3a4b5cb</sys_id>
+    <name>x_snc_ai_sdlc.llm_max_tokens</name>
+    <value>4096</value>
+    <description>Maximum number of completion tokens for each LLM call. Default: 4096</description>
+    <type>integer</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>llm_max_tokens</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.llm_max_tokens</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p7a2b3c4d5e6f7a8b9c0d1e2f3a4b5cc</sys_id>
+    <name>x_snc_ai_sdlc.llm_temperature</name>
+    <value>0.2</value>
+    <description>Sampling temperature for LLM calls (0.0–1.0). Lower = more deterministic. Default: 0.2</description>
+    <type>string</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>llm_temperature</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.llm_temperature</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p8a2b3c4d5e6f7a8b9c0d1e2f3a4b5cd</sys_id>
+    <name>x_snc_ai_sdlc.auto_create_manifest</name>
+    <value>true</value>
+    <description>Automatically create a pending Story AI Manifest record when a new rm_story is inserted. Default: true</description>
+    <type>true_false</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>auto_create_manifest</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.auto_create_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>p9a2b3c4d5e6f7a8b9c0d1e2f3a4b5ce</sys_id>
+    <name>x_snc_ai_sdlc.debug_logging</name>
+    <value>false</value>
+    <description>Enable verbose gs.log output for all orchestration operations. Visible in System Log. Default: false</description>
+    <type>true_false</type>
+    <private>false</private>
+    <read_roles>x_snc_ai_sdlc.user</read_roles>
+    <write_roles>x_snc_ai_sdlc.admin</write_roles>
+    <suffix>debug_logging</suffix>
+    <sys_class_name>sys_properties</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc.debug_logging</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si1a2b3c4d5e6f7a8b9c0d1e2f3a4b5dc</sys_id>
+    <name>PromptTemplates</name>
+    <api_name>x_snc_ai_sdlc.PromptTemplates</api_name>
+    <description>Centralised LLM prompt library. All prompts instruct the model to return only valid JSON or plain text — no markdown fences. Edit this Script Include to customise AI behaviour without touching orchestration logic.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var PromptTemplates = Class.create();
+PromptTemplates.prototype = {
+
+    initialize: function() {},
+
+    // ─── Story Uplift ────────────────────────────────────────────────────────
+
+    getStoryUpliftSystem: function() {
+        return [
+            'You are an expert Agile coach and business analyst.',
+            'Rewrite the provided user story to strictly conform to the INVEST framework:',
+            '  Independent, Negotiable, Valuable, Estimable, Small, Testable.',
+            'Return a JSON object with exactly two keys: "story" and "acceptance_criteria".',
+            '"story" must follow the template: As a [role], I want [goal] so that [benefit].',
+            '"acceptance_criteria" must be in Gherkin BDD syntax with multiple scenarios:',
+            '  Scenario: <title>',
+            '    Given <precondition>',
+            '    When <action>',
+            '    Then <expected outcome>',
+            'Return ONLY valid JSON. No markdown code fences, no preamble, no explanation.'
+        ].join('\n');
+    },
+
+    getStoryUpliftUser: function(description, acceptanceCriteria) {
+        return JSON.stringify({
+            original_description:          description,
+            original_acceptance_criteria:  acceptanceCriteria
+        });
+    },
+
+    // ─── Code Generation ─────────────────────────────────────────────────────
+
+    getCodeGenSystem: function() {
+        return [
+            'You are a senior ServiceNow developer specialising in scoped applications.',
+            'Given an uplifted user story with Gherkin acceptance criteria, generate three ServiceNow JavaScript artifacts.',
+            'Return a JSON object with exactly three keys: "script_include", "business_rule", "client_script".',
+            'Each value is a complete, working JavaScript string.',
+            '',
+            'Rules:',
+            '  - Scope all code to x_snc_ai_sdlc.',
+            '  - Script Include: use Class.create() pattern, include initialize() and at least two business-logic methods.',
+            '  - Business Rule: use (function executeRule(current, previous){}) IIFE pattern, call the Script Include.',
+            '  - Client Script: use function onLoad()/onChange()/onSubmit() as appropriate.',
+            '  - Use GlideRecord for all data access — no SQL.',
+            '  - Use gs.getProperty() for configuration values.',
+            '  - Wrap all external calls in try/catch.',
+            '',
+            'Return ONLY valid JSON. No markdown code fences, no preamble.'
+        ].join('\n');
+    },
+
+    getCodeGenUser: function(upliftedStory, upliftedCriteria) {
+        return JSON.stringify({
+            uplifted_story:               upliftedStory,
+            uplifted_acceptance_criteria: upliftedCriteria
+        });
+    },
+
+    // ─── Unit Test Generation ─────────────────────────────────────────────────
+
+    getUnitTestSystem: function() {
+        return [
+            'You are a ServiceNow ATF and Jasmine testing expert.',
+            'Generate Jasmine unit tests for the provided ServiceNow Script Include code.',
+            'Use the ServiceNow Jasmine test framework: describe(), beforeEach(), it(), expect().',
+            'Mock GlideRecord with jasmine.createSpyObj(\'GlideRecord\', [\'initialize\', \'query\', \'next\', \'insert\', \'update\', \'getValue\', \'setValue\', \'addQuery\']).',
+            'Test at minimum: happy path for each public method, error handling paths, and edge cases with empty inputs.',
+            'Use descriptive it() strings that read as requirements.',
+            'Return ONLY the JavaScript code. No markdown code fences, no JSON wrapper, no preamble.'
+        ].join('\n');
+    },
+
+    getUnitTestUser: function(scriptIncludeCode) {
+        return 'Generate comprehensive Jasmine unit tests for this ServiceNow Script Include:\n\n' + scriptIncludeCode;
+    },
+
+    // ─── Stakeholder Test Steps ───────────────────────────────────────────────
+
+    getStakeholderTestSystem: function() {
+        return [
+            'You are a QA lead writing manual test cases for non-technical business stakeholders.',
+            'Convert the provided Gherkin acceptance criteria into numbered, plain-English test steps.',
+            'Format each test case as HTML using these tags exactly:',
+            '  <h3>Test Case N: [Title]</h3>',
+            '  <p><strong>Pre-conditions:</strong> [list any setup needed]</p>',
+            '  <ol>',
+            '    <li>[Step description — use simple imperative language, no jargon]</li>',
+            '    ...',
+            '  </ol>',
+            '  <p><strong>Expected Result:</strong> [what the tester should observe]</p>',
+            'Avoid technical terms. Focus on UI interactions and observable outcomes.',
+            'Return ONLY the HTML. No markdown, no preamble.'
+        ].join('\n');
+    },
+
+    getStakeholderTestUser: function(upliftedCriteria) {
+        return 'Convert these Gherkin acceptance criteria into manual test steps:\n\n' + upliftedCriteria;
+    },
+
+    // ─── ATF Step Definitions ─────────────────────────────────────────────────
+
+    getATFStepSystem: function() {
+        return [
+            'You are a ServiceNow ATF automation engineer.',
+            'Given acceptance criteria and story context, generate ATF test step definitions as a JSON array.',
+            'Each element must be an object with these exact keys:',
+            '  step_type  : "form" | "server" | "rest"',
+            '  action     : for form — "open" | "set_field_value" | "assert_field_value" | "submit"',
+            '               for server — "run_script"',
+            '               for rest   — "call"',
+            '  inputs     : object with step-specific input fields',
+            '  expected   : object describing expected outputs or assertions',
+            '',
+            'For form steps, inputs must include "table" and optionally "field", "value", "sys_id".',
+            'For server steps, inputs must include "script" (JavaScript string to execute).',
+            'Generate 3–8 steps that together verify the core acceptance criteria.',
+            'Return ONLY a valid JSON array. No markdown code fences, no preamble.'
+        ].join('\n');
+    },
+
+    getATFStepUser: function(upliftedCriteria, storyContext) {
+        return JSON.stringify({
+            acceptance_criteria: upliftedCriteria,
+            story_context:       storyContext
+        });
+    },
+
+    type: 'PromptTemplates'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>PromptTemplates</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si2a2b3c4d5e6f7a8b9c0d1e2f3a4b5ed</sys_id>
+    <name>LLMAPIClient</name>
+    <api_name>x_snc_ai_sdlc.LLMAPIClient</api_name>
+    <description>Low-level HTTP client for LLM APIs. Abstracts Anthropic and OpenAI wire formats. Provider is selected by the x_snc_ai_sdlc.llm_provider system property. Returns a normalised result object from sendMessage().</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var LLMAPIClient = Class.create();
+LLMAPIClient.prototype = {
+
+    initialize: function() {
+        this.provider    = gs.getProperty('x_snc_ai_sdlc.llm_provider', 'anthropic');
+        this.maxTokens   = parseInt(gs.getProperty('x_snc_ai_sdlc.llm_max_tokens', '4096'));
+        this.temperature = parseFloat(gs.getProperty('x_snc_ai_sdlc.llm_temperature', '0.2'));
+        this.debug       = gs.getProperty('x_snc_ai_sdlc.debug_logging', 'false') === 'true';
+    },
+
+    /**
+     * Send a system + user prompt to the configured LLM provider.
+     * @param  {string} systemPrompt
+     * @param  {string} userPrompt
+     * @returns {{ content: string, model: string, tokens: number, error: string|null }}
+     */
+    sendMessage: function(systemPrompt, userPrompt) {
+        try {
+            if (this.provider === 'openai') {
+                return this._sendOpenAI(systemPrompt, userPrompt);
+            }
+            return this._sendAnthropic(systemPrompt, userPrompt);
+        } catch (e) {
+            this._log('sendMessage error: ' + e.message);
+            return { content: '', model: '', tokens: 0, error: e.message };
+        }
+    },
+
+    // ─── Anthropic ────────────────────────────────────────────────────────────
+
+    _sendAnthropic: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_snc_ai_sdlc.anthropic_model', 'claude-3-5-sonnet-20241022');
+
+        var payload = {
+            model:       model,
+            max_tokens:  this.maxTokens,
+            temperature: this.temperature,
+            system:      systemPrompt,
+            messages: [{ role: 'user', content: userPrompt }]
+        };
+
+        this._log('Anthropic request: model=' + model + ' max_tokens=' + this.maxTokens);
+
+        var rm = new sn_ws.RESTMessageV2('AI LLM API', 'send_anthropic_message');
+        rm.setHttpTimeout(55000);
+        rm.setRequestBody(JSON.stringify(payload));
+
+        var response = rm.execute();
+        var statusCode = response.getStatusCode();
+        var body = response.getBody();
+
+        this._log('Anthropic response: status=' + statusCode);
+
+        if (statusCode < 200 || statusCode >= 300) {
+            throw new Error('Anthropic API error HTTP ' + statusCode + ': ' + body);
+        }
+
+        return this._extractAnthropicContent(body, model);
+    },
+
+    _extractAnthropicContent: function(body, model) {
+        var parsed = JSON.parse(body);
+        var rawContent = '';
+
+        if (parsed.content && parsed.content.length > 0) {
+            rawContent = parsed.content[0].text || '';
+        }
+
+        var tokens = 0;
+        if (parsed.usage) {
+            tokens = (parsed.usage.input_tokens || 0) + (parsed.usage.output_tokens || 0);
+        }
+
+        var actualModel = parsed.model || model;
+        var cleanContent = this._stripMarkdownFences(rawContent);
+
+        return { content: cleanContent, model: actualModel, tokens: tokens, error: null };
+    },
+
+    // ─── OpenAI ───────────────────────────────────────────────────────────────
+
+    _sendOpenAI: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_snc_ai_sdlc.openai_model', 'gpt-4o');
+
+        var payload = {
+            model:       model,
+            max_tokens:  this.maxTokens,
+            temperature: this.temperature,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user',   content: userPrompt }
+            ]
+        };
+
+        this._log('OpenAI request: model=' + model + ' max_tokens=' + this.maxTokens);
+
+        var rm = new sn_ws.RESTMessageV2('AI LLM API', 'send_openai_message');
+        rm.setHttpTimeout(55000);
+        rm.setRequestBody(JSON.stringify(payload));
+
+        var response = rm.execute();
+        var statusCode = response.getStatusCode();
+        var body = response.getBody();
+
+        this._log('OpenAI response: status=' + statusCode);
+
+        if (statusCode < 200 || statusCode >= 300) {
+            throw new Error('OpenAI API error HTTP ' + statusCode + ': ' + body);
+        }
+
+        return this._extractOpenAIContent(body, model);
+    },
+
+    _extractOpenAIContent: function(body, model) {
+        var parsed = JSON.parse(body);
+        var rawContent = '';
+
+        if (parsed.choices && parsed.choices.length > 0) {
+            rawContent = parsed.choices[0].message && parsed.choices[0].message.content
+                ? parsed.choices[0].message.content
+                : '';
+        }
+
+        var tokens = 0;
+        if (parsed.usage) {
+            tokens = parsed.usage.total_tokens || 0;
+        }
+
+        var actualModel = parsed.model || model;
+        var cleanContent = this._stripMarkdownFences(rawContent);
+
+        return { content: cleanContent, model: actualModel, tokens: tokens, error: null };
+    },
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+
+    _stripMarkdownFences: function(text) {
+        if (!text) return '';
+        return text
+            .replace(/^```json\s*/i, '')
+            .replace(/^```javascript\s*/i, '')
+            .replace(/^```js\s*/i, '')
+            .replace(/^```\s*/i, '')
+            .replace(/\s*```\s*$/, '')
+            .trim();
+    },
+
+    _log: function(msg) {
+        if (this.debug) {
+            gs.log('[LLMAPIClient] ' + msg, 'x_snc_ai_sdlc');
+        }
+    },
+
+    type: 'LLMAPIClient'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>LLMAPIClient</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si3a2b3c4d5e6f7a8b9c0d1e2f3a4b5fe</sys_id>
+    <name>ATFBuilder</name>
+    <api_name>x_snc_ai_sdlc.ATFBuilder</api_name>
+    <description>Programmatically creates ATF records (sys_atf_suite, sys_atf_test, sys_atf_step) from a normalised step-definition array. Uses direct GlideRecord inserts to avoid sn_atf API entitlement requirements in scoped apps. Requires the ATF plugin (com.snc.test_management2) to be active.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var ATFBuilder = Class.create();
+ATFBuilder.prototype = {
+
+    initialize: function(storyName, storySysId) {
+        this.storyName  = storyName;
+        this.storySysId = storySysId;
+    },
+
+    /**
+     * Build full ATF hierarchy from LLM-generated step definitions.
+     * @param  {Array}  stepDefs  Array of { step_type, action, inputs, expected }
+     * @returns {{ suiteId: string, testId: string }}
+     */
+    build: function(stepDefs) {
+        if (!GlidePluginManager.isActive('com.snc.test_management2')) {
+            throw new Error('ATF plugin (com.snc.test_management2) is not active on this instance.');
+        }
+
+        var suiteId = this._createSuite();
+        var testId  = this._createTest(suiteId);
+        this._createSteps(testId, stepDefs);
+
+        return { suiteId: suiteId, testId: testId };
+    },
+
+    // ─── Suite ────────────────────────────────────────────────────────────────
+
+    _createSuite: function() {
+        var gr = new GlideRecord('sys_atf_suite');
+        gr.initialize();
+        gr.setValue('name',        'AI Generated: ' + this.storyName);
+        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator for story ' + this.storySysId);
+        gr.setValue('active',      true);
+        var id = gr.insert();
+        if (!id) {
+            throw new Error('Failed to insert sys_atf_suite record.');
+        }
+        return id;
+    },
+
+    // ─── Test ─────────────────────────────────────────────────────────────────
+
+    _createTest: function(suiteId) {
+        var gr = new GlideRecord('sys_atf_test');
+        gr.initialize();
+        gr.setValue('name',        'AI Test: ' + this.storyName);
+        gr.setValue('description', 'Auto-generated acceptance test from Gherkin criteria');
+        gr.setValue('active',      true);
+        gr.setValue('suite',       suiteId);
+        var id = gr.insert();
+        if (!id) {
+            throw new Error('Failed to insert sys_atf_test record.');
+        }
+        return id;
+    },
+
+    // ─── Steps ────────────────────────────────────────────────────────────────
+
+    _createSteps: function(testId, stepDefs) {
+        if (!stepDefs || !stepDefs.length) return;
+
+        for (var i = 0; i < stepDefs.length; i++) {
+            var def      = stepDefs[i];
+            var configId = this._resolveStepConfig(def.step_type, def.action);
+            if (!configId) {
+                gs.log('[ATFBuilder] Could not resolve step config for step_type=' + def.step_type + ' action=' + def.action + ' — skipping.', 'x_snc_ai_sdlc');
+                continue;
+            }
+
+            var gr = new GlideRecord('sys_atf_step');
+            gr.initialize();
+            gr.setValue('test',             testId);
+            gr.setValue('step_config',      configId);
+            gr.setValue('order',            (i + 1) * 100);
+            gr.setValue('active',           true);
+            gr.setValue('inputs',           JSON.stringify(def.inputs   || {}));
+            gr.setValue('expected_outputs', JSON.stringify(def.expected || {}));
+            gr.insert();
+        }
+    },
+
+    // ─── Step Config Lookup ───────────────────────────────────────────────────
+
+    _resolveStepConfig: function(stepType, action) {
+        var key = (stepType || '') + '.' + (action || '');
+
+        var configMap = {
+            'form.open':               'sn_atf.open_form',
+            'form.set_field_value':    'sn_atf.set_field_values',
+            'form.assert_field_value': 'sn_atf.assert_field_values',
+            'form.submit':             'sn_atf.submit_form',
+            'server.run_script':       'sn_atf.run_server_side_script',
+            'rest.call':               'sn_atf.rest_step'
+        };
+
+        var configName = configMap[key];
+        if (!configName) {
+            var fallbacks = {
+                'form':   'sn_atf.set_field_values',
+                'server': 'sn_atf.run_server_side_script',
+                'rest':   'sn_atf.rest_step'
+            };
+            configName = fallbacks[stepType];
+        }
+        if (!configName) return null;
+
+        var gr = new GlideRecord('sys_atf_step_config');
+        gr.addQuery('sys_name', configName);
+        gr.setLimit(1);
+        gr.query();
+        return gr.next() ? gr.getUniqueValue() : null;
+    },
+
+    type: 'ATFBuilder'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>ATFBuilder</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si4a2b3c4d5e6f7a8b9c0d1e2f3a4b5af</sys_id>
+    <name>ManifestHelper</name>
+    <api_name>x_snc_ai_sdlc.ManifestHelper</api_name>
+    <description>AbstractAjaxProcessor for the AI Command Center UI Page. Provides GlideAjax-callable methods to query manifest status and aggregate dashboard statistics without exposing orchestration internals.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>true</client_callable>
+    <script><![CDATA[var ManifestHelper = Class.create();
+ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    initialize: function(request, response) {
+        AbstractAjaxProcessor.prototype.initialize.call(this, request, response);
+    },
+
+    /**
+     * AJAX: Return manifest status JSON for a given story sys_id.
+     * Called by the AI Command Center page via GlideAjax.
+     * sysparm_name = 'getManifestStatus'
+     * sysparm_story_id = <rm_story sys_id>
+     */
+    getManifestStatus: function() {
+        var storyId = this.getParameter('sysparm_story_id');
+        if (!storyId) {
+            return JSON.stringify({ found: false, error: 'sysparm_story_id is required' });
+        }
+
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.addQuery('story', storyId);
+        gr.setLimit(1);
+        gr.query();
+
+        if (!gr.next()) {
+            return JSON.stringify({ found: false });
+        }
+
+        return JSON.stringify({
+            found:                   true,
+            sys_id:                  gr.getUniqueValue(),
+            status:                  gr.getValue('orchestration_status'),
+            model:                   gr.getValue('llm_model_used')       || '',
+            tokens:                  gr.getValue('tokens_consumed')      || 0,
+            has_uplift:              gr.getValue('uplifted_story') !== '' && gr.getValue('uplifted_story') !== null,
+            has_code:                gr.getValue('generated_code') !== '' && gr.getValue('generated_code') !== null,
+            has_unit_tests:          gr.getValue('generated_unit_tests') !== '' && gr.getValue('generated_unit_tests') !== null,
+            has_stakeholder_steps:   gr.getValue('stakeholder_test_steps') !== '' && gr.getValue('stakeholder_test_steps') !== null,
+            has_atf:                 gr.getValue('atf_suite_sys_id') !== '' && gr.getValue('atf_suite_sys_id') !== null,
+            atf_suite_id:            gr.getValue('atf_suite_sys_id') || '',
+            atf_test_id:             gr.getValue('atf_test_sys_id')  || '',
+            last_run_by:             gr.getDisplayValue('last_run_by'),
+            updated:                 gr.getDisplayValue('sys_updated_on')
+        });
+    },
+
+    /**
+     * AJAX: Return aggregate dashboard statistics across all manifests.
+     * sysparm_name = 'getDashboardStats'
+     */
+    getDashboardStats: function() {
+        var statuses = ['pending', 'running', 'completed', 'partial', 'failed'];
+        var result   = { total: 0 };
+        for (var s = 0; s < statuses.length; s++) {
+            result[statuses[s]] = 0;
+        }
+
+        var ga = new GlideAggregate('x_snc_ai_sdlc_story_manifest');
+        ga.addAggregate('COUNT', 'orchestration_status');
+        ga.groupBy('orchestration_status');
+        ga.query();
+
+        while (ga.next()) {
+            var status = ga.getValue('orchestration_status');
+            var count  = parseInt(ga.getAggregate('COUNT', 'orchestration_status')) || 0;
+            if (result.hasOwnProperty(status)) {
+                result[status] = count;
+            }
+            result.total += count;
+        }
+
+        return JSON.stringify(result);
+    },
+
+    /**
+     * AJAX: Return the most recent manifests for the command center grid.
+     * sysparm_name = 'getRecentManifests'
+     * sysparm_limit = number of records (default 100)
+     */
+    getRecentManifests: function() {
+        var limit = parseInt(this.getParameter('sysparm_limit')) || 100;
+        var rows  = [];
+
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.orderByDesc('sys_updated_on');
+        gr.setLimit(limit);
+        gr.query();
+
+        while (gr.next()) {
+            rows.push({
+                sys_id:                gr.getUniqueValue(),
+                story_sys_id:          gr.getValue('story'),
+                story_display:         gr.getDisplayValue('story'),
+                status:                gr.getValue('orchestration_status'),
+                has_uplift:            gr.getValue('uplifted_story') ? true : false,
+                has_code:              gr.getValue('generated_code') ? true : false,
+                has_unit_tests:        gr.getValue('generated_unit_tests') ? true : false,
+                has_stakeholder_steps: gr.getValue('stakeholder_test_steps') ? true : false,
+                has_atf:               gr.getValue('atf_suite_sys_id') ? true : false,
+                atf_suite_id:          gr.getValue('atf_suite_sys_id') || '',
+                tokens:                gr.getValue('tokens_consumed') || 0,
+                model:                 gr.getValue('llm_model_used') || '',
+                last_run_by:           gr.getDisplayValue('last_run_by'),
+                updated:               gr.getDisplayValue('sys_updated_on')
+            });
+        }
+
+        return JSON.stringify(rows);
+    },
+
+    type: 'ManifestHelper'
+});
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>ManifestHelper</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>si5a2b3c4d5e6f7a8b9c0d1e2f3a4b5b0</sys_id>
+    <name>AIOrchestrator</name>
+    <api_name>x_snc_ai_sdlc.AIOrchestrator</api_name>
+    <description>Main pipeline coordinator. Each public method maps to one UI Action on rm_story. Handles manifest lifecycle (find-or-create), status transitions (pending → running → completed/failed), and structured error logging. Depends on PromptTemplates, LLMAPIClient, and ATFBuilder.</description>
+    <active>true</active>
+    <access>package_private</access>
+    <client_callable>false</client_callable>
+    <script><![CDATA[var AIOrchestrator = Class.create();
+AIOrchestrator.prototype = {
+
+    initialize: function(storyGR) {
+        this.storyGR  = storyGR;
+        this.storyId  = storyGR.getUniqueValue();
+        this.llm      = new LLMAPIClient();
+        this.prompts  = new PromptTemplates();
+        this.manifest = this._getOrCreateManifest();
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PUBLIC PIPELINE STEPS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    /**
+     * Step 1: Rewrite story description and acceptance criteria using INVEST + Gherkin.
+     * Populates: uplifted_story, uplifted_acceptance_criteria
+     */
+    upliftStory: function() {
+        this._setStatus('running');
+        try {
+            var description = this._getField('description');
+            var criteria    = this._getField('acceptance_criteria');
+
+            if (!description && !criteria) {
+                throw new Error('Story has no description or acceptance criteria to uplift.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getStoryUpliftSystem(),
+                this.prompts.getStoryUpliftUser(description, criteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var parsed = JSON.parse(result.content);
+            this.manifest.setValue('uplifted_story',                  parsed.story || '');
+            this.manifest.setValue('uplifted_acceptance_criteria',    parsed.acceptance_criteria || '');
+            this.manifest.setValue('llm_model_used',                  result.model);
+            this.manifest.setValue('tokens_consumed',                 this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',                     gs.getUserID());
+            this._setStatus('completed');
+            this._log('Story uplift completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in upliftStory: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 2: Generate ServiceNow code (Script Include + Business Rule + Client Script).
+     * Requires upliftStory() to have been run first.
+     * Populates: generated_code
+     */
+    generateCode: function() {
+        this._setStatus('running');
+        try {
+            var upliftedStory    = this.manifest.getValue('uplifted_story') || '';
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+
+            if (!upliftedStory) {
+                throw new Error('Story has not been uplifted yet. Run "AI: Uplift Story" first.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getCodeGenSystem(),
+                this.prompts.getCodeGenUser(upliftedStory, upliftedCriteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var parsed = JSON.parse(result.content);
+            var codeBlocks = [
+                '// ═══════════════════════════════════════════════════════════',
+                '// SCRIPT INCLUDE',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.script_include || '// (none generated)',
+                '',
+                '// ═══════════════════════════════════════════════════════════',
+                '// BUSINESS RULE',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.business_rule || '// (none generated)',
+                '',
+                '// ═══════════════════════════════════════════════════════════',
+                '// CLIENT SCRIPT',
+                '// ═══════════════════════════════════════════════════════════',
+                parsed.client_script || '// (none generated)'
+            ].join('\n');
+
+            this.manifest.setValue('generated_code',   codeBlocks);
+            this.manifest.setValue('tokens_consumed',  this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',      gs.getUserID());
+            this._setStatus('completed');
+            this._log('Code generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateCode: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 3a: Generate Jasmine unit tests for the generated Script Include.
+     * Requires generateCode() to have been run first.
+     * Populates: generated_unit_tests
+     */
+    generateUnitTests: function() {
+        this._setStatus('running');
+        try {
+            var generatedCode = this.manifest.getValue('generated_code') || '';
+            if (!generatedCode) {
+                throw new Error('No generated code found. Run "AI: Generate Code" first.');
+            }
+
+            var siMarker = '// SCRIPT INCLUDE';
+            var brMarker = '// BUSINESS RULE';
+            var siStart  = generatedCode.indexOf(siMarker);
+            var brStart  = generatedCode.indexOf(brMarker);
+            var scriptInclude = '';
+            if (siStart !== -1 && brStart !== -1) {
+                scriptInclude = generatedCode.substring(siStart + siMarker.length, brStart).trim();
+            } else {
+                scriptInclude = generatedCode;
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getUnitTestSystem(),
+                this.prompts.getUnitTestUser(scriptInclude)
+            );
+            if (result.error) throw new Error(result.error);
+
+            this.manifest.setValue('generated_unit_tests', result.content);
+            this.manifest.setValue('tokens_consumed',      this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',          gs.getUserID());
+            this._setStatus('completed');
+            this._log('Unit test generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateUnitTests: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 3b: Generate plain-English test steps for stakeholders.
+     * Requires upliftStory() to have been run first.
+     * Populates: stakeholder_test_steps
+     */
+    generateStakeholderTestSteps: function() {
+        this._setStatus('running');
+        try {
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+            if (!upliftedCriteria) {
+                throw new Error('No uplifted acceptance criteria. Run "AI: Uplift Story" first.');
+            }
+
+            var result = this.llm.sendMessage(
+                this.prompts.getStakeholderTestSystem(),
+                this.prompts.getStakeholderTestUser(upliftedCriteria)
+            );
+            if (result.error) throw new Error(result.error);
+
+            this.manifest.setValue('stakeholder_test_steps', result.content);
+            this.manifest.setValue('tokens_consumed',        this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',            gs.getUserID());
+            this._setStatus('completed');
+            this._log('Stakeholder test step generation completed. Tokens: ' + result.tokens);
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in generateStakeholderTestSteps: ' + e.message);
+            throw e;
+        }
+    },
+
+    /**
+     * Step 4: Generate ATF step definitions via LLM, then build ATF records.
+     * Requires upliftStory() to have been run first.
+     * Populates: atf_suite_sys_id, atf_test_sys_id
+     */
+    createATFRecords: function() {
+        this._setStatus('running');
+        try {
+            var upliftedCriteria = this.manifest.getValue('uplifted_acceptance_criteria') || '';
+            if (!upliftedCriteria) {
+                throw new Error('No uplifted acceptance criteria. Run "AI: Uplift Story" first.');
+            }
+
+            var storyName = this._getField('short_description') || this.storyId;
+
+            var result = this.llm.sendMessage(
+                this.prompts.getATFStepSystem(),
+                this.prompts.getATFStepUser(upliftedCriteria, storyName)
+            );
+            if (result.error) throw new Error(result.error);
+
+            var stepDefs = JSON.parse(result.content);
+            if (!Array.isArray(stepDefs)) {
+                throw new Error('LLM did not return a JSON array of step definitions. Got: ' + result.content.substring(0, 200));
+            }
+
+            var builder = new ATFBuilder(storyName, this.storyId);
+            var ids     = builder.build(stepDefs);
+
+            this.manifest.setValue('atf_suite_sys_id', ids.suiteId);
+            this.manifest.setValue('atf_test_sys_id',  ids.testId);
+            this.manifest.setValue('tokens_consumed',  this._addTokens(result.tokens));
+            this.manifest.setValue('last_run_by',      gs.getUserID());
+            this._setStatus('completed');
+            this._log('ATF records created. Suite: ' + ids.suiteId + ' Test: ' + ids.testId + ' Tokens: ' + result.tokens);
+
+            return ids;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ERROR in createATFRecords: ' + e.message);
+            throw e;
+        }
+    },
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PRIVATE HELPERS
+    // ─────────────────────────────────────────────────────────────────────────
+
+    _getOrCreateManifest: function() {
+        var gr = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        gr.addQuery('story', this.storyId);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) return gr;
+
+        var newGR = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+        newGR.initialize();
+        newGR.setValue('story', this.storyId);
+        newGR.setValue('orchestration_status', 'pending');
+        newGR.insert();
+        return newGR;
+    },
+
+    _setStatus: function(status) {
+        this.manifest.setValue('orchestration_status', status);
+        this.manifest.update();
+    },
+
+    _log: function(msg) {
+        var timestamp = new GlideDateTime().getDisplayValue();
+        var entry     = '[' + timestamp + '] [' + gs.getUserName() + '] ' + msg;
+        this.manifest.setValue('orchestration_log', entry);
+        this.manifest.update();
+        if (gs.getProperty('x_snc_ai_sdlc.debug_logging', 'false') === 'true') {
+            gs.log(entry, 'x_snc_ai_sdlc');
+        }
+    },
+
+    _addTokens: function(newTokens) {
+        var current = parseInt(this.manifest.getValue('tokens_consumed')) || 0;
+        return current + (parseInt(newTokens) || 0);
+    },
+
+    _getField: function(fieldName) {
+        var val = this.storyGR.getValue(fieldName);
+        return val ? val.toString() : '';
+    },
+
+    type: 'AIOrchestrator'
+};
+]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AIOrchestrator</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>ua1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d1</sys_id>
+    <action_name>AI: Uplift Story</action_name>
+    <table>rm_story</table>
+    <hint>Rewrite the story description and acceptance criteria using the INVEST framework and Gherkin BDD syntax via AI.</hint>
+    <client>false</client>
+    <isolate_script>false</isolate_script>
+    <form_button>false</form_button>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <list_action>false</list_action>
+    <order>100</order>
+    <active>true</active>
+    <show_insert>false</show_insert>
+    <show_update>true</show_update>
+    <condition>current.canWrite()</condition>
+    <onclick/>
+    <script><![CDATA[(function executeRule(current, previous) {
+    try {
+        var orchestrator = new x_snc_ai_sdlc.AIOrchestrator(current);
+        orchestrator.upliftStory();
+        gs.addInfoMessage('Story successfully uplifted with INVEST framework and Gherkin syntax. View the AI Manifest for results.');
+    } catch (e) {
+        gs.addErrorMessage('Story uplift failed: ' + e.message + '. Check the Orchestration Log on the AI Manifest record.');
+    }
+    action.setRedirectURL(current);
+})(current, previous);
+]]></script>
+    <sys_class_name>sys_ui_action</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI: Uplift Story</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>ua2a2b3c4d5e6f7a8b9c0d1e2f3a4b5d2</sys_id>
+    <action_name>AI: Generate Code</action_name>
+    <table>rm_story</table>
+    <hint>Generate ServiceNow JavaScript artifacts (Script Include, Business Rule, Client Script) from the uplifted story. Run AI: Uplift Story first.</hint>
+    <client>false</client>
+    <isolate_script>false</isolate_script>
+    <form_button>false</form_button>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <list_action>false</list_action>
+    <order>200</order>
+    <active>true</active>
+    <show_insert>false</show_insert>
+    <show_update>true</show_update>
+    <condition>current.canWrite()</condition>
+    <onclick/>
+    <script><![CDATA[(function executeRule(current, previous) {
+    try {
+        var orchestrator = new x_snc_ai_sdlc.AIOrchestrator(current);
+        orchestrator.generateCode();
+        gs.addInfoMessage('ServiceNow code generated successfully. View the Generated Code field on the AI Manifest record.');
+    } catch (e) {
+        gs.addErrorMessage('Code generation failed: ' + e.message + '. Check the Orchestration Log on the AI Manifest record.');
+    }
+    action.setRedirectURL(current);
+})(current, previous);
+]]></script>
+    <sys_class_name>sys_ui_action</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI: Generate Code</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>ua3a2b3c4d5e6f7a8b9c0d1e2f3a4b5d3</sys_id>
+    <action_name>AI: Generate Test Steps</action_name>
+    <table>rm_story</table>
+    <hint>Generate Jasmine unit tests for the generated Script Include and plain-English stakeholder test steps from the acceptance criteria. Run AI: Uplift Story and AI: Generate Code first.</hint>
+    <client>false</client>
+    <isolate_script>false</isolate_script>
+    <form_button>false</form_button>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <list_action>false</list_action>
+    <order>300</order>
+    <active>true</active>
+    <show_insert>false</show_insert>
+    <show_update>true</show_update>
+    <condition>current.canWrite()</condition>
+    <onclick/>
+    <script><![CDATA[(function executeRule(current, previous) {
+    var errors = [];
+
+    try {
+        var orchestratorSteps = new x_snc_ai_sdlc.AIOrchestrator(current);
+        orchestratorSteps.generateStakeholderTestSteps();
+    } catch (e) {
+        errors.push('Stakeholder test steps: ' + e.message);
+    }
+
+    try {
+        var orchestratorTests = new x_snc_ai_sdlc.AIOrchestrator(current);
+        orchestratorTests.generateUnitTests();
+    } catch (e) {
+        errors.push('Unit tests: ' + e.message);
+    }
+
+    if (errors.length === 0) {
+        gs.addInfoMessage('Unit tests and stakeholder test steps generated successfully. View results on the AI Manifest record.');
+    } else if (errors.length === 2) {
+        gs.addErrorMessage('Both test generation steps failed. Errors: ' + errors.join(' | '));
+    } else {
+        gs.addInfoMessage('Partial success. Completed one of two test generation steps.');
+        gs.addErrorMessage('One step failed: ' + errors[0]);
+    }
+
+    action.setRedirectURL(current);
+})(current, previous);
+]]></script>
+    <sys_class_name>sys_ui_action</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI: Generate Test Steps</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>ua4a2b3c4d5e6f7a8b9c0d1e2f3a4b5d4</sys_id>
+    <action_name>AI: Create ATF Records</action_name>
+    <table>rm_story</table>
+    <hint>Create ATF Test Suite, Test, and Steps from the uplifted acceptance criteria. Requires the ATF plugin to be active and AI: Uplift Story to have been run first.</hint>
+    <client>false</client>
+    <isolate_script>false</isolate_script>
+    <form_button>false</form_button>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <list_action>false</list_action>
+    <order>400</order>
+    <active>true</active>
+    <show_insert>false</show_insert>
+    <show_update>true</show_update>
+    <condition>current.canWrite()</condition>
+    <onclick/>
+    <script><![CDATA[(function executeRule(current, previous) {
+    try {
+        var orchestrator = new x_snc_ai_sdlc.AIOrchestrator(current);
+        var ids = orchestrator.createATFRecords();
+
+        if (ids && ids.suiteId) {
+            gs.addInfoMessage(
+                'ATF records created successfully. ' +
+                '<a href="/sys_atf_suite.do?sys_id=' + ids.suiteId + '" target="_blank">View ATF Suite</a>'
+            );
+        } else {
+            gs.addInfoMessage('ATF records created. View the AI Manifest for details.');
+        }
+    } catch (e) {
+        gs.addErrorMessage('ATF creation failed: ' + e.message + '. Check the Orchestration Log on the AI Manifest record.');
+    }
+    action.setRedirectURL(current);
+})(current, previous);
+]]></script>
+    <sys_class_name>sys_ui_action</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI: Create ATF Records</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_script">
+  <sys_script action="INSERT_OR_UPDATE">
+    <sys_id>br1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d5</sys_id>
+    <name>AI SDLC: Auto-Create Story Manifest</name>
+    <collection>rm_story</collection>
+    <when>after</when>
+    <action_insert>true</action_insert>
+    <action_update>false</action_update>
+    <action_delete>false</action_delete>
+    <action_query>false</action_query>
+    <filter_condition/>
+    <condition><![CDATA[gs.getProperty('x_snc_ai_sdlc.auto_create_manifest', 'true') == 'true']]></condition>
+    <advanced>true</advanced>
+    <active>true</active>
+    <order>900</order>
+    <role_conditions/>
+    <abort_action>false</abort_action>
+    <add_message>false</add_message>
+    <message/>
+    <description>Automatically creates a pending Story AI Manifest record when a new rm_story is inserted. Controlled by the x_snc_ai_sdlc.auto_create_manifest system property.</description>
+    <script><![CDATA[(function executeRule(current, previous) {
+    var existing = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+    existing.addQuery('story', current.getUniqueValue());
+    existing.setLimit(1);
+    existing.query();
+    if (existing.next()) return;
+
+    var manifest = new GlideRecord('x_snc_ai_sdlc_story_manifest');
+    manifest.initialize();
+    manifest.setValue('story',                current.getUniqueValue());
+    manifest.setValue('orchestration_status', 'pending');
+    manifest.insert();
+})(current, previous);
+]]></script>
+    <sys_class_name>sys_script</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>AI SDLC: Auto-Create Story Manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_script>
+</record_update>
+
+<record_update table="sys_ui_view">
+  <sys_ui_view action="INSERT_OR_UPDATE">
+    <sys_id>uv1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d6</sys_id>
+    <name>Default</name>
+    <title>Default</title>
+    <internal_name>default</internal_name>
+    <sys_class_name>sys_ui_view</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Default view for x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+  </sys_ui_view>
+</record_update>
+
+<record_update table="sys_ui_section">
+  <sys_ui_section action="INSERT_OR_UPDATE">
+    <sys_id>us1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d7</sys_id>
+    <caption>Story Reference</caption>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <view display_value="Default">uv1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d6</view>
+    <position>0</position>
+    <columns>2</columns>
+    <sys_class_name>sys_ui_section</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <sys_ui_element_collection>
+      <sys_ui_element><element>story</element><position>0</position></sys_ui_element>
+      <sys_ui_element><element>orchestration_status</element><position>1</position></sys_ui_element>
+      <sys_ui_element><element>last_run_by</element><position>2</position></sys_ui_element>
+      <sys_ui_element><element>llm_model_used</element><position>3</position></sys_ui_element>
+      <sys_ui_element><element>tokens_consumed</element><position>4</position></sys_ui_element>
+      <sys_ui_element><element>atf_suite_sys_id</element><position>5</position></sys_ui_element>
+      <sys_ui_element><element>atf_test_sys_id</element><position>6</position></sys_ui_element>
+    </sys_ui_element_collection>
+  </sys_ui_section>
+</record_update>
+
+<record_update table="sys_ui_section">
+  <sys_ui_section action="INSERT_OR_UPDATE">
+    <sys_id>us2a2b3c4d5e6f7a8b9c0d1e2f3a4b5d8</sys_id>
+    <caption>AI Outputs</caption>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <view display_value="Default">uv1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d6</view>
+    <position>1</position>
+    <columns>1</columns>
+    <sys_class_name>sys_ui_section</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <sys_ui_element_collection>
+      <sys_ui_element><element>uplifted_story</element><position>0</position></sys_ui_element>
+      <sys_ui_element><element>uplifted_acceptance_criteria</element><position>1</position></sys_ui_element>
+      <sys_ui_element><element>generated_code</element><position>2</position></sys_ui_element>
+      <sys_ui_element><element>generated_unit_tests</element><position>3</position></sys_ui_element>
+      <sys_ui_element><element>stakeholder_test_steps</element><position>4</position></sys_ui_element>
+      <sys_ui_element><element>orchestration_log</element><position>5</position></sys_ui_element>
+    </sys_ui_element_collection>
+  </sys_ui_section>
+</record_update>
+
+<record_update table="sys_ui_list">
+  <sys_ui_list action="INSERT_OR_UPDATE">
+    <sys_id>ul1a2b3c4d5e6f7a8b9c0d1e2f3a4b5d9</sys_id>
+    <name>x_snc_ai_sdlc_story_manifest</name>
+    <view>default</view>
+    <bootstrap_alt>false</bootstrap_alt>
+    <sys_class_name>sys_ui_list</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_story_manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <sys_ui_list_element_collection>
+      <sys_ui_list_element><element>story</element><position>1</position></sys_ui_list_element>
+      <sys_ui_list_element><element>orchestration_status</element><position>2</position></sys_ui_list_element>
+      <sys_ui_list_element><element>llm_model_used</element><position>3</position></sys_ui_list_element>
+      <sys_ui_list_element><element>tokens_consumed</element><position>4</position></sys_ui_list_element>
+      <sys_ui_list_element><element>last_run_by</element><position>5</position></sys_ui_list_element>
+      <sys_ui_list_element><element>sys_updated_on</element><position>6</position></sys_ui_list_element>
+    </sys_ui_list_element_collection>
+  </sys_ui_list>
+</record_update>
+
+<record_update table="sys_ui_page">
+  <sys_ui_page action="INSERT_OR_UPDATE">
+    <sys_id>up1a2b3c4d5e6f7a8b9c0d1e2f3a4b5da</sys_id>
+    <name>x_snc_ai_sdlc_ai_command_center</name>
+    <description>AI Command Center — developer dashboard showing AI automation status for all Story AI Manifests. Navigate to x_snc_ai_sdlc_ai_command_center.do</description>
+    <direct>true</direct>
+    <category>general</category>
+    <sys_class_name>sys_ui_page</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_snc_ai_sdlc_ai_command_center</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_snc_ai_sdlc">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_package>
+    <sys_scope display_value="SDLC AI Orchestrator">b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_scope>
+    <client_script><![CDATA[/* AI Command Center — client-side helpers */
+
+function refreshPage() {
+    window.location.reload();
+}
+
+function openManifest(sysId) {
+    window.open('/x_snc_ai_sdlc_story_manifest.do?sys_id=' + sysId, '_blank');
+}
+
+function openStory(sysId) {
+    window.open('/rm_story.do?sys_id=' + sysId, '_blank');
+}
+
+function openATFSuite(sysId) {
+    if (!sysId || sysId === '') return;
+    window.open('/sys_atf_suite.do?sys_id=' + sysId, '_blank');
+}
+
+function filterByStatus(status) {
+    var rows = document.querySelectorAll('tr.manifest-row');
+    rows.forEach(function(row) {
+        if (status === 'all' || row.dataset.status === status) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
+    document.querySelector('.filter-btn[data-status="' + status + '"]').classList.add('active');
+}
+]]></client_script>
+    <processing_script><![CDATA[/* Server-side processing — runs before HTML render */
+var manifestHelper = new x_snc_ai_sdlc.ManifestHelper();
+
+/* Aggregate stats for summary bar */
+var statsJson = manifestHelper.getDashboardStats();
+var stats     = JSON.parse(statsJson);
+
+/* Recent manifests for grid */
+var rowsJson = manifestHelper.getRecentManifests();
+var rows     = JSON.parse(rowsJson);
+
+/* Provider info for footer */
+var provider = gs.getProperty('x_snc_ai_sdlc.llm_provider', 'anthropic');
+var model    = provider === 'openai'
+    ? gs.getProperty('x_snc_ai_sdlc.openai_model', 'gpt-4o')
+    : gs.getProperty('x_snc_ai_sdlc.anthropic_model', 'claude-3-5-sonnet-20241022');
+]]></processing_script>
+    <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<style type="text/css">
+  .ai-cc-wrapper        { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding: 20px; max-width: 1400px; margin: 0 auto; }
+  .ai-cc-header         { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .ai-cc-title          { font-size: 24px; font-weight: 700; color: #1d2635; margin: 0; }
+  .ai-cc-subtitle       { color: #6b7280; font-size: 13px; margin-top: 4px; }
+
+  /* Stats bar */
+  .ai-stats-bar         { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .ai-stat-card         { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px 20px; min-width: 140px; flex: 1; }
+  .ai-stat-card .label  { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ai-stat-card .value  { font-size: 28px; font-weight: 700; margin-top: 4px; }
+  .ai-stat-total        { border-left: 4px solid #6366f1; }
+  .ai-stat-completed    { border-left: 4px solid #22c55e; }
+  .ai-stat-failed       { border-left: 4px solid #ef4444; }
+  .ai-stat-running      { border-left: 4px solid #f59e0b; }
+  .ai-stat-pending      { border-left: 4px solid #9ca3af; }
+
+  /* Filter bar */
+  .ai-filter-bar        { margin-bottom: 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .filter-btn           { padding: 5px 14px; border-radius: 20px; border: 1px solid #d1d5db; background: #fff; cursor: pointer; font-size: 13px; color: #374151; }
+  .filter-btn:hover     { background: #f3f4f6; }
+  .filter-btn.active    { background: #6366f1; color: #fff; border-color: #6366f1; }
+  .btn-refresh          { margin-left: auto; padding: 6px 16px; background: #6366f1; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .btn-refresh:hover    { background: #4f46e5; }
+
+  /* Grid */
+  .ai-grid-table        { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+  .ai-grid-table thead  { background: #f9fafb; }
+  .ai-grid-table th     { padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
+  .ai-grid-table td     { padding: 10px 14px; font-size: 13px; color: #374151; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+  .ai-grid-table tr:last-child td { border-bottom: none; }
+  .ai-grid-table tr.manifest-row:hover { background: #f9fafb; }
+
+  /* Story link */
+  .ai-link              { color: #6366f1; text-decoration: none; font-weight: 500; }
+  .ai-link:hover        { text-decoration: underline; }
+
+  /* Status badge */
+  .badge                { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; text-transform: capitalize; }
+  .badge-completed      { background: #dcfce7; color: #166534; }
+  .badge-failed         { background: #fee2e2; color: #991b1b; }
+  .badge-running        { background: #fef9c3; color: #854d0e; }
+  .badge-pending        { background: #f3f4f6; color: #374151; }
+  .badge-partial        { background: #fef3c7; color: #92400e; }
+
+  /* Check / cross icons */
+  .check                { color: #22c55e; font-weight: 700; }
+  .cross                { color: #d1d5db; }
+
+  /* Token count */
+  .tokens               { font-variant-numeric: tabular-nums; color: #6b7280; font-size: 12px; }
+
+  /* Footer */
+  .ai-footer            { margin-top: 24px; padding: 16px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 12px; color: #6b7280; display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .ai-footer a          { color: #6366f1; text-decoration: none; }
+  .ai-footer a:hover    { text-decoration: underline; }
+
+  /* Empty state */
+  .ai-empty             { text-align: center; padding: 48px 24px; color: #9ca3af; }
+  .ai-empty h3          { font-size: 18px; color: #6b7280; margin-bottom: 8px; }
+</style>
+
+<div class="ai-cc-wrapper">
+
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <div class="ai-cc-header">
+    <div>
+      <h1 class="ai-cc-title">AI Command Center</h1>
+      <div class="ai-cc-subtitle">SDLC AI Orchestrator — Story Automation Dashboard</div>
+    </div>
+  </div>
+
+  <!-- ── Stats Bar ──────────────────────────────────────────────── -->
+  <g:evaluate>
+    var totalVal     = stats.total     || 0;
+    var completedVal = stats.completed || 0;
+    var failedVal    = stats.failed    || 0;
+    var runningVal   = stats.running   || 0;
+    var pendingVal   = stats.pending   || 0;
+    var partialVal   = stats.partial   || 0;
+  </g:evaluate>
+  <div class="ai-stats-bar">
+    <div class="ai-stat-card ai-stat-total">
+      <div class="label">Total Manifests</div>
+      <div class="value">${totalVal}</div>
+    </div>
+    <div class="ai-stat-card ai-stat-completed">
+      <div class="label">Completed</div>
+      <div class="value" style="color:#22c55e;">${completedVal}</div>
+    </div>
+    <div class="ai-stat-card ai-stat-failed">
+      <div class="label">Failed</div>
+      <div class="value" style="color:#ef4444;">${failedVal}</div>
+    </div>
+    <div class="ai-stat-card ai-stat-running">
+      <div class="label">Running</div>
+      <div class="value" style="color:#f59e0b;">${runningVal}</div>
+    </div>
+    <div class="ai-stat-card ai-stat-pending">
+      <div class="label">Pending</div>
+      <div class="value" style="color:#9ca3af;">${pendingVal}</div>
+    </div>
+    <g:evaluate>var partialVal2 = stats.partial || 0;</g:evaluate>
+    <j:if test="${partialVal2 > 0}">
+    <div class="ai-stat-card" style="border-left:4px solid #f59e0b;">
+      <div class="label">Partial</div>
+      <div class="value" style="color:#f59e0b;">${partialVal2}</div>
+    </div>
+    </j:if>
+  </div>
+
+  <!-- ── Filter Bar ─────────────────────────────────────────────── -->
+  <div class="ai-filter-bar">
+    <span style="font-size:13px;font-weight:600;color:#374151;">Filter:</span>
+    <button class="filter-btn active" data-status="all"       onclick="filterByStatus('all')">All</button>
+    <button class="filter-btn"        data-status="pending"   onclick="filterByStatus('pending')">Pending</button>
+    <button class="filter-btn"        data-status="running"   onclick="filterByStatus('running')">Running</button>
+    <button class="filter-btn"        data-status="completed" onclick="filterByStatus('completed')">Completed</button>
+    <button class="filter-btn"        data-status="partial"   onclick="filterByStatus('partial')">Partial</button>
+    <button class="filter-btn"        data-status="failed"    onclick="filterByStatus('failed')">Failed</button>
+    <button class="btn-refresh"       onclick="refreshPage()">&#8635; Refresh</button>
+  </div>
+
+  <!-- ── Grid ───────────────────────────────────────────────────── -->
+  <g:evaluate>var rowCount = rows.length;</g:evaluate>
+  <j:if test="${rowCount == 0}">
+    <div class="ai-empty">
+      <h3>No Story AI Manifests Found</h3>
+      <p>Manifests are created automatically when a Story is inserted, or when any AI action is triggered from an rm_story form.</p>
+    </div>
+  </j:if>
+
+  <j:if test="${rowCount > 0}">
+    <table class="ai-grid-table">
+      <thead>
+        <tr>
+          <th>Story</th>
+          <th>Status</th>
+          <th title="Uplifted Story">Uplift</th>
+          <th title="Generated Code">Code</th>
+          <th title="Unit Tests">Tests</th>
+          <th title="Stakeholder Steps">Steps</th>
+          <th title="ATF Records">ATF</th>
+          <th>Tokens</th>
+          <th>Model</th>
+          <th>Last Run By</th>
+          <th>Updated</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <g:evaluate>
+          for (var ri = 0; ri &lt; rows.length; ri++) {
+              var row = rows[ri];
+        </g:evaluate>
+        <tr class="manifest-row" data-status="${row.status}">
+          <td>
+            <a class="ai-link" href="javascript:openStory('${row.story_sys_id}')">${row.story_display}</a>
+          </td>
+          <td>
+            <span class="badge badge-${row.status}">${row.status}</span>
+          </td>
+          <td class="${row.has_uplift ? 'check' : 'cross'}">${row.has_uplift ? '&#10003;' : '&#8212;'}</td>
+          <td class="${row.has_code ? 'check' : 'cross'}">${row.has_code ? '&#10003;' : '&#8212;'}</td>
+          <td class="${row.has_unit_tests ? 'check' : 'cross'}">${row.has_unit_tests ? '&#10003;' : '&#8212;'}</td>
+          <td class="${row.has_stakeholder_steps ? 'check' : 'cross'}">${row.has_stakeholder_steps ? '&#10003;' : '&#8212;'}</td>
+          <td>
+            <j:if test="${row.has_atf}">
+              <a class="ai-link" href="javascript:openATFSuite('${row.atf_suite_id}')">&#10003; Suite</a>
+            </j:if>
+            <j:if test="${!row.has_atf}">
+              <span class="cross">&#8212;</span>
+            </j:if>
+          </td>
+          <td class="tokens">${row.tokens}</td>
+          <td style="font-size:11px;color:#6b7280;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${row.model}">${row.model}</td>
+          <td style="white-space:nowrap;">${row.last_run_by}</td>
+          <td style="font-size:12px;color:#9ca3af;white-space:nowrap;">${row.updated}</td>
+          <td>
+            <a class="ai-link" href="javascript:openManifest('${row.sys_id}')">View</a>
+          </td>
+        </tr>
+        <g:evaluate>
+          }
+        </g:evaluate>
+      </tbody>
+    </table>
+  </j:if>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <div class="ai-footer">
+    <span><strong>Provider:</strong> ${provider}</span>
+    <span><strong>Model:</strong> ${model}</span>
+    <a href="/sys_properties_list.do?sysparm_query=nameLIKEx_snc_ai_sdlc" target="_blank">&#9881; Configure Properties</a>
+    <a href="/sys_rest_message_list.do?sysparm_query=name=AI LLM API" target="_blank">&#128279; REST Message Config</a>
+    <a href="/x_snc_ai_sdlc_story_manifest_list.do" target="_blank">&#128196; All Manifests</a>
+    <span style="margin-left:auto;color:#d1d5db;">SDLC AI Orchestrator v1.0.0</span>
+  </div>
+
+</div>
+</j:jelly>
+]]></html>
+  </sys_ui_page>
+</record_update>
+
+</unload>
