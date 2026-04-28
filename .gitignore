@@ -1,3 +1,8 @@
-*.bak
-*.local
-.claude/settings.local.json
+.DS_Store
+.now/
+.claude/
+dist/
+node_modules/
+target/
+*.tsbuildinfo
+.jest_cache
