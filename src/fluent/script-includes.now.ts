@@ -34,7 +34,7 @@ PromptTemplates.prototype = {
     },
 
     getUnitTestUser: function(generatedCode) {
-        return 'Generate Jasmine unit tests for this ServiceNow code.\\n\\nCode:\\n' + generatedCode + '\\n\\nReturn JSON: {"unit_tests": "describe(\'Suite\', function() { it(\'should...\', function() { ... }); });"}';
+        return 'Generate Jasmine unit tests for this ServiceNow code.\\n\\nCode:\\n' + generatedCode + '\\n\\nReturn JSON: {"unit_tests": "// Jasmine describe/it test suite here"}';
     },
 
     getStakeholderTestSystem: function() {
