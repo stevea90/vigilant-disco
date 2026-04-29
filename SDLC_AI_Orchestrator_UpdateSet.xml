@@ -435,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:661549f2-805f-4c62-a30b-bda85cc0dd3f",
+  "serialNumber": "urn:uuid:58006793-342f-46a7-8cd1-c90aada23e97",
   "metadata": {
-    "timestamp": "2026-04-29T15:53:33.350Z",
+    "timestamp": "2026-04-29T17:02:01.943Z",
     "tools": {
       "components": [
         {
@@ -1410,7 +1410,7 @@ AIOrchestrator.prototype = {
     &lt;read_roles/&gt;
     &lt;suffix&gt;anthropic_model&lt;/suffix&gt;
     &lt;type&gt;string&lt;/type&gt;
-    &lt;value&gt;claude-3-5-sonnet-20241022&lt;/value&gt;
+    &lt;value&gt;claude-sonnet-4-6&lt;/value&gt;
     &lt;write_roles/&gt;
   &lt;/sys_properties&gt;
 &lt;/record_update&gt;</payload>
@@ -1847,7 +1847,7 @@ LLMAPIClient.prototype = {
     },
 
     _sendAnthropic: function(systemPrompt, userPrompt) {
-        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-3-5-sonnet-20241022');
+        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-sonnet-4-6');
         var rm = new sn_ws.RESTMessageV2();
         rm.setEndpoint('https://api.anthropic.com/v1/messages');
         rm.setHttpMethod('post');

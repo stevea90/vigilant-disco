@@ -28,7 +28,7 @@ Property({
 Property({
     $id: Now.ID['prop_anthropic_model'],
     name: 'x_1676392_sdlc_a_0.anthropic_model',
-    value: 'claude-3-5-sonnet-20241022',
+    value: 'claude-sonnet-4-6',
     type: 'string',
     description: 'Anthropic model ID to use',
 })

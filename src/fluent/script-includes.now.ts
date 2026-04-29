@@ -85,7 +85,7 @@ LLMAPIClient.prototype = {
     },
 
     _sendAnthropic: function(systemPrompt, userPrompt) {
-        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-3-5-sonnet-20241022');
+        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-sonnet-4-6');
         var rm = new sn_ws.RESTMessageV2();
         rm.setEndpoint('https://api.anthropic.com/v1/messages');
         rm.setHttpMethod('post');
