@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<unload unload_date="2026-04-29 08:08:55">
+<unload unload_date="2026-04-29 08:21:06">
 
-<record_update table="sys_app">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+    <sys_id>c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</sys_id>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <collisions/>
+    <commit_date/>
+    <description>AI-powered SDLC automation: story uplift, code generation, unit tests, ATF creation</description>
+    <inserted>0</inserted>
+    <name>SDLC AI Orchestrator</name>
+    <origin_sys_id/>
+    <parent/>
+    <remote_base_update_set/>
+    <replaced>0</replaced>
+    <retrieved_from/>
+    <state>loaded</state>
+    <summary/>
+    <sys_class_name>sys_remote_update_set</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>Standard</type>
+    <update_set/>
+    <updates>42</updates>
+    <version/>
+</sys_remote_update_set>
+
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>4225af44a4fd44b71be0d90731fe689f</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_app_e4c0cddd93e04310c7a5f3255d03d619</name>
+    <payload><![CDATA[<record_update table="sys_app">
   <sys_app action="INSERT_OR_UPDATE">
     <sys_id>e4c0cddd93e04310c7a5f3255d03d619</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -34,9 +67,27 @@
     <user_role/>
     <version>0.0.1</version>
   </sys_app>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_app</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_db_object">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>da4a67ad95dc7336b2a4bf8d78a33a1a</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_db_object_x_1676392_sdlc_a_0_story_manifest</name>
+    <payload><![CDATA[<record_update table="sys_db_object">
   <sys_db_object action="INSERT_OR_UPDATE">
     <sys_id>a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d7</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -57,12 +108,29 @@
     <sys_class_name>sys_db_object</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>Story Manifest</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_db_object>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_db_object</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>143f3394055b3ff09c62d080ca09e903</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_story</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -80,7 +148,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -89,12 +156,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.story</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>cdf1065b1e0886a49ed3623e3cb2b49b</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_uplifted_story</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -112,7 +196,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -121,12 +204,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.uplifted_story</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>753e41658c73a52d85feba782f685973</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_uplifted_acceptance_criteria</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -144,7 +244,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -153,12 +252,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.uplifted_acceptance_criteria</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7e0ec84f4d079d07dc0721c332cade5d</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_generated_code</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -176,7 +292,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -185,12 +300,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.generated_code</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>0989106c937884d648dda976e72ba45c</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_generated_unit_tests</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -208,7 +340,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -217,12 +348,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.generated_unit_tests</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>6863c68b93a54527b358591ff884a9b3</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_stakeholder_test_steps</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -240,7 +388,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -249,12 +396,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.stakeholder_test_steps</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>3298c1bb19780b13b36a11948526996a</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_atf_suite_sys_id</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -272,7 +436,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -281,12 +444,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.atf_suite_sys_id</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>cbc5a4c36f819d15628d0ad417f66ac5</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_atf_test_sys_id</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -304,7 +484,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -313,12 +492,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.atf_test_sys_id</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>f46ec989f7eb40fc7cca1c3322cf490b</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_orchestration_status</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -336,7 +532,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -345,12 +540,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.orchestration_status</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>facac279045999d4d4924c3683f4cc43</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_orchestration_log</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -368,7 +580,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -377,12 +588,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.orchestration_log</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>2e2e1e60de1acbf5036dafdf21ca049f</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_llm_model_used</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -400,7 +628,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -409,12 +636,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.llm_model_used</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>61289fb4425dd2f70fdd3fa0f1a4f572</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_tokens_consumed</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -432,7 +676,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -441,12 +684,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.tokens_consumed</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_dictionary">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>042720d1c562cf80821746a114234970</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_last_run_by</name>
+    <payload><![CDATA[<record_update table="sys_dictionary">
   <sys_dictionary action="INSERT_OR_UPDATE">
     <sys_id>b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -464,7 +724,6 @@
     <read_only>false</read_only>
     <array>false</array>
     <audit>false</audit>
-    <calculation/>
     <primary>false</primary>
     <spell_check>false</spell_check>
     <text_index>false</text_index>
@@ -473,12 +732,29 @@
     <sys_class_name>sys_dictionary</sys_class_name>
     <sys_created_by>admin</sys_created_by>
     <sys_mod_count>0</sys_mod_count>
-    <sys_name>x_1676392_sdlc_a_0_story_manifest.last_run_by</sys_name>
     <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
   </sys_dictionary>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_dictionary</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update>
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>328630f8e1abe4fee36b362de5aa7a63</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_choice_x_1676392_sdlc_a_0_story_manifest_orchestration_status</name>
+    <payload><![CDATA[<record_update>
   <sys_choice_set table="x_1676392_sdlc_a_0_story_manifest" field="orchestration_status">
     <sys_choice action="INSERT_OR_UPDATE">
       <sys_id>dfc2e43e33004667b0440ada11be014a</sys_id>
@@ -537,9 +813,27 @@
       <element>orchestration_status</element>
     </sys_choice_set>
   </sys_choice_set>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_choice_set</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update>
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>9d2de1714fdfe65a369f77e4f5f6bf05</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_2fc6ae85ccd74036aa43d8338774cd74</name>
+    <payload><![CDATA[<record_update>
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>2fc6ae85ccd74036aa43d8338774cd74</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -587,9 +881,27 @@
   ]
 }]]></content>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>dc6dcbf5aab076621b984fd97e7b4a98</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_81eddc7513684bb4b6d7ad1d41980935</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>81eddc7513684bb4b6d7ad1d41980935</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -685,9 +997,27 @@ ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/manifest-helper.js</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/manifest-helper.js</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>bfab024a565c406ce1ddb491f64bdf4b</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_8a4bcefee35f47cb986c5f055ab6ffac</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>8a4bcefee35f47cb986c5f055ab6ffac</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -794,9 +1124,27 @@ LLMAPIClient.prototype = {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/llm-api-client.js</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/llm-api-client.js</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7da6ec56cb35feb1397e689c3088bb31</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_ad08e6be38454e1bac4c61083bde1961</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>ad08e6be38454e1bac4c61083bde1961</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -895,9 +1243,27 @@ ATFBuilder.prototype = {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/atf-builder.js</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/atf-builder.js</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>211c26341e092e1fe0c45b5b9cc93362</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_e6f4158e34c349978864f90ed97cca1c</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>e6f4158e34c349978864f90ed97cca1c</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -953,9 +1319,27 @@ PromptTemplates.prototype = {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/prompt-templates.js</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/prompt-templates.js</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>8252ed934d5b6e800d223d8b098ee705</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_e91b5ec0da3e43378126663ea44dc62b</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>e91b5ec0da3e43378126663ea44dc62b</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1236,9 +1620,27 @@ AIOrchestrator.prototype = {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/ai-orchestrator.js</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/ai-orchestrator.js</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_module">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>04234d88e6759c85b05e862dd91e3ae0</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_module_ee810db071fd4501bf5bf9a5df48c818</name>
+    <payload><![CDATA[<record_update table="sys_module">
   <sys_module action="INSERT_OR_UPDATE">
     <sys_id>ee810db071fd4501bf5bf9a5df48c818</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1266,9 +1668,27 @@ AIOrchestrator.prototype = {
     <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/package.json</path>
     <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/package.json</sys_name>
   </sys_module>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_module</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>ceca8a76d6eb0c367994616e8ef3bfef</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_034c99c25afa4fc3a5f74485a4d925e7</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>034c99c25afa4fc3a5f74485a4d925e7</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1284,9 +1704,27 @@ AIOrchestrator.prototype = {
     <value>4000</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7c1d5fb45dff86f24f0e1e19a6f874bd</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_14d92d12ee7d4426b9a7eef795214da1</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>14d92d12ee7d4426b9a7eef795214da1</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1302,9 +1740,27 @@ AIOrchestrator.prototype = {
     <value/>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>4f7197bc2cdbf386538a1e5ad1e56a3a</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_1ff65357b1b64c22940583861f75b96f</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>1ff65357b1b64c22940583861f75b96f</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1320,9 +1776,27 @@ AIOrchestrator.prototype = {
     <value/>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7e1884004e54fa525b4dda7fc936048d</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_2025a28720cb4f869e53c0efd1727fc3</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>2025a28720cb4f869e53c0efd1727fc3</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1338,9 +1812,27 @@ AIOrchestrator.prototype = {
     <value>claude-3-5-sonnet-20241022</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7cd9b6897b083ed17cec4a9511441dcc</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_26ad4aaf2d274b5a9cd35bb57f0300c8</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>26ad4aaf2d274b5a9cd35bb57f0300c8</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1356,9 +1848,27 @@ AIOrchestrator.prototype = {
     <value>false</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>1991d0839d36a3d15442b457e7f8388b</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_a3da44e4eefd4cbd98246ac22e7d4cae</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>a3da44e4eefd4cbd98246ac22e7d4cae</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1374,9 +1884,27 @@ AIOrchestrator.prototype = {
     <value>0.3</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>4a0b1eb8d365a836d2d1db6b9a906552</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_d1b798ddb6c94b6a9b9324eae71c9675</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>d1b798ddb6c94b6a9b9324eae71c9675</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1392,9 +1920,27 @@ AIOrchestrator.prototype = {
     <value>true</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>f3a3fabe5d3c911184c6bac99c4493bc</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_e3aa527bb22d4b08927b658cb8b99589</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>e3aa527bb22d4b08927b658cb8b99589</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1410,9 +1956,27 @@ AIOrchestrator.prototype = {
     <value>gpt-4o</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_properties">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>e28050ca5b40bab635497e2798c4ae13</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_properties_e6da27a57fc64e67b15715f01366a346</name>
+    <payload><![CDATA[<record_update table="sys_properties">
   <sys_properties action="INSERT_OR_UPDATE">
     <sys_id>e6da27a57fc64e67b15715f01366a346</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1428,9 +1992,27 @@ AIOrchestrator.prototype = {
     <value>anthropic</value>
     <write_roles/>
   </sys_properties>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_properties</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>65dc9a6f1c8a7aa3b643b569cfdb6d2e</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_7742bf14095a443b87f0e0ab94955401</name>
+    <payload><![CDATA[<record_update table="sys_script">
   <sys_script action="INSERT_OR_UPDATE">
     <sys_id>7742bf14095a443b87f0e0ab94955401</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1477,9 +2059,27 @@ AIOrchestrator.prototype = {
     <template/>
     <when>after</when>
   </sys_script>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script_include">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>93355afd7729cb54e3943f5df8731c9a</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_003bdae2834940bd885cc6ada0f89ae5</name>
+    <payload><![CDATA[<record_update table="sys_script_include">
   <sys_script_include action="INSERT_OR_UPDATE">
     <sys_id>003bdae2834940bd885cc6ada0f89ae5</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1584,9 +2184,27 @@ ATFBuilder.prototype = {
 };]]></script>
     <sys_policy/>
   </sys_script_include>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script_include">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>9683c2ae0fc93c7dc771e6937ace80b8</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_08ccb02f06be42a0847c44592a60faa4</name>
+    <payload><![CDATA[<record_update table="sys_script_include">
   <sys_script_include action="INSERT_OR_UPDATE">
     <sys_id>08ccb02f06be42a0847c44592a60faa4</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1701,9 +2319,27 @@ LLMAPIClient.prototype = {
 };]]></script>
     <sys_policy/>
   </sys_script_include>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script_include">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>f528b38ce8f45124a88a3b43fc5a94d3</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_86b2438f3d2a4ad6960cacc70c51dc52</name>
+    <payload><![CDATA[<record_update table="sys_script_include">
   <sys_script_include action="INSERT_OR_UPDATE">
     <sys_id>86b2438f3d2a4ad6960cacc70c51dc52</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1789,9 +2425,27 @@ Return JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_sto
 };]]></script>
     <sys_policy/>
   </sys_script_include>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script_include">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>630413d17bb9bae525ce2abb2554f963</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_938a25c19a8e440fbf02c56feb7f972c</name>
+    <payload><![CDATA[<record_update table="sys_script_include">
   <sys_script_include action="INSERT_OR_UPDATE">
     <sys_id>938a25c19a8e440fbf02c56feb7f972c</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -1893,9 +2547,27 @@ ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
 });]]></script>
     <sys_policy/>
   </sys_script_include>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_script_include">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>a169493666a32c96c91a0b41fb8de000</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_f392ad87b08f46e690f41c9d01ea8c43</name>
+    <payload><![CDATA[<record_update table="sys_script_include">
   <sys_script_include action="INSERT_OR_UPDATE">
     <sys_id>f392ad87b08f46e690f41c9d01ea8c43</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -2186,9 +2858,27 @@ AIOrchestrator.prototype = {
 };]]></script>
     <sys_policy/>
   </sys_script_include>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_ui_action">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>180434d391809b1f62e9c1aaf4e7e384</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_ui_action_1fe5d1fe831f4d1d83038566258fbaf3</name>
+    <payload><![CDATA[<record_update table="sys_ui_action">
   <sys_ui_action action="INSERT_OR_UPDATE">
     <sys_id>1fe5d1fe831f4d1d83038566258fbaf3</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -2238,9 +2928,27 @@ AIOrchestrator.prototype = {
     <ui11_compatible>false</ui11_compatible>
     <ui16_compatible/>
   </sys_ui_action>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_ui_action</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_ui_action">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>144c9e3291e6f64e145fd754fa574124</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_ui_action_8686ed4e1f404afc8432d20b9820f0fc</name>
+    <payload><![CDATA[<record_update table="sys_ui_action">
   <sys_ui_action action="INSERT_OR_UPDATE">
     <sys_id>8686ed4e1f404afc8432d20b9820f0fc</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -2290,9 +2998,27 @@ AIOrchestrator.prototype = {
     <ui11_compatible>false</ui11_compatible>
     <ui16_compatible/>
   </sys_ui_action>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_ui_action</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_ui_action">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>8b883f09ad63c72f95c5a0c318d1e544</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_ui_action_ca7b4da0e345441ebf979ca2885cd743</name>
+    <payload><![CDATA[<record_update table="sys_ui_action">
   <sys_ui_action action="INSERT_OR_UPDATE">
     <sys_id>ca7b4da0e345441ebf979ca2885cd743</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -2344,9 +3070,27 @@ AIOrchestrator.prototype = {
     <ui11_compatible>false</ui11_compatible>
     <ui16_compatible/>
   </sys_ui_action>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_ui_action</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
-<record_update table="sys_ui_action">
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>7baf810d973011689ebba31b87f37fc7</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_ui_action_f6d67c74e9194519aaa12676390de3a5</name>
+    <payload><![CDATA[<record_update table="sys_ui_action">
   <sys_ui_action action="INSERT_OR_UPDATE">
     <sys_id>f6d67c74e9194519aaa12676390de3a5</sys_id>
     <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
@@ -2393,6 +3137,18 @@ AIOrchestrator.prototype = {
     <ui11_compatible>false</ui11_compatible>
     <ui16_compatible/>
   </sys_ui_action>
-</record_update>
+</record_update>]]></payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 08:21:06</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 08:21:06</sys_updated_on>
+    <type>sys_ui_action</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
 </unload>
