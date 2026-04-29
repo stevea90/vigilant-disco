@@ -18,7 +18,7 @@ PromptTemplates.prototype = {
     },
 
     getStoryUpliftUser: function(story, description, acceptanceCriteria) {
-        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.\n\nStory: ' + story + '\nDescription: ' + description + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"uplifted_story": "<html>INVEST-compliant story...</html>", "uplifted_acceptance_criteria": "<html><ul><li>Given/When/Then scenarios...</li></ul></html>"}';
+        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.\\n\\nStory: ' + story + '\\nDescription: ' + description + '\\nAcceptance Criteria: ' + acceptanceCriteria + '\\n\\nReturn JSON: {"uplifted_story": "<html>INVEST-compliant story...</html>", "uplifted_acceptance_criteria": "<html><ul><li>Given/When/Then scenarios...</li></ul></html>"}';
     },
 
     getCodeGenSystem: function() {
@@ -26,7 +26,7 @@ PromptTemplates.prototype = {
     },
 
     getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
-        return 'Generate ServiceNow code artifacts for this story.\n\nStory: ' + upliftedStory + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
+        return 'Generate ServiceNow code artifacts for this story.\\n\\nStory: ' + upliftedStory + '\\nAcceptance Criteria: ' + acceptanceCriteria + '\\n\\nReturn JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
     },
 
     getUnitTestSystem: function() {
@@ -34,7 +34,7 @@ PromptTemplates.prototype = {
     },
 
     getUnitTestUser: function(generatedCode) {
-        return 'Generate Jasmine unit tests for this ServiceNow code.\n\nCode:\n' + generatedCode + '\n\nReturn JSON: {"unit_tests": "describe(\'Suite\', function() { it(\'should...\', function() { ... }); });"}';
+        return 'Generate Jasmine unit tests for this ServiceNow code.\\n\\nCode:\\n' + generatedCode + '\\n\\nReturn JSON: {"unit_tests": "describe(\'Suite\', function() { it(\'should...\', function() { ... }); });"}';
     },
 
     getStakeholderTestSystem: function() {
@@ -42,7 +42,7 @@ PromptTemplates.prototype = {
     },
 
     getStakeholderTestUser: function(acceptanceCriteria) {
-        return 'Generate manual test steps for stakeholders based on these acceptance criteria.\n\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"test_steps": "<html><ol><li><strong>Step 1:</strong> Navigate to...</li></ol></html>"}';
+        return 'Generate manual test steps for stakeholders based on these acceptance criteria.\\n\\nAcceptance Criteria: ' + acceptanceCriteria + '\\n\\nReturn JSON: {"test_steps": "<html><ol><li><strong>Step 1:</strong> Navigate to...</li></ol></html>"}';
     },
 
     getATFStepSystem: function() {
@@ -50,7 +50,7 @@ PromptTemplates.prototype = {
     },
 
     getATFStepUser: function(testSteps) {
-        return 'Convert these test steps into ServiceNow ATF step definitions.\n\nTest Steps: ' + testSteps + '\n\nReturn JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
+        return 'Convert these test steps into ServiceNow ATF step definitions.\\n\\nTest Steps: ' + testSteps + '\\n\\nReturn JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
     },
 
     type: 'PromptTemplates',
@@ -162,10 +162,10 @@ LLMAPIClient.prototype = {
         var t = text.trim();
         if (t.substring(0, 7) === fence + 'json') {
             t = t.substring(7);
-            if (t.charAt(0) === '\n') { t = t.substring(1); }
+            if (t.charAt(0) === '\\n') { t = t.substring(1); }
         } else if (t.substring(0, 3) === fence) {
             t = t.substring(3);
-            if (t.charAt(0) === '\n') { t = t.substring(1); }
+            if (t.charAt(0) === '\\n') { t = t.substring(1); }
         }
         if (t.substring(t.length - 3) === fence) {
             t = t.substring(0, t.length - 3).trim();
@@ -458,8 +458,8 @@ AIOrchestrator.prototype = {
             if (parsed.artifacts && parsed.artifacts.length > 0) {
                 for (var i = 0; i < parsed.artifacts.length; i++) {
                     var art = parsed.artifacts[i];
-                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===\n';
-                    codeBlocks += art.code + '\n\n';
+                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===\\n';
+                    codeBlocks += art.code + '\\n\\n';
                 }
             }
 
@@ -638,7 +638,7 @@ AIOrchestrator.prototype = {
         var existing = this.manifestGR.getValue('orchestration_log') || '';
         var timestamp = new GlideDateTime().getDisplayValue();
         var entry = '[' + timestamp + '] ' + message;
-        this.manifestGR.setValue('orchestration_log', existing ? existing + '\n' + entry : entry);
+        this.manifestGR.setValue('orchestration_log', existing ? existing + '\\n' + entry : entry);
         this.manifestGR.update();
         if (this.debug) { gs.log(entry, 'SDLC AI Orchestrator'); }
     },

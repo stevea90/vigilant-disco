@@ -435,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:677f793b-7e23-41ac-a1b1-590bc0cd023a",
+  "serialNumber": "urn:uuid:1de03670-ebf4-48e9-8bc2-19de712e3537",
   "metadata": {
-    "timestamp": "2026-04-29T15:26:57.884Z",
+    "timestamp": "2026-04-29T15:47:16.120Z",
     "tools": {
       "components": [
         {
@@ -1924,12 +1924,10 @@ LLMAPIClient.prototype = {
         var t = text.trim();
         if (t.substring(0, 7) === fence + 'json') {
             t = t.substring(7);
-            if (t.charAt(0) === '
-') { t = t.substring(1); }
+            if (t.charAt(0) === '\n') { t = t.substring(1); }
         } else if (t.substring(0, 3) === fence) {
             t = t.substring(3);
-            if (t.charAt(0) === '
-') { t = t.substring(1); }
+            if (t.charAt(0) === '\n') { t = t.substring(1); }
         }
         if (t.substring(t.length - 3) === fence) {
             t = t.substring(0, t.length - 3).trim();
@@ -1985,13 +1983,7 @@ PromptTemplates.prototype = {
     },
 
     getStoryUpliftUser: function(story, description, acceptanceCriteria) {
-        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.
-
-Story: ' + story + '
-Description: ' + description + '
-Acceptance Criteria: ' + acceptanceCriteria + '
-
-Return JSON: {"uplifted_story": "&lt;html&gt;INVEST-compliant story...&lt;/html&gt;", "uplifted_acceptance_criteria": "&lt;html&gt;&lt;ul&gt;&lt;li&gt;Given/When/Then scenarios...&lt;/li&gt;&lt;/ul&gt;&lt;/html&gt;"}';
+        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.\n\nStory: ' + story + '\nDescription: ' + description + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"uplifted_story": "&lt;html&gt;INVEST-compliant story...&lt;/html&gt;", "uplifted_acceptance_criteria": "&lt;html&gt;&lt;ul&gt;&lt;li&gt;Given/When/Then scenarios...&lt;/li&gt;&lt;/ul&gt;&lt;/html&gt;"}';
     },
 
     getCodeGenSystem: function() {
@@ -1999,12 +1991,7 @@ Return JSON: {"uplifted_story": "&lt;html&gt;INVEST-compliant story...&lt;/html&
     },
 
     getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
-        return 'Generate ServiceNow code artifacts for this story.
-
-Story: ' + upliftedStory + '
-Acceptance Criteria: ' + acceptanceCriteria + '
-
-Return JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
+        return 'Generate ServiceNow code artifacts for this story.\n\nStory: ' + upliftedStory + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
     },
 
     getUnitTestSystem: function() {
@@ -2012,12 +1999,7 @@ Return JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script
     },
 
     getUnitTestUser: function(generatedCode) {
-        return 'Generate Jasmine unit tests for this ServiceNow code.
-
-Code:
-' + generatedCode + '
-
-Return JSON: {"unit_tests": "describe('Suite', function() { it('should...', function() { ... }); });"}';
+        return 'Generate Jasmine unit tests for this ServiceNow code.\n\nCode:\n' + generatedCode + '\n\nReturn JSON: {"unit_tests": "describe('Suite', function() { it('should...', function() { ... }); });"}';
     },
 
     getStakeholderTestSystem: function() {
@@ -2025,11 +2007,7 @@ Return JSON: {"unit_tests": "describe('Suite', function() { it('should...', func
     },
 
     getStakeholderTestUser: function(acceptanceCriteria) {
-        return 'Generate manual test steps for stakeholders based on these acceptance criteria.
-
-Acceptance Criteria: ' + acceptanceCriteria + '
-
-Return JSON: {"test_steps": "&lt;html&gt;&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Navigate to...&lt;/li&gt;&lt;/ol&gt;&lt;/html&gt;"}';
+        return 'Generate manual test steps for stakeholders based on these acceptance criteria.\n\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"test_steps": "&lt;html&gt;&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Navigate to...&lt;/li&gt;&lt;/ol&gt;&lt;/html&gt;"}';
     },
 
     getATFStepSystem: function() {
@@ -2037,11 +2015,7 @@ Return JSON: {"test_steps": "&lt;html&gt;&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Step 
     },
 
     getATFStepUser: function(testSteps) {
-        return 'Convert these test steps into ServiceNow ATF step definitions.
-
-Test Steps: ' + testSteps + '
-
-Return JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
+        return 'Convert these test steps into ServiceNow ATF step definitions.\n\nTest Steps: ' + testSteps + '\n\nReturn JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
     },
 
     type: 'PromptTemplates',
@@ -2284,11 +2258,8 @@ AIOrchestrator.prototype = {
             if (parsed.artifacts &amp;&amp; parsed.artifacts.length &gt; 0) {
                 for (var i = 0; i &lt; parsed.artifacts.length; i++) {
                     var art = parsed.artifacts[i];
-                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===
-';
-                    codeBlocks += art.code + '
-
-';
+                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===\n';
+                    codeBlocks += art.code + '\n\n';
                 }
             }
 
@@ -2467,8 +2438,7 @@ AIOrchestrator.prototype = {
         var existing = this.manifestGR.getValue('orchestration_log') || '';
         var timestamp = new GlideDateTime().getDisplayValue();
         var entry = '[' + timestamp + '] ' + message;
-        this.manifestGR.setValue('orchestration_log', existing ? existing + '
-' + entry : entry);
+        this.manifestGR.setValue('orchestration_log', existing ? existing + '\n' + entry : entry);
         this.manifestGR.update();
         if (this.debug) { gs.log(entry, 'SDLC AI Orchestrator'); }
     },
