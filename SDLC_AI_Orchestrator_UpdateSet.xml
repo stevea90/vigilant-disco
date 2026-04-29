@@ -9,7 +9,8 @@
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_app_e4c0cddd93e04310c7a5f3255d03d619</name>
-    <payload>&lt;record_update table="sys_app"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_app"&gt;
   &lt;sys_app action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -342,7 +343,8 @@
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_choice_x_1676392_sdlc_a_0_story_manifest_orchestration_status</name>
-    <payload>&lt;record_update&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update&gt;
   &lt;sys_choice_set table="x_1676392_sdlc_a_0_story_manifest" field="orchestration_status"&gt;
     &lt;sys_choice action="INSERT_OR_UPDATE"&gt;
       &lt;sys_id&gt;dfc2e43e33004667b0440ada11be014a&lt;/sys_id&gt;
@@ -411,7 +413,7 @@
     <sys_mod_count>0</sys_mod_count>
     <sys_updated_by>admin</sys_updated_by>
     <sys_updated_on>2026-04-29 10:34:19</sys_updated_on>
-    <type>sys_choice_set</type>
+    <type>sys_choice_x_1676392_sdlc_a_0_story_manifest_orchestration_status</type>
     <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
 </sys_update_xml>
 
@@ -421,7 +423,8 @@
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_2fc6ae85ccd74036aa43d8338774cd74</name>
-    <payload>&lt;record_update&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;2fc6ae85ccd74036aa43d8338774cd74&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -432,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:9a8f7629-804a-4d7f-b963-27ef3ed93956",
+  "serialNumber": "urn:uuid:677f793b-7e23-41ac-a1b1-590bc0cd023a",
   "metadata": {
-    "timestamp": "2026-04-29T10:33:41.930Z",
+    "timestamp": "2026-04-29T15:26:57.884Z",
     "tools": {
       "components": [
         {
@@ -489,7 +492,8 @@
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_81eddc7513684bb4b6d7ad1d41980935</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;81eddc7513684bb4b6d7ad1d41980935&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -605,7 +609,8 @@ ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_8a4bcefee35f47cb986c5f055ab6ffac</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;8a4bcefee35f47cb986c5f055ab6ffac&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -732,7 +737,8 @@ LLMAPIClient.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_ad08e6be38454e1bac4c61083bde1961</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;ad08e6be38454e1bac4c61083bde1961&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -851,7 +857,8 @@ ATFBuilder.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_e6f4158e34c349978864f90ed97cca1c</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;e6f4158e34c349978864f90ed97cca1c&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -927,7 +934,8 @@ PromptTemplates.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_e91b5ec0da3e43378126663ea44dc62b</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;e91b5ec0da3e43378126663ea44dc62b&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1228,7 +1236,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_module_ee810db071fd4501bf5bf9a5df48c818</name>
-    <payload>&lt;record_update table="sys_module"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_module"&gt;
   &lt;sys_module action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;ee810db071fd4501bf5bf9a5df48c818&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1276,7 +1285,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_034c99c25afa4fc3a5f74485a4d925e7</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;034c99c25afa4fc3a5f74485a4d925e7&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1312,7 +1322,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_14d92d12ee7d4426b9a7eef795214da1</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;14d92d12ee7d4426b9a7eef795214da1&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1348,7 +1359,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_1ff65357b1b64c22940583861f75b96f</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;1ff65357b1b64c22940583861f75b96f&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1384,7 +1396,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_2025a28720cb4f869e53c0efd1727fc3</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;2025a28720cb4f869e53c0efd1727fc3&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1420,7 +1433,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_26ad4aaf2d274b5a9cd35bb57f0300c8</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;26ad4aaf2d274b5a9cd35bb57f0300c8&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1456,7 +1470,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_a3da44e4eefd4cbd98246ac22e7d4cae</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;a3da44e4eefd4cbd98246ac22e7d4cae&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1492,7 +1507,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_d1b798ddb6c94b6a9b9324eae71c9675</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;d1b798ddb6c94b6a9b9324eae71c9675&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1528,7 +1544,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_e3aa527bb22d4b08927b658cb8b99589</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;e3aa527bb22d4b08927b658cb8b99589&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1564,7 +1581,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_properties_e6da27a57fc64e67b15715f01366a346</name>
-    <payload>&lt;record_update table="sys_properties"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_properties"&gt;
   &lt;sys_properties action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;e6da27a57fc64e67b15715f01366a346&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1600,7 +1618,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_7742bf14095a443b87f0e0ab94955401</name>
-    <payload>&lt;record_update table="sys_script"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script"&gt;
   &lt;sys_script action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;7742bf14095a443b87f0e0ab94955401&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1667,7 +1686,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_include_003bdae2834940bd885cc6ada0f89ae5</name>
-    <payload>&lt;record_update table="sys_script_include"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
   &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;003bdae2834940bd885cc6ada0f89ae5&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1792,7 +1812,8 @@ ATFBuilder.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_include_08ccb02f06be42a0847c44592a60faa4</name>
-    <payload>&lt;record_update table="sys_script_include"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
   &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;08ccb02f06be42a0847c44592a60faa4&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -1940,7 +1961,8 @@ LLMAPIClient.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_include_86b2438f3d2a4ad6960cacc70c51dc52</name>
-    <payload>&lt;record_update table="sys_script_include"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
   &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;86b2438f3d2a4ad6960cacc70c51dc52&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2046,7 +2068,8 @@ Return JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_sto
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_include_938a25c19a8e440fbf02c56feb7f972c</name>
-    <payload>&lt;record_update table="sys_script_include"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
   &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;938a25c19a8e440fbf02c56feb7f972c&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2168,7 +2191,8 @@ ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_script_include_f392ad87b08f46e690f41c9d01ea8c43</name>
-    <payload>&lt;record_update table="sys_script_include"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
   &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;f392ad87b08f46e690f41c9d01ea8c43&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2479,7 +2503,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_ui_action_1fe5d1fe831f4d1d83038566258fbaf3</name>
-    <payload>&lt;record_update table="sys_ui_action"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_ui_action"&gt;
   &lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;1fe5d1fe831f4d1d83038566258fbaf3&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2512,13 +2537,18 @@ AIOrchestrator.prototype = {
     &lt;order&gt;200&lt;/order&gt;
     &lt;overrides/&gt;
     &lt;script&gt;&lt;![CDATA[(function aiUpliftStory() {
-    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
-    var success = orchestrator.upliftStory();
-    if (success) {
-        gs.addInfoMessage('Story uplifted successfully. View the Story Manifest for AI outputs.');
-    } else {
-        gs.addErrorMessage('Story uplift failed. Check the orchestration log in the Story Manifest.');
+    try {
+        var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+        var success = orchestrator.upliftStory();
+        if (success) {
+            gs.addInfoMessage('Story uplifted successfully. View the Story Manifest for AI outputs.');
+        } else {
+            gs.addErrorMessage('Story uplift failed. Check the orchestration log in the Story Manifest.');
+        }
+    } catch (e) {
+        gs.addErrorMessage('AI Uplift error: ' + e.message);
     }
+    action.setRedirectURL('rm_story.do?sys_id=' + current.getUniqueValue());
 })();]]&gt;&lt;/script&gt;
     &lt;show_insert&gt;false&lt;/show_insert&gt;
     &lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;
@@ -2548,7 +2578,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_ui_action_8686ed4e1f404afc8432d20b9820f0fc</name>
-    <payload>&lt;record_update table="sys_ui_action"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_ui_action"&gt;
   &lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;8686ed4e1f404afc8432d20b9820f0fc&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2581,13 +2612,18 @@ AIOrchestrator.prototype = {
     &lt;order&gt;201&lt;/order&gt;
     &lt;overrides/&gt;
     &lt;script&gt;&lt;![CDATA[(function aiGenerateCode() {
-    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
-    var success = orchestrator.generateCode();
-    if (success) {
-        gs.addInfoMessage('Code generated successfully. View the Story Manifest for generated artifacts.');
-    } else {
-        gs.addErrorMessage('Code generation failed. Ensure AI: Uplift Story has been run first.');
+    try {
+        var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+        var success = orchestrator.generateCode();
+        if (success) {
+            gs.addInfoMessage('Code generated successfully. View the Story Manifest for generated artifacts.');
+        } else {
+            gs.addErrorMessage('Code generation failed. Ensure AI: Uplift Story has been run first.');
+        }
+    } catch (e) {
+        gs.addErrorMessage('AI Generate Code error: ' + e.message);
     }
+    action.setRedirectURL('rm_story.do?sys_id=' + current.getUniqueValue());
 })();]]&gt;&lt;/script&gt;
     &lt;show_insert&gt;false&lt;/show_insert&gt;
     &lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;
@@ -2617,7 +2653,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_ui_action_ca7b4da0e345441ebf979ca2885cd743</name>
-    <payload>&lt;record_update table="sys_ui_action"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_ui_action"&gt;
   &lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;ca7b4da0e345441ebf979ca2885cd743&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2650,15 +2687,18 @@ AIOrchestrator.prototype = {
     &lt;order&gt;203&lt;/order&gt;
     &lt;overrides/&gt;
     &lt;script&gt;&lt;![CDATA[(function aiCreateATFRecords() {
-    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
-    var result = orchestrator.createATFRecords();
-    if (result.suiteId) {
-        gs.addInfoMessage(
-            'ATF records created. &lt;a href="sys_atf_suite.do?sys_id=' + result.suiteId + '"&gt;View ATF Suite&lt;/a&gt;'
-        );
-    } else {
-        gs.addErrorMessage('ATF record creation failed. Ensure AI: Generate Test Steps has been run first.');
+    try {
+        var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+        var result = orchestrator.createATFRecords();
+        if (result.suiteId) {
+            gs.addInfoMessage('ATF records created. Suite sys_id: ' + result.suiteId);
+        } else {
+            gs.addErrorMessage('ATF record creation failed. Ensure AI: Generate Test Steps has been run first.');
+        }
+    } catch (e) {
+        gs.addErrorMessage('AI ATF error: ' + e.message);
     }
+    action.setRedirectURL('rm_story.do?sys_id=' + current.getUniqueValue());
 })();]]&gt;&lt;/script&gt;
     &lt;show_insert&gt;false&lt;/show_insert&gt;
     &lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;
@@ -2688,7 +2728,8 @@ AIOrchestrator.prototype = {
     <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
     <category>customer</category>
     <name>sys_ui_action_f6d67c74e9194519aaa12676390de3a5</name>
-    <payload>&lt;record_update table="sys_ui_action"&gt;
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_ui_action"&gt;
   &lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;
     &lt;sys_id&gt;f6d67c74e9194519aaa12676390de3a5&lt;/sys_id&gt;
     &lt;sys_scope display_value="x_1676392_sdlc_a_0"&gt;e4c0cddd93e04310c7a5f3255d03d619&lt;/sys_scope&gt;
@@ -2721,10 +2762,15 @@ AIOrchestrator.prototype = {
     &lt;order&gt;202&lt;/order&gt;
     &lt;overrides/&gt;
     &lt;script&gt;&lt;![CDATA[(function aiGenerateTestSteps() {
-    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
-    orchestrator.generateStakeholderTestSteps();
-    orchestrator.generateUnitTests();
-    gs.addInfoMessage('Test steps and unit tests generated. View the Story Manifest.');
+    try {
+        var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+        orchestrator.generateStakeholderTestSteps();
+        orchestrator.generateUnitTests();
+        gs.addInfoMessage('Test steps and unit tests generated. View the Story Manifest.');
+    } catch (e) {
+        gs.addErrorMessage('AI Test Steps error: ' + e.message);
+    }
+    action.setRedirectURL('rm_story.do?sys_id=' + current.getUniqueValue());
 })();]]&gt;&lt;/script&gt;
     &lt;show_insert&gt;false&lt;/show_insert&gt;
     &lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;
