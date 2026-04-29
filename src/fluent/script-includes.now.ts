@@ -157,7 +157,20 @@ LLMAPIClient.prototype = {
 
     _stripMarkdownFences: function(text) {
         if (!text) { return text; }
-        return text.replace(/^\`\`\`json?\n?/, '').replace(/\n?\`\`\`$/, '').trim();
+        var bt = String.fromCharCode(96);
+        var fence = bt + bt + bt;
+        var t = text.trim();
+        if (t.substring(0, 7) === fence + 'json') {
+            t = t.substring(7);
+            if (t.charAt(0) === '\n') { t = t.substring(1); }
+        } else if (t.substring(0, 3) === fence) {
+            t = t.substring(3);
+            if (t.charAt(0) === '\n') { t = t.substring(1); }
+        }
+        if (t.substring(t.length - 3) === fence) {
+            t = t.substring(0, t.length - 3).trim();
+        }
+        return t;
     },
 
     type: 'LLMAPIClient',
