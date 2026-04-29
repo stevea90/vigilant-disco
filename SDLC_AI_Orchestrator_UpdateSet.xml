@@ -1,0 +1,2398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-04-29 08:08:55">
+
+<record_update table="sys_app">
+  <sys_app action="INSERT_OR_UPDATE">
+    <sys_id>e4c0cddd93e04310c7a5f3255d03d619</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_app_e4c0cddd93e04310c7a5f3255d03d619</sys_update_name>
+    <active>true</active>
+    <can_edit_in_studio>true</can_edit_in_studio>
+    <enforce_license>log</enforce_license>
+    <guided_setup_guid/>
+    <hide_on_ui>false</hide_on_ui>
+    <installed_as_dependency>false</installed_as_dependency>
+    <js_level>es_latest</js_level>
+    <licensable>true</licensable>
+    <license_category>none</license_category>
+    <license_model>none</license_model>
+    <logo/>
+    <menu/>
+    <name>SDLC AI Orchestrator</name>
+    <package_json>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/package.json</package_json>
+    <package_resolver_version>1.0.0</package_resolver_version>
+    <private>false</private>
+    <restrict_table_access>false</restrict_table_access>
+    <runtime_access_tracking>permissive</runtime_access_tracking>
+    <scope>x_1676392_sdlc_a_0</scope>
+    <scoped_administration>false</scoped_administration>
+    <short_description/>
+    <source>x_1676392_sdlc_a_0</source>
+    <subscription_entitlement/>
+    <trackable>true</trackable>
+    <uninstall_blocked>false</uninstall_blocked>
+    <user_role/>
+    <version>0.0.1</version>
+  </sys_app>
+</record_update>
+
+<record_update table="sys_db_object">
+  <sys_db_object action="INSERT_OR_UPDATE">
+    <sys_id>a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d7</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_db_object_x_1676392_sdlc_a_0_story_manifest</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <label>Story Manifest</label>
+    <plural>Story Manifests</plural>
+    <super_class/>
+    <is_extendable>false</is_extendable>
+    <access>public</access>
+    <create_access>true</create_access>
+    <read_access>true</read_access>
+    <update_access>true</update_access>
+    <delete_access>false</delete_access>
+    <ws_access_read_only>false</ws_access_read_only>
+    <live_feed_enabled>false</live_feed_enabled>
+    <caller_access/>
+    <sys_class_name>sys_db_object</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>Story Manifest</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_db_object>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_story</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>story</element>
+    <column_label>Story</column_label>
+    <internal_type display_value="reference">reference</internal_type>
+    <max_length>32</max_length>
+    <mandatory>true</mandatory>
+    <default_value></default_value>
+    <reference>rm_story</reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.story</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_uplifted_story</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>uplifted_story</element>
+    <column_label>Uplifted Story</column_label>
+    <internal_type display_value="html">html</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.uplifted_story</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_uplifted_acceptance_criteria</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>uplifted_acceptance_criteria</element>
+    <column_label>Uplifted Acceptance Criteria</column_label>
+    <internal_type display_value="html">html</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.uplifted_acceptance_criteria</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_generated_code</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>generated_code</element>
+    <column_label>Generated Code</column_label>
+    <internal_type display_value="script">script</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.generated_code</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_generated_unit_tests</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>generated_unit_tests</element>
+    <column_label>Generated Unit Tests</column_label>
+    <internal_type display_value="script">script</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.generated_unit_tests</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_stakeholder_test_steps</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>stakeholder_test_steps</element>
+    <column_label>Stakeholder Test Steps</column_label>
+    <internal_type display_value="html">html</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.stakeholder_test_steps</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_atf_suite_sys_id</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>atf_suite_sys_id</element>
+    <column_label>ATF Suite Sys ID</column_label>
+    <internal_type display_value="GUID">GUID</internal_type>
+    <max_length>32</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.atf_suite_sys_id</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_atf_test_sys_id</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>atf_test_sys_id</element>
+    <column_label>ATF Test Sys ID</column_label>
+    <internal_type display_value="GUID">GUID</internal_type>
+    <max_length>32</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.atf_test_sys_id</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_orchestration_status</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>orchestration_status</element>
+    <column_label>Orchestration Status</column_label>
+    <internal_type display_value="string">string</internal_type>
+    <max_length>40</max_length>
+    <mandatory>false</mandatory>
+    <default_value>pending</default_value>
+    <reference></reference>
+    <choice>1</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.orchestration_status</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_orchestration_log</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>orchestration_log</element>
+    <column_label>Orchestration Log</column_label>
+    <internal_type display_value="multi_two_lines">multi_two_lines</internal_type>
+    <max_length>65536</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.orchestration_log</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_llm_model_used</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>llm_model_used</element>
+    <column_label>LLM Model Used</column_label>
+    <internal_type display_value="string">string</internal_type>
+    <max_length>100</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.llm_model_used</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_tokens_consumed</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>tokens_consumed</element>
+    <column_label>Tokens Consumed</column_label>
+    <internal_type display_value="integer">integer</internal_type>
+    <max_length>40</max_length>
+    <mandatory>false</mandatory>
+    <default_value>0</default_value>
+    <reference></reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.tokens_consumed</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update table="sys_dictionary">
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <sys_id>b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_dictionary_x_1676392_sdlc_a_0_story_manifest_last_run_by</sys_update_name>
+    <name>x_1676392_sdlc_a_0_story_manifest</name>
+    <element>last_run_by</element>
+    <column_label>Last Run By</column_label>
+    <internal_type display_value="reference">reference</internal_type>
+    <max_length>32</max_length>
+    <mandatory>false</mandatory>
+    <default_value></default_value>
+    <reference>sys_user</reference>
+    <choice>0</choice>
+    <active>true</active>
+    <read_only>false</read_only>
+    <array>false</array>
+    <audit>false</audit>
+    <calculation/>
+    <primary>false</primary>
+    <spell_check>false</spell_check>
+    <text_index>false</text_index>
+    <unique>false</unique>
+    <xml_view>false</xml_view>
+    <sys_class_name>sys_dictionary</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_name>x_1676392_sdlc_a_0_story_manifest.last_run_by</sys_name>
+    <sys_package display_value="SDLC AI Orchestrator" source="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_package>
+  </sys_dictionary>
+</record_update>
+
+<record_update>
+  <sys_choice_set table="x_1676392_sdlc_a_0_story_manifest" field="orchestration_status">
+    <sys_choice action="INSERT_OR_UPDATE">
+      <sys_id>dfc2e43e33004667b0440ada11be014a</sys_id>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+      <label>Pending</label>
+      <value>pending</value>
+      <inactive>false</inactive>
+      <inactive_on_update>false</inactive_on_update>
+      <language>en</language>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+      <sys_id>537c9a0aa6cd4f0aa2eae300f0c63db4</sys_id>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+      <label>Running</label>
+      <value>running</value>
+      <inactive>false</inactive>
+      <inactive_on_update>false</inactive_on_update>
+      <language>en</language>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+      <sys_id>d0d9a58867be4799958d95aae336fa8b</sys_id>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+      <label>Completed</label>
+      <value>completed</value>
+      <inactive>false</inactive>
+      <inactive_on_update>false</inactive_on_update>
+      <language>en</language>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+      <sys_id>a9ad685885b34f39a1db9b95f9a2d2f3</sys_id>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+      <label>Partial</label>
+      <value>partial</value>
+      <inactive>false</inactive>
+      <inactive_on_update>false</inactive_on_update>
+      <language>en</language>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+      <sys_id>6a1ce015c0c642c28592e73b4e414165</sys_id>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+      <label>Failed</label>
+      <value>failed</value>
+      <inactive>false</inactive>
+      <inactive_on_update>false</inactive_on_update>
+      <language>en</language>
+    </sys_choice>
+    <sys_choice_set action="INSERT_OR_UPDATE">
+      <sys_id>a31080bb717b4f2e87099f1e5db78db7</sys_id>
+      <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+      <name>x_1676392_sdlc_a_0_story_manifest</name>
+      <element>orchestration_status</element>
+    </sys_choice_set>
+  </sys_choice_set>
+</record_update>
+
+<record_update>
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>2fc6ae85ccd74036aa43d8338774cd74</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/bom.json</path>
+    <external_source>false</external_source>
+    <content><![CDATA[{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:e974e2eb-d39e-4455-9973-f5e71df22de9",
+  "metadata": {
+    "timestamp": "2026-04-28T16:50:28.447Z",
+    "tools": {
+      "components": [
+        {
+          "type": "library",
+          "name": "sdk-build-plugins",
+          "group": "@servicenow",
+          "version": "4.6.0",
+          "author": "ServiceNow"
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "sdlc-ai-orchestrator",
+      "version": "0.0.1",
+      "bom-ref": "pkg:servicenow/sdlc-ai-orchestrator@0.0.1?sys_scope_id=e4c0cddd93e04310c7a5f3255d03d619",
+      "licenses": [
+        {
+          "license": {
+            "name": "UNLICENSED"
+          }
+        }
+      ],
+      "purl": "pkg:servicenow/sdlc-ai-orchestrator@0.0.1?sys_scope_id=e4c0cddd93e04310c7a5f3255d03d619"
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "pkg:servicenow/sdlc-ai-orchestrator@0.0.1?sys_scope_id=e4c0cddd93e04310c7a5f3255d03d619"
+    }
+  ]
+}]]></content>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>81eddc7513684bb4b6d7ad1d41980935</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_81eddc7513684bb4b6d7ad1d41980935</sys_update_name>
+    <content><![CDATA[export var ManifestHelper = Class.create();
+ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    getManifestStatus: function() {
+        var storySysId = this.getParameter('sysparm_story_sys_id');
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        gr.addQuery('story', storySysId);
+        gr.setLimit(1);
+        gr.query();
+
+        if (!gr.next()) {
+            return JSON.stringify({ found: false });
+        }
+
+        return JSON.stringify({
+            found: true,
+            sys_id: gr.getUniqueValue(),
+            status: gr.getValue('orchestration_status'),
+            model: gr.getValue('llm_model_used'),
+            tokens: gr.getValue('tokens_consumed'),
+            has_uplift: !!gr.getValue('uplifted_story'),
+            has_code: !!gr.getValue('generated_code'),
+            has_tests: !!gr.getValue('generated_unit_tests'),
+            has_stakeholder_steps: !!gr.getValue('stakeholder_test_steps'),
+            has_atf: !!gr.getValue('atf_suite_sys_id'),
+        });
+    },
+
+    getDashboardStats: function() {
+        var statuses = ['pending', 'running', 'completed', 'partial', 'failed'];
+        var stats = { total: 0 };
+        for (var i = 0; i < statuses.length; i++) {
+            stats[statuses[i]] = 0;
+        }
+
+        var agg = new GlideAggregate('x_1676392_sdlc_a_0_story_manifest');
+        agg.addAggregate('COUNT', 'orchestration_status');
+        agg.groupBy('orchestration_status');
+        agg.query();
+
+        while (agg.next()) {
+            var status = agg.getValue('orchestration_status');
+            var count = parseInt(agg.getAggregate('COUNT', 'orchestration_status'));
+            if (stats.hasOwnProperty(status)) {
+                stats[status] = count;
+            }
+            stats.total += count;
+        }
+
+        return JSON.stringify(stats);
+    },
+
+    getRecentManifests: function() {
+        var limit = parseInt(this.getParameter('sysparm_limit') || '100');
+        var filterStatus = this.getParameter('sysparm_status') || '';
+
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        if (filterStatus) { gr.addQuery('orchestration_status', filterStatus); }
+        gr.orderByDesc('sys_updated_on');
+        gr.setLimit(limit);
+        gr.query();
+
+        var results = [];
+        while (gr.next()) {
+            results.push({
+                sys_id: gr.getUniqueValue(),
+                story_sys_id: gr.getValue('story'),
+                story_display: gr.getDisplayValue('story'),
+                status: gr.getValue('orchestration_status'),
+                model: gr.getValue('llm_model_used'),
+                tokens: gr.getValue('tokens_consumed') || 0,
+                last_run_by: gr.getDisplayValue('last_run_by'),
+                updated_on: gr.getValue('sys_updated_on'),
+                has_uplift: !!gr.getValue('uplifted_story'),
+                has_code: !!gr.getValue('generated_code'),
+                has_tests: !!gr.getValue('generated_unit_tests'),
+                has_stakeholder_steps: !!gr.getValue('stakeholder_test_steps'),
+                has_atf: !!gr.getValue('atf_suite_sys_id'),
+            });
+        }
+
+        return JSON.stringify(results);
+    },
+
+    type: 'ManifestHelper',
+});
+]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/manifest-helper.js</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/manifest-helper.js</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>8a4bcefee35f47cb986c5f055ab6ffac</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_8a4bcefee35f47cb986c5f055ab6ffac</sys_update_name>
+    <content><![CDATA[export var LLMAPIClient = Class.create();
+LLMAPIClient.prototype = {
+    initialize: function() {
+        this.provider = gs.getProperty('x_1676392_sdlc_a_0.llm_provider', 'anthropic');
+        this.maxTokens = parseInt(gs.getProperty('x_1676392_sdlc_a_0.llm_max_tokens', '4000'));
+        this.temperature = parseFloat(gs.getProperty('x_1676392_sdlc_a_0.llm_temperature', '0.3'));
+    },
+
+    sendMessage: function(systemPrompt, userPrompt) {
+        try {
+            if (this.provider === 'openai') {
+                return this._sendOpenAI(systemPrompt, userPrompt);
+            }
+            return this._sendAnthropic(systemPrompt, userPrompt);
+        } catch (e) {
+            return { content: null, model: null, tokens: 0, error: e.message };
+        }
+    },
+
+    _sendAnthropic: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-3-5-sonnet-20241022');
+        var rm = new sn_ws.RESTMessageV2();
+        rm.setEndpoint('https://api.anthropic.com/v1/messages');
+        rm.setHttpMethod('post');
+        rm.setRequestHeader('x-api-key', gs.getProperty('x_1676392_sdlc_a_0.anthropic_api_key', ''));
+        rm.setRequestHeader('anthropic-version', '2023-06-01');
+        rm.setRequestHeader('content-type', 'application/json');
+        rm.setRequestBody(JSON.stringify({
+            model: model,
+            max_tokens: this.maxTokens,
+            temperature: this.temperature,
+            system: systemPrompt,
+            messages: [{ role: 'user', content: userPrompt }],
+        }));
+        rm.setHttpTimeout(55000);
+
+        var response = rm.execute();
+        var status = response.getStatusCode();
+        var body = response.getBody();
+
+        if (status !== 200) {
+            return { content: null, model: model, tokens: 0, error: 'HTTP ' + status + ': ' + body };
+        }
+
+        var parsed = JSON.parse(body);
+        var content = this._stripMarkdownFences(parsed.content[0].text);
+        return {
+            content: content,
+            model: parsed.model,
+            tokens: ((parsed.usage || {}).input_tokens || 0) + ((parsed.usage || {}).output_tokens || 0),
+            error: null,
+        };
+    },
+
+    _sendOpenAI: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_1676392_sdlc_a_0.openai_model', 'gpt-4o');
+        var rm = new sn_ws.RESTMessageV2();
+        rm.setEndpoint('https://api.openai.com/v1/chat/completions');
+        rm.setHttpMethod('post');
+        rm.setRequestHeader('Authorization', 'Bearer ' + gs.getProperty('x_1676392_sdlc_a_0.openai_api_key', ''));
+        rm.setRequestHeader('content-type', 'application/json');
+        rm.setRequestBody(JSON.stringify({
+            model: model,
+            max_tokens: this.maxTokens,
+            temperature: this.temperature,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user', content: userPrompt },
+            ],
+        }));
+        rm.setHttpTimeout(55000);
+
+        var response = rm.execute();
+        var status = response.getStatusCode();
+        var body = response.getBody();
+
+        if (status !== 200) {
+            return { content: null, model: model, tokens: 0, error: 'HTTP ' + status + ': ' + body };
+        }
+
+        var parsed = JSON.parse(body);
+        var content = this._stripMarkdownFences(parsed.choices[0].message.content);
+        return {
+            content: content,
+            model: parsed.model,
+            tokens: (parsed.usage || {}).total_tokens || 0,
+            error: null,
+        };
+    },
+
+    _stripMarkdownFences: function(text) {
+        if (!text) { return text; }
+        return text.replace(/^```json?\n?/, '').replace(/\n?```$/, '').trim();
+    },
+
+    type: 'LLMAPIClient',
+};
+]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/llm-api-client.js</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/llm-api-client.js</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>ad08e6be38454e1bac4c61083bde1961</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_ad08e6be38454e1bac4c61083bde1961</sys_update_name>
+    <content><![CDATA[export var ATFBuilder = Class.create();
+ATFBuilder.prototype = {
+    initialize: function() {},
+
+    build: function(stepDefs) {
+        if (!GlidePluginManager.isActive('com.snc.test_management2')) {
+            return { suiteId: null, testId: null, error: 'ATF plugin (com.snc.test_management2) is not active on this instance' };
+        }
+
+        var suiteId = this._createSuite();
+        if (!suiteId) {
+            return { suiteId: null, testId: null, error: 'Failed to create ATF suite' };
+        }
+
+        var testId = this._createTest(suiteId);
+        if (!testId) {
+            return { suiteId: suiteId, testId: null, error: 'Failed to create ATF test' };
+        }
+
+        for (var i = 0; i < stepDefs.length; i++) {
+            this._createStep(testId, stepDefs[i], i + 1);
+        }
+
+        return { suiteId: suiteId, testId: testId, error: null };
+    },
+
+    _createSuite: function() {
+        var gr = new GlideRecord('sys_atf_suite');
+        gr.initialize();
+        gr.setValue('name', 'SDLC AI - Generated Suite ' + new GlideDateTime().getDisplayValue());
+        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
+        return gr.insert();
+    },
+
+    _createTest: function(suiteId) {
+        var gr = new GlideRecord('sys_atf_test');
+        gr.initialize();
+        gr.setValue('name', 'SDLC AI - Generated Test');
+        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
+        gr.setValue('sys_atf_suite', suiteId);
+        return gr.insert();
+    },
+
+    _createStep: function(testId, stepDef, order) {
+        var configId = this._resolveStepConfig(stepDef.step_type, stepDef.action);
+        if (!configId) { return; }
+
+        var gr = new GlideRecord('sys_atf_step');
+        gr.initialize();
+        gr.setValue('test', testId);
+        gr.setValue('order', order * 100);
+        gr.setValue('step_config', configId);
+        gr.setValue('description', stepDef.description || '');
+
+        var inputs = {};
+        if (stepDef.step_type === 'server' && stepDef.script) {
+            inputs.script = stepDef.script;
+        } else if (stepDef.table) {
+            inputs.table = stepDef.table;
+        }
+        if (Object.keys(inputs).length > 0) {
+            gr.setValue('inputs', JSON.stringify(inputs));
+        }
+
+        gr.insert();
+    },
+
+    _resolveStepConfig: function(stepType, action) {
+        var configMap = {
+            'form.open':           'Open a Form',
+            'form.submit':         'Submit a Form',
+            'form.set_field':      'Set Field Values',
+            'server.run_script':   'Run Server Side Script',
+            'server.assert_record':'Assert Record Field Values',
+        };
+
+        var key = stepType + '.' + action;
+        var sysName = configMap[key];
+        if (!sysName) { return null; }
+
+        var gr = new GlideRecord('sys_atf_step_config');
+        gr.addQuery('sys_name', sysName);
+        gr.setLimit(1);
+        gr.query();
+        return gr.next() ? gr.getUniqueValue() : null;
+    },
+
+    type: 'ATFBuilder',
+};
+]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/atf-builder.js</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/atf-builder.js</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>e6f4158e34c349978864f90ed97cca1c</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_e6f4158e34c349978864f90ed97cca1c</sys_update_name>
+    <content><![CDATA[export var PromptTemplates = Class.create();
+PromptTemplates.prototype = {
+    initialize: function() {},
+
+    getStoryUpliftSystem: function() {
+        return 'You are an expert Agile coach and Business Analyst specialising in ServiceNow implementations. Rewrite user stories using the INVEST framework (Independent, Negotiable, Valuable, Estimable, Small, Testable). Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getStoryUpliftUser: function(story, description, acceptanceCriteria) {
+        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.\n\nStory: ' + story + '\nDescription: ' + description + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"uplifted_story": "<html>INVEST-compliant story...</html>", "uplifted_acceptance_criteria": "<html><ul><li>Given/When/Then scenarios...</li></ul></html>"}';
+    },
+
+    getCodeGenSystem: function() {
+        return 'You are a ServiceNow platform expert. Generate production-ready ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Follow ServiceNow best practices and scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
+        return 'Generate ServiceNow code artifacts for this story.\n\nStory: ' + upliftedStory + '\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
+    },
+
+    getUnitTestSystem: function() {
+        return 'You are a ServiceNow test automation expert. Generate Jasmine unit tests for ServiceNow Script Includes using the ATF server-side test framework. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getUnitTestUser: function(generatedCode) {
+        return 'Generate Jasmine unit tests for this ServiceNow code.\n\nCode:\n' + generatedCode + '\n\nReturn JSON: {"unit_tests": "describe(\'Suite\', function() { it(\'should...\', function() { ... }); });"}';
+    },
+
+    getStakeholderTestSystem: function() {
+        return 'You are a QA expert. Generate clear, human-readable manual test steps for business stakeholders (non-technical). Steps should be actionable and verifiable. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getStakeholderTestUser: function(acceptanceCriteria) {
+        return 'Generate manual test steps for stakeholders based on these acceptance criteria.\n\nAcceptance Criteria: ' + acceptanceCriteria + '\n\nReturn JSON: {"test_steps": "<html><ol><li><strong>Step 1:</strong> Navigate to...</li></ol></html>"}';
+    },
+
+    getATFStepSystem: function() {
+        return 'You are a ServiceNow ATF (Automated Test Framework) expert. Convert test steps into ATF step definitions. Valid step_type+action combos: form+open, form+submit, form+set_field, server+run_script, server+assert_record. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getATFStepUser: function(testSteps) {
+        return 'Convert these test steps into ServiceNow ATF step definitions.\n\nTest Steps: ' + testSteps + '\n\nReturn JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
+    },
+
+    type: 'PromptTemplates',
+};
+]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/prompt-templates.js</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/prompt-templates.js</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>e91b5ec0da3e43378126663ea44dc62b</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_e91b5ec0da3e43378126663ea44dc62b</sys_update_name>
+    <content><![CDATA[export var AIOrchestrator = Class.create();
+AIOrchestrator.prototype = {
+    initialize: function(storyGR) {
+        this.storyGR = storyGR;
+        this.storyId = storyGR.getUniqueValue();
+        this.manifestGR = null;
+        this.llmClient = new x_1676392_sdlc_a_0.LLMAPIClient();
+        this.prompts = new x_1676392_sdlc_a_0.PromptTemplates();
+        this.debug = gs.getProperty('x_1676392_sdlc_a_0.debug_logging', 'false') === 'true';
+    },
+
+    upliftStory: function() {
+        this._ensureManifest();
+        this._setStatus('running');
+        this._log('Starting story uplift...');
+
+        try {
+            var story = this.storyGR.getDisplayValue('short_description') || '';
+            var description = this.storyGR.getValue('description') || '';
+            var acceptanceCriteria = this.storyGR.getValue('acceptance_criteria') || '';
+
+            var result = this.llmClient.sendMessage(
+                this.prompts.getStoryUpliftSystem(),
+                this.prompts.getStoryUpliftUser(story, description, acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Uplift failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('uplifted_story', parsed.uplifted_story || '');
+            this.manifestGR.setValue('uplifted_acceptance_criteria', parsed.uplifted_acceptance_criteria || '');
+            this.manifestGR.setValue('llm_model_used', result.model || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Story uplift completed successfully.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Uplift exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateCode: function() {
+        this._ensureManifest();
+        var upliftedStory = this.manifestGR.getValue('uplifted_story');
+        if (!upliftedStory) {
+            gs.addErrorMessage('Cannot generate code: run AI: Uplift Story first.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Starting code generation...');
+
+        try {
+            var acceptanceCriteria = this.manifestGR.getValue('uplifted_acceptance_criteria') || '';
+            var result = this.llmClient.sendMessage(
+                this.prompts.getCodeGenSystem(),
+                this.prompts.getCodeGenUser(upliftedStory, acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Code generation failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            var codeBlocks = '';
+            if (parsed.artifacts && parsed.artifacts.length > 0) {
+                for (var i = 0; i < parsed.artifacts.length; i++) {
+                    var art = parsed.artifacts[i];
+                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===\n';
+                    codeBlocks += art.code + '\n\n';
+                }
+            }
+
+            this.manifestGR.setValue('generated_code', codeBlocks);
+            this.manifestGR.setValue('llm_model_used', result.model || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Code generation completed successfully.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Code generation exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateUnitTests: function() {
+        this._ensureManifest();
+        var generatedCode = this.manifestGR.getValue('generated_code');
+        if (!generatedCode) {
+            gs.addErrorMessage('Cannot generate unit tests: run AI: Generate Code first.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Starting unit test generation...');
+
+        try {
+            var result = this.llmClient.sendMessage(
+                this.prompts.getUnitTestSystem(),
+                this.prompts.getUnitTestUser(generatedCode)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Unit test generation failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('generated_unit_tests', parsed.unit_tests || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Unit test generation completed.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Unit test exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateStakeholderTestSteps: function() {
+        this._ensureManifest();
+        var acceptanceCriteria = this.manifestGR.getValue('uplifted_acceptance_criteria') ||
+                                  this.storyGR.getValue('acceptance_criteria') || '';
+
+        if (!acceptanceCriteria) {
+            gs.addErrorMessage('No acceptance criteria available for stakeholder test steps.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Generating stakeholder test steps...');
+
+        try {
+            var result = this.llmClient.sendMessage(
+                this.prompts.getStakeholderTestSystem(),
+                this.prompts.getStakeholderTestUser(acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Stakeholder test steps failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('stakeholder_test_steps', parsed.test_steps || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Stakeholder test steps generated.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Stakeholder test steps exception: ' + e.message);
+            return false;
+        }
+    },
+
+    createATFRecords: function() {
+        this._ensureManifest();
+        this._setStatus('running');
+        this._log('Creating ATF records...');
+
+        try {
+            var testSteps = this.manifestGR.getValue('stakeholder_test_steps') || '';
+            var result = this.llmClient.sendMessage(
+                this.prompts.getATFStepSystem(),
+                this.prompts.getATFStepUser(testSteps)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('ATF step generation failed: ' + result.error);
+                return { suiteId: null, testId: null };
+            }
+
+            var parsed = JSON.parse(result.content);
+            var stepDefs = parsed.steps || [];
+
+            var builder = new x_1676392_sdlc_a_0.ATFBuilder();
+            var atfResult = builder.build(stepDefs);
+
+            if (atfResult.error) {
+                this._setStatus('failed');
+                this._log('ATF build failed: ' + atfResult.error);
+                return atfResult;
+            }
+
+            this.manifestGR.setValue('atf_suite_sys_id', atfResult.suiteId || '');
+            this.manifestGR.setValue('atf_test_sys_id', atfResult.testId || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('ATF records created. Suite: ' + atfResult.suiteId + ', Test: ' + atfResult.testId);
+            return atfResult;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ATF exception: ' + e.message);
+            return { suiteId: null, testId: null };
+        }
+    },
+
+    _ensureManifest: function() {
+        if (!this.manifestGR) {
+            this.manifestGR = this._getOrCreateManifest();
+        }
+    },
+
+    _getOrCreateManifest: function() {
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        gr.addQuery('story', this.storyId);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) { return gr; }
+
+        var newGR = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        newGR.initialize();
+        newGR.setValue('story', this.storyId);
+        newGR.setValue('orchestration_status', 'pending');
+        newGR.setValue('tokens_consumed', 0);
+        var newId = newGR.insert();
+
+        var fetch = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        fetch.get(newId);
+        return fetch;
+    },
+
+    _setStatus: function(status) {
+        if (!this.manifestGR) { return; }
+        this.manifestGR.setValue('orchestration_status', status);
+        this.manifestGR.setValue('last_run_by', gs.getUserID());
+        this.manifestGR.update();
+    },
+
+    _log: function(message) {
+        if (!this.manifestGR) { return; }
+        var existing = this.manifestGR.getValue('orchestration_log') || '';
+        var timestamp = new GlideDateTime().getDisplayValue();
+        var entry = '[' + timestamp + '] ' + message;
+        this.manifestGR.setValue('orchestration_log', existing ? existing + '\n' + entry : entry);
+        this.manifestGR.update();
+        if (this.debug) { gs.log(entry, 'SDLC AI Orchestrator'); }
+    },
+
+    _addTokens: function(newTokens) {
+        if (!newTokens) { return; }
+        var current = parseInt(this.manifestGR.getValue('tokens_consumed') || '0');
+        this.manifestGR.setValue('tokens_consumed', current + newTokens);
+    },
+
+    type: 'AIOrchestrator',
+};
+]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/ai-orchestrator.js</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/src/server/ai-orchestrator.js</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_module">
+  <sys_module action="INSERT_OR_UPDATE">
+    <sys_id>ee810db071fd4501bf5bf9a5df48c818</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_module_ee810db071fd4501bf5bf9a5df48c818</sys_update_name>
+    <content><![CDATA[{
+  "name": "sdlc-ai-orchestrator",
+  "version": "0.0.1",
+  "description": "",
+  "license": "UNLICENSED",
+  "imports": {
+    "#now:*": "./@types/servicenow/fluent/*/index.js"
+  },
+  "scripts": {
+    "build": "now-sdk build",
+    "deploy": "now-sdk install",
+    "transform": "now-sdk transform",
+    "types": "now-sdk dependencies"
+  },
+  "devDependencies": {
+    "@servicenow/sdk": "4.6.0",
+    "@servicenow/glide": "27.0.5"
+  }
+}]]></content>
+    <external_source>false</external_source>
+    <path>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/package.json</path>
+    <sys_name>x_1676392_sdlc_a_0/sdlc-ai-orchestrator/0.0.1/package.json</sys_name>
+  </sys_module>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>034c99c25afa4fc3a5f74485a4d925e7</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_034c99c25afa4fc3a5f74485a4d925e7</sys_update_name>
+    <choices/>
+    <description>Maximum tokens to request per LLM call</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.llm_max_tokens</name>
+    <read_roles/>
+    <suffix>llm_max_tokens</suffix>
+    <type>integer</type>
+    <value>4000</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>14d92d12ee7d4426b9a7eef795214da1</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_14d92d12ee7d4426b9a7eef795214da1</sys_update_name>
+    <choices/>
+    <description>Anthropic API key for Claude models</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.anthropic_api_key</name>
+    <read_roles/>
+    <suffix>anthropic_api_key</suffix>
+    <type>password2</type>
+    <value/>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>1ff65357b1b64c22940583861f75b96f</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_1ff65357b1b64c22940583861f75b96f</sys_update_name>
+    <choices/>
+    <description>OpenAI API key (fallback provider)</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.openai_api_key</name>
+    <read_roles/>
+    <suffix>openai_api_key</suffix>
+    <type>password2</type>
+    <value/>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>2025a28720cb4f869e53c0efd1727fc3</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_2025a28720cb4f869e53c0efd1727fc3</sys_update_name>
+    <choices/>
+    <description>Anthropic model ID to use</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.anthropic_model</name>
+    <read_roles/>
+    <suffix>anthropic_model</suffix>
+    <type>string</type>
+    <value>claude-3-5-sonnet-20241022</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>26ad4aaf2d274b5a9cd35bb57f0300c8</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_26ad4aaf2d274b5a9cd35bb57f0300c8</sys_update_name>
+    <choices/>
+    <description>Enable debug logging to system log</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.debug_logging</name>
+    <read_roles/>
+    <suffix>debug_logging</suffix>
+    <type>boolean</type>
+    <value>false</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>a3da44e4eefd4cbd98246ac22e7d4cae</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_a3da44e4eefd4cbd98246ac22e7d4cae</sys_update_name>
+    <choices/>
+    <description>LLM temperature (0.0 - 1.0)</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.llm_temperature</name>
+    <read_roles/>
+    <suffix>llm_temperature</suffix>
+    <type>string</type>
+    <value>0.3</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>d1b798ddb6c94b6a9b9324eae71c9675</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_d1b798ddb6c94b6a9b9324eae71c9675</sys_update_name>
+    <choices/>
+    <description>Automatically create a Story Manifest when a new rm_story is inserted</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.auto_create_manifest</name>
+    <read_roles/>
+    <suffix>auto_create_manifest</suffix>
+    <type>boolean</type>
+    <value>true</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>e3aa527bb22d4b08927b658cb8b99589</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_e3aa527bb22d4b08927b658cb8b99589</sys_update_name>
+    <choices/>
+    <description>OpenAI model ID to use</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.openai_model</name>
+    <read_roles/>
+    <suffix>openai_model</suffix>
+    <type>string</type>
+    <value>gpt-4o</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_properties">
+  <sys_properties action="INSERT_OR_UPDATE">
+    <sys_id>e6da27a57fc64e67b15715f01366a346</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_properties_e6da27a57fc64e67b15715f01366a346</sys_update_name>
+    <choices/>
+    <description>LLM provider to use: anthropic or openai</description>
+    <ignore_cache>false</ignore_cache>
+    <is_private>false</is_private>
+    <name>x_1676392_sdlc_a_0.llm_provider</name>
+    <read_roles/>
+    <suffix>llm_provider</suffix>
+    <type>string</type>
+    <value>anthropic</value>
+    <write_roles/>
+  </sys_properties>
+</record_update>
+
+<record_update table="sys_script">
+  <sys_script action="INSERT_OR_UPDATE">
+    <sys_id>7742bf14095a443b87f0e0ab94955401</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_7742bf14095a443b87f0e0ab94955401</sys_update_name>
+    <abort_action>false</abort_action>
+    <access>package_private</access>
+    <action_delete>false</action_delete>
+    <action_insert>true</action_insert>
+    <action_query>false</action_query>
+    <action_update>false</action_update>
+    <active>true</active>
+    <add_message>false</add_message>
+    <advanced>true</advanced>
+    <change_fields>false</change_fields>
+    <client_callable>false</client_callable>
+    <collection>rm_story</collection>
+    <condition/>
+    <description>Automatically creates a Story Manifest shell when a new rm_story is inserted</description>
+    <execute_function>false</execute_function>
+    <filter_condition/>
+    <is_rest>false</is_rest>
+    <message/>
+    <name>AI SDLC: Auto-Create Story Manifest</name>
+    <order>100</order>
+    <priority>100</priority>
+    <rest_method/>
+    <rest_method_text/>
+    <rest_service/>
+    <rest_service_text/>
+    <rest_variables/>
+    <role_conditions/>
+    <script><![CDATA[(function executeRule(current, previous) {
+    if (gs.getProperty('x_1676392_sdlc_a_0.auto_create_manifest', 'true') !== 'true') {
+        return;
+    }
+    var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+    gr.initialize();
+    gr.setValue('story', current.getUniqueValue());
+    gr.setValue('orchestration_status', 'pending');
+    gr.setValue('tokens_consumed', 0);
+    gr.insert();
+})(current, previous);]]></script>
+    <sys_policy/>
+    <template/>
+    <when>after</when>
+  </sys_script>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>003bdae2834940bd885cc6ada0f89ae5</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_include_003bdae2834940bd885cc6ada0f89ae5</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>x_1676392_sdlc_a_0.ATFBuilder</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>Creates sys_atf_suite, sys_atf_test and sys_atf_step records programmatically</description>
+    <mobile_callable>false</mobile_callable>
+    <name>ATFBuilder</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script><![CDATA[var ATFBuilder = Class.create();
+ATFBuilder.prototype = {
+    initialize: function() {},
+
+    build: function(stepDefs) {
+        if (!GlidePluginManager.isActive('com.snc.test_management2')) {
+            return { suiteId: null, testId: null, error: 'ATF plugin (com.snc.test_management2) is not active on this instance' };
+        }
+
+        var suiteId = this._createSuite();
+        if (!suiteId) {
+            return { suiteId: null, testId: null, error: 'Failed to create ATF suite' };
+        }
+
+        var testId = this._createTest(suiteId);
+        if (!testId) {
+            return { suiteId: suiteId, testId: null, error: 'Failed to create ATF test' };
+        }
+
+        for (var i = 0; i < stepDefs.length; i++) {
+            this._createStep(testId, stepDefs[i], i + 1);
+        }
+
+        return { suiteId: suiteId, testId: testId, error: null };
+    },
+
+    _createSuite: function() {
+        var gr = new GlideRecord('sys_atf_suite');
+        gr.initialize();
+        gr.setValue('name', 'SDLC AI - Generated Suite ' + new GlideDateTime().getDisplayValue());
+        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
+        return gr.insert();
+    },
+
+    _createTest: function(suiteId) {
+        var gr = new GlideRecord('sys_atf_test');
+        gr.initialize();
+        gr.setValue('name', 'SDLC AI - Generated Test');
+        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
+        gr.setValue('sys_atf_suite', suiteId);
+        return gr.insert();
+    },
+
+    _createStep: function(testId, stepDef, order) {
+        var configId = this._resolveStepConfig(stepDef.step_type, stepDef.action);
+        if (!configId) { return; }
+
+        var gr = new GlideRecord('sys_atf_step');
+        gr.initialize();
+        gr.setValue('test', testId);
+        gr.setValue('order', order * 100);
+        gr.setValue('step_config', configId);
+        gr.setValue('description', stepDef.description || '');
+
+        var inputs = {};
+        if (stepDef.step_type === 'server' && stepDef.script) {
+            inputs.script = stepDef.script;
+        } else if (stepDef.table) {
+            inputs.table = stepDef.table;
+        }
+        if (Object.keys(inputs).length > 0) {
+            gr.setValue('inputs', JSON.stringify(inputs));
+        }
+
+        gr.insert();
+    },
+
+    _resolveStepConfig: function(stepType, action) {
+        var configMap = {
+            'form.open':            'Open a Form',
+            'form.submit':          'Submit a Form',
+            'form.set_field':       'Set Field Values',
+            'server.run_script':    'Run Server Side Script',
+            'server.assert_record': 'Assert Record Field Values',
+        };
+
+        var key = stepType + '.' + action;
+        var sysName = configMap[key];
+        if (!sysName) { return null; }
+
+        var gr = new GlideRecord('sys_atf_step_config');
+        gr.addQuery('sys_name', sysName);
+        gr.setLimit(1);
+        gr.query();
+        return gr.next() ? gr.getUniqueValue() : null;
+    },
+
+    type: 'ATFBuilder',
+};]]></script>
+    <sys_policy/>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>08ccb02f06be42a0847c44592a60faa4</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_include_08ccb02f06be42a0847c44592a60faa4</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>x_1676392_sdlc_a_0.LLMAPIClient</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>Outbound HTTP client for Anthropic Claude and OpenAI APIs</description>
+    <mobile_callable>false</mobile_callable>
+    <name>LLMAPIClient</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script><![CDATA[var LLMAPIClient = Class.create();
+LLMAPIClient.prototype = {
+    initialize: function() {
+        this.provider = gs.getProperty('x_1676392_sdlc_a_0.llm_provider', 'anthropic');
+        this.maxTokens = parseInt(gs.getProperty('x_1676392_sdlc_a_0.llm_max_tokens', '4000'));
+        this.temperature = parseFloat(gs.getProperty('x_1676392_sdlc_a_0.llm_temperature', '0.3'));
+    },
+
+    sendMessage: function(systemPrompt, userPrompt) {
+        try {
+            if (this.provider === 'openai') {
+                return this._sendOpenAI(systemPrompt, userPrompt);
+            }
+            return this._sendAnthropic(systemPrompt, userPrompt);
+        } catch (e) {
+            return { content: null, model: null, tokens: 0, error: e.message };
+        }
+    },
+
+    _sendAnthropic: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_1676392_sdlc_a_0.anthropic_model', 'claude-3-5-sonnet-20241022');
+        var rm = new sn_ws.RESTMessageV2();
+        rm.setEndpoint('https://api.anthropic.com/v1/messages');
+        rm.setHttpMethod('post');
+        rm.setRequestHeader('x-api-key', gs.getProperty('x_1676392_sdlc_a_0.anthropic_api_key', ''));
+        rm.setRequestHeader('anthropic-version', '2023-06-01');
+        rm.setRequestHeader('content-type', 'application/json');
+        rm.setRequestBody(JSON.stringify({
+            model: model,
+            max_tokens: this.maxTokens,
+            temperature: this.temperature,
+            system: systemPrompt,
+            messages: [{ role: 'user', content: userPrompt }],
+        }));
+        rm.setHttpTimeout(55000);
+
+        var response = rm.execute();
+        var status = response.getStatusCode();
+        var body = response.getBody();
+
+        if (status !== 200) {
+            return { content: null, model: model, tokens: 0, error: 'HTTP ' + status + ': ' + body };
+        }
+
+        var parsed = JSON.parse(body);
+        var content = this._stripMarkdownFences(parsed.content[0].text);
+        return {
+            content: content,
+            model: parsed.model,
+            tokens: ((parsed.usage || {}).input_tokens || 0) + ((parsed.usage || {}).output_tokens || 0),
+            error: null,
+        };
+    },
+
+    _sendOpenAI: function(systemPrompt, userPrompt) {
+        var model = gs.getProperty('x_1676392_sdlc_a_0.openai_model', 'gpt-4o');
+        var rm = new sn_ws.RESTMessageV2();
+        rm.setEndpoint('https://api.openai.com/v1/chat/completions');
+        rm.setHttpMethod('post');
+        rm.setRequestHeader('Authorization', 'Bearer ' + gs.getProperty('x_1676392_sdlc_a_0.openai_api_key', ''));
+        rm.setRequestHeader('content-type', 'application/json');
+        rm.setRequestBody(JSON.stringify({
+            model: model,
+            max_tokens: this.maxTokens,
+            temperature: this.temperature,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user', content: userPrompt },
+            ],
+        }));
+        rm.setHttpTimeout(55000);
+
+        var response = rm.execute();
+        var status = response.getStatusCode();
+        var body = response.getBody();
+
+        if (status !== 200) {
+            return { content: null, model: model, tokens: 0, error: 'HTTP ' + status + ': ' + body };
+        }
+
+        var parsed = JSON.parse(body);
+        var content = this._stripMarkdownFences(parsed.choices[0].message.content);
+        return {
+            content: content,
+            model: parsed.model,
+            tokens: (parsed.usage || {}).total_tokens || 0,
+            error: null,
+        };
+    },
+
+    _stripMarkdownFences: function(text) {
+        if (!text) { return text; }
+        return text.replace(/^```json?
+?/, '').replace(/
+?```$/, '').trim();
+    },
+
+    type: 'LLMAPIClient',
+};]]></script>
+    <sys_policy/>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>86b2438f3d2a4ad6960cacc70c51dc52</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_include_86b2438f3d2a4ad6960cacc70c51dc52</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>x_1676392_sdlc_a_0.PromptTemplates</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>Centralised LLM prompt library for all SDLC AI pipeline steps</description>
+    <mobile_callable>false</mobile_callable>
+    <name>PromptTemplates</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script><![CDATA[var PromptTemplates = Class.create();
+PromptTemplates.prototype = {
+    initialize: function() {},
+
+    getStoryUpliftSystem: function() {
+        return 'You are an expert Agile coach and Business Analyst specialising in ServiceNow implementations. Rewrite user stories using the INVEST framework (Independent, Negotiable, Valuable, Estimable, Small, Testable). Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getStoryUpliftUser: function(story, description, acceptanceCriteria) {
+        return 'Rewrite this user story using INVEST principles and Gherkin acceptance criteria.
+
+Story: ' + story + '
+Description: ' + description + '
+Acceptance Criteria: ' + acceptanceCriteria + '
+
+Return JSON: {"uplifted_story": "<html>INVEST-compliant story...</html>", "uplifted_acceptance_criteria": "<html><ul><li>Given/When/Then scenarios...</li></ul></html>"}';
+    },
+
+    getCodeGenSystem: function() {
+        return 'You are a ServiceNow platform expert. Generate production-ready ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Follow ServiceNow best practices and scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
+        return 'Generate ServiceNow code artifacts for this story.
+
+Story: ' + upliftedStory + '
+Acceptance Criteria: ' + acceptanceCriteria + '
+
+Return JSON: {"artifacts": [{"type": "Script Include|Business Rule|Client Script", "name": "ArtifactName", "code": "// full code here"}]}';
+    },
+
+    getUnitTestSystem: function() {
+        return 'You are a ServiceNow test automation expert. Generate Jasmine unit tests for ServiceNow Script Includes using the ATF server-side test framework. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getUnitTestUser: function(generatedCode) {
+        return 'Generate Jasmine unit tests for this ServiceNow code.
+
+Code:
+' + generatedCode + '
+
+Return JSON: {"unit_tests": "describe('Suite', function() { it('should...', function() { ... }); });"}';
+    },
+
+    getStakeholderTestSystem: function() {
+        return 'You are a QA expert. Generate clear, human-readable manual test steps for business stakeholders (non-technical). Steps should be actionable and verifiable. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getStakeholderTestUser: function(acceptanceCriteria) {
+        return 'Generate manual test steps for stakeholders based on these acceptance criteria.
+
+Acceptance Criteria: ' + acceptanceCriteria + '
+
+Return JSON: {"test_steps": "<html><ol><li><strong>Step 1:</strong> Navigate to...</li></ol></html>"}';
+    },
+
+    getATFStepSystem: function() {
+        return 'You are a ServiceNow ATF (Automated Test Framework) expert. Convert test steps into ATF step definitions. Valid step_type+action combos: form+open, form+submit, form+set_field, server+run_script, server+assert_record. Return ONLY valid JSON. No markdown code fences, no preamble.';
+    },
+
+    getATFStepUser: function(testSteps) {
+        return 'Convert these test steps into ServiceNow ATF step definitions.
+
+Test Steps: ' + testSteps + '
+
+Return JSON: {"steps": [{"step_type": "form", "action": "open", "table": "rm_story", "description": "Open story form"}, {"step_type": "server", "action": "run_script", "script": "// verification", "description": "Verify result"}]}';
+    },
+
+    type: 'PromptTemplates',
+};]]></script>
+    <sys_policy/>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>938a25c19a8e440fbf02c56feb7f972c</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_include_938a25c19a8e440fbf02c56feb7f972c</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>x_1676392_sdlc_a_0.ManifestHelper</api_name>
+    <caller_access/>
+    <client_callable>true</client_callable>
+    <description>AJAX processor for the AI Command Center dashboard</description>
+    <mobile_callable>false</mobile_callable>
+    <name>ManifestHelper</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script><![CDATA[var ManifestHelper = Class.create();
+ManifestHelper.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+    getManifestStatus: function() {
+        var storySysId = this.getParameter('sysparm_story_sys_id');
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        gr.addQuery('story', storySysId);
+        gr.setLimit(1);
+        gr.query();
+
+        if (!gr.next()) {
+            return JSON.stringify({ found: false });
+        }
+
+        return JSON.stringify({
+            found: true,
+            sys_id: gr.getUniqueValue(),
+            status: gr.getValue('orchestration_status'),
+            model: gr.getValue('llm_model_used'),
+            tokens: gr.getValue('tokens_consumed'),
+            has_uplift: !!gr.getValue('uplifted_story'),
+            has_code: !!gr.getValue('generated_code'),
+            has_tests: !!gr.getValue('generated_unit_tests'),
+            has_stakeholder_steps: !!gr.getValue('stakeholder_test_steps'),
+            has_atf: !!gr.getValue('atf_suite_sys_id'),
+        });
+    },
+
+    getDashboardStats: function() {
+        var statuses = ['pending', 'running', 'completed', 'partial', 'failed'];
+        var stats = { total: 0 };
+        for (var i = 0; i < statuses.length; i++) {
+            stats[statuses[i]] = 0;
+        }
+
+        var agg = new GlideAggregate('x_1676392_sdlc_a_0_story_manifest');
+        agg.addAggregate('COUNT', 'orchestration_status');
+        agg.groupBy('orchestration_status');
+        agg.query();
+
+        while (agg.next()) {
+            var status = agg.getValue('orchestration_status');
+            var count = parseInt(agg.getAggregate('COUNT', 'orchestration_status'));
+            if (stats.hasOwnProperty(status)) {
+                stats[status] = count;
+            }
+            stats.total += count;
+        }
+
+        return JSON.stringify(stats);
+    },
+
+    getRecentManifests: function() {
+        var limit = parseInt(this.getParameter('sysparm_limit') || '100');
+        var filterStatus = this.getParameter('sysparm_status') || '';
+
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        if (filterStatus) { gr.addQuery('orchestration_status', filterStatus); }
+        gr.orderByDesc('sys_updated_on');
+        gr.setLimit(limit);
+        gr.query();
+
+        var results = [];
+        while (gr.next()) {
+            results.push({
+                sys_id: gr.getUniqueValue(),
+                story_sys_id: gr.getValue('story'),
+                story_display: gr.getDisplayValue('story'),
+                status: gr.getValue('orchestration_status'),
+                model: gr.getValue('llm_model_used'),
+                tokens: gr.getValue('tokens_consumed') || 0,
+                last_run_by: gr.getDisplayValue('last_run_by'),
+                updated_on: gr.getValue('sys_updated_on'),
+                has_uplift: !!gr.getValue('uplifted_story'),
+                has_code: !!gr.getValue('generated_code'),
+                has_tests: !!gr.getValue('generated_unit_tests'),
+                has_stakeholder_steps: !!gr.getValue('stakeholder_test_steps'),
+                has_atf: !!gr.getValue('atf_suite_sys_id'),
+            });
+        }
+
+        return JSON.stringify(results);
+    },
+
+    type: 'ManifestHelper',
+});]]></script>
+    <sys_policy/>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>f392ad87b08f46e690f41c9d01ea8c43</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_script_include_f392ad87b08f46e690f41c9d01ea8c43</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>x_1676392_sdlc_a_0.AIOrchestrator</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>Main pipeline coordinator: uplift -&gt; code gen -&gt; tests -&gt; ATF</description>
+    <mobile_callable>false</mobile_callable>
+    <name>AIOrchestrator</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script><![CDATA[var AIOrchestrator = Class.create();
+AIOrchestrator.prototype = {
+    initialize: function(storyGR) {
+        this.storyGR = storyGR;
+        this.storyId = storyGR.getUniqueValue();
+        this.manifestGR = null;
+        this.llmClient = new x_1676392_sdlc_a_0.LLMAPIClient();
+        this.prompts = new x_1676392_sdlc_a_0.PromptTemplates();
+        this.debug = gs.getProperty('x_1676392_sdlc_a_0.debug_logging', 'false') === 'true';
+    },
+
+    upliftStory: function() {
+        this._ensureManifest();
+        this._setStatus('running');
+        this._log('Starting story uplift...');
+
+        try {
+            var story = this.storyGR.getDisplayValue('short_description') || '';
+            var description = this.storyGR.getValue('description') || '';
+            var acceptanceCriteria = this.storyGR.getValue('acceptance_criteria') || '';
+
+            var result = this.llmClient.sendMessage(
+                this.prompts.getStoryUpliftSystem(),
+                this.prompts.getStoryUpliftUser(story, description, acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Uplift failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('uplifted_story', parsed.uplifted_story || '');
+            this.manifestGR.setValue('uplifted_acceptance_criteria', parsed.uplifted_acceptance_criteria || '');
+            this.manifestGR.setValue('llm_model_used', result.model || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Story uplift completed successfully.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Uplift exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateCode: function() {
+        this._ensureManifest();
+        var upliftedStory = this.manifestGR.getValue('uplifted_story');
+        if (!upliftedStory) {
+            gs.addErrorMessage('Cannot generate code: run AI: Uplift Story first.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Starting code generation...');
+
+        try {
+            var acceptanceCriteria = this.manifestGR.getValue('uplifted_acceptance_criteria') || '';
+            var result = this.llmClient.sendMessage(
+                this.prompts.getCodeGenSystem(),
+                this.prompts.getCodeGenUser(upliftedStory, acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Code generation failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            var codeBlocks = '';
+            if (parsed.artifacts && parsed.artifacts.length > 0) {
+                for (var i = 0; i < parsed.artifacts.length; i++) {
+                    var art = parsed.artifacts[i];
+                    codeBlocks += '// === ' + art.type + ': ' + art.name + ' ===
+';
+                    codeBlocks += art.code + '
+
+';
+                }
+            }
+
+            this.manifestGR.setValue('generated_code', codeBlocks);
+            this.manifestGR.setValue('llm_model_used', result.model || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Code generation completed successfully.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Code generation exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateUnitTests: function() {
+        this._ensureManifest();
+        var generatedCode = this.manifestGR.getValue('generated_code');
+        if (!generatedCode) {
+            gs.addErrorMessage('Cannot generate unit tests: run AI: Generate Code first.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Starting unit test generation...');
+
+        try {
+            var result = this.llmClient.sendMessage(
+                this.prompts.getUnitTestSystem(),
+                this.prompts.getUnitTestUser(generatedCode)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Unit test generation failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('generated_unit_tests', parsed.unit_tests || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Unit test generation completed.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Unit test exception: ' + e.message);
+            return false;
+        }
+    },
+
+    generateStakeholderTestSteps: function() {
+        this._ensureManifest();
+        var acceptanceCriteria = this.manifestGR.getValue('uplifted_acceptance_criteria') ||
+                                  this.storyGR.getValue('acceptance_criteria') || '';
+
+        if (!acceptanceCriteria) {
+            gs.addErrorMessage('No acceptance criteria available for stakeholder test steps.');
+            return false;
+        }
+
+        this._setStatus('running');
+        this._log('Generating stakeholder test steps...');
+
+        try {
+            var result = this.llmClient.sendMessage(
+                this.prompts.getStakeholderTestSystem(),
+                this.prompts.getStakeholderTestUser(acceptanceCriteria)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('Stakeholder test steps failed: ' + result.error);
+                return false;
+            }
+
+            var parsed = JSON.parse(result.content);
+            this.manifestGR.setValue('stakeholder_test_steps', parsed.test_steps || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('Stakeholder test steps generated.');
+            return true;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('Stakeholder test steps exception: ' + e.message);
+            return false;
+        }
+    },
+
+    createATFRecords: function() {
+        this._ensureManifest();
+        this._setStatus('running');
+        this._log('Creating ATF records...');
+
+        try {
+            var testSteps = this.manifestGR.getValue('stakeholder_test_steps') || '';
+            var result = this.llmClient.sendMessage(
+                this.prompts.getATFStepSystem(),
+                this.prompts.getATFStepUser(testSteps)
+            );
+
+            if (result.error) {
+                this._setStatus('failed');
+                this._log('ATF step generation failed: ' + result.error);
+                return { suiteId: null, testId: null };
+            }
+
+            var parsed = JSON.parse(result.content);
+            var stepDefs = parsed.steps || [];
+
+            var builder = new x_1676392_sdlc_a_0.ATFBuilder();
+            var atfResult = builder.build(stepDefs);
+
+            if (atfResult.error) {
+                this._setStatus('failed');
+                this._log('ATF build failed: ' + atfResult.error);
+                return atfResult;
+            }
+
+            this.manifestGR.setValue('atf_suite_sys_id', atfResult.suiteId || '');
+            this.manifestGR.setValue('atf_test_sys_id', atfResult.testId || '');
+            this._addTokens(result.tokens);
+            this.manifestGR.update();
+
+            this._setStatus('completed');
+            this._log('ATF records created. Suite: ' + atfResult.suiteId + ', Test: ' + atfResult.testId);
+            return atfResult;
+        } catch (e) {
+            this._setStatus('failed');
+            this._log('ATF exception: ' + e.message);
+            return { suiteId: null, testId: null };
+        }
+    },
+
+    _ensureManifest: function() {
+        if (!this.manifestGR) {
+            this.manifestGR = this._getOrCreateManifest();
+        }
+    },
+
+    _getOrCreateManifest: function() {
+        var gr = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        gr.addQuery('story', this.storyId);
+        gr.setLimit(1);
+        gr.query();
+        if (gr.next()) { return gr; }
+
+        var newGR = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        newGR.initialize();
+        newGR.setValue('story', this.storyId);
+        newGR.setValue('orchestration_status', 'pending');
+        newGR.setValue('tokens_consumed', 0);
+        var newId = newGR.insert();
+
+        var fetch = new GlideRecord('x_1676392_sdlc_a_0_story_manifest');
+        fetch.get(newId);
+        return fetch;
+    },
+
+    _setStatus: function(status) {
+        if (!this.manifestGR) { return; }
+        this.manifestGR.setValue('orchestration_status', status);
+        this.manifestGR.setValue('last_run_by', gs.getUserID());
+        this.manifestGR.update();
+    },
+
+    _log: function(message) {
+        if (!this.manifestGR) { return; }
+        var existing = this.manifestGR.getValue('orchestration_log') || '';
+        var timestamp = new GlideDateTime().getDisplayValue();
+        var entry = '[' + timestamp + '] ' + message;
+        this.manifestGR.setValue('orchestration_log', existing ? existing + '
+' + entry : entry);
+        this.manifestGR.update();
+        if (this.debug) { gs.log(entry, 'SDLC AI Orchestrator'); }
+    },
+
+    _addTokens: function(newTokens) {
+        if (!newTokens) { return; }
+        var current = parseInt(this.manifestGR.getValue('tokens_consumed') || '0');
+        this.manifestGR.setValue('tokens_consumed', current + newTokens);
+    },
+
+    type: 'AIOrchestrator',
+};]]></script>
+    <sys_policy/>
+  </sys_script_include>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>1fe5d1fe831f4d1d83038566258fbaf3</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_ui_action_1fe5d1fe831f4d1d83038566258fbaf3</sys_update_name>
+    <action_name>ai_uplift_story</action_name>
+    <active>true</active>
+    <client/>
+    <client_script_v2/>
+    <comments/>
+    <condition>current.canWrite()</condition>
+    <form_button>false</form_button>
+    <form_button_v2>false</form_button_v2>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <form_menu_button_v2>false</form_menu_button_v2>
+    <form_style/>
+    <format_for_configurable_workspace>false</format_for_configurable_workspace>
+    <hint>Rewrite this story using INVEST principles and Gherkin acceptance criteria via AI</hint>
+    <isolate_script>false</isolate_script>
+    <list_banner_button>false</list_banner_button>
+    <list_button>false</list_button>
+    <list_choice>false</list_choice>
+    <list_context_menu>false</list_context_menu>
+    <list_link>false</list_link>
+    <list_save_with_form_button>false</list_save_with_form_button>
+    <list_style/>
+    <messages/>
+    <name>AI: Uplift Story</name>
+    <onclick/>
+    <order>200</order>
+    <overrides/>
+    <script><![CDATA[(function aiUpliftStory() {
+    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+    var success = orchestrator.upliftStory();
+    if (success) {
+        gs.addInfoMessage('Story uplifted successfully. View the Story Manifest for AI outputs.');
+    } else {
+        gs.addErrorMessage('Story uplift failed. Check the orchestration log in the Story Manifest.');
+    }
+    action.setRedirectURL(current);
+})();]]></script>
+    <show_insert>false</show_insert>
+    <show_multiple_update>false</show_multiple_update>
+    <show_query>false</show_query>
+    <show_update>true</show_update>
+    <table>rm_story</table>
+    <ui11_compatible>false</ui11_compatible>
+    <ui16_compatible/>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>8686ed4e1f404afc8432d20b9820f0fc</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_ui_action_8686ed4e1f404afc8432d20b9820f0fc</sys_update_name>
+    <action_name>ai_generate_code</action_name>
+    <active>true</active>
+    <client/>
+    <client_script_v2/>
+    <comments/>
+    <condition>current.canWrite()</condition>
+    <form_button>false</form_button>
+    <form_button_v2>false</form_button_v2>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <form_menu_button_v2>false</form_menu_button_v2>
+    <form_style/>
+    <format_for_configurable_workspace>false</format_for_configurable_workspace>
+    <hint>Generate ServiceNow code artifacts from the uplifted story via AI</hint>
+    <isolate_script>false</isolate_script>
+    <list_banner_button>false</list_banner_button>
+    <list_button>false</list_button>
+    <list_choice>false</list_choice>
+    <list_context_menu>false</list_context_menu>
+    <list_link>false</list_link>
+    <list_save_with_form_button>false</list_save_with_form_button>
+    <list_style/>
+    <messages/>
+    <name>AI: Generate Code</name>
+    <onclick/>
+    <order>201</order>
+    <overrides/>
+    <script><![CDATA[(function aiGenerateCode() {
+    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+    var success = orchestrator.generateCode();
+    if (success) {
+        gs.addInfoMessage('Code generated successfully. View the Story Manifest for generated artifacts.');
+    } else {
+        gs.addErrorMessage('Code generation failed. Ensure AI: Uplift Story has been run first.');
+    }
+    action.setRedirectURL(current);
+})();]]></script>
+    <show_insert>false</show_insert>
+    <show_multiple_update>false</show_multiple_update>
+    <show_query>false</show_query>
+    <show_update>true</show_update>
+    <table>rm_story</table>
+    <ui11_compatible>false</ui11_compatible>
+    <ui16_compatible/>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>ca7b4da0e345441ebf979ca2885cd743</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_ui_action_ca7b4da0e345441ebf979ca2885cd743</sys_update_name>
+    <action_name>ai_create_atf_records</action_name>
+    <active>true</active>
+    <client/>
+    <client_script_v2/>
+    <comments/>
+    <condition>current.canWrite()</condition>
+    <form_button>false</form_button>
+    <form_button_v2>false</form_button_v2>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <form_menu_button_v2>false</form_menu_button_v2>
+    <form_style/>
+    <format_for_configurable_workspace>false</format_for_configurable_workspace>
+    <hint>Create ATF Suite, Test and Steps from stakeholder test steps via AI</hint>
+    <isolate_script>false</isolate_script>
+    <list_banner_button>false</list_banner_button>
+    <list_button>false</list_button>
+    <list_choice>false</list_choice>
+    <list_context_menu>false</list_context_menu>
+    <list_link>false</list_link>
+    <list_save_with_form_button>false</list_save_with_form_button>
+    <list_style/>
+    <messages/>
+    <name>AI: Create ATF Records</name>
+    <onclick/>
+    <order>203</order>
+    <overrides/>
+    <script><![CDATA[(function aiCreateATFRecords() {
+    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+    var result = orchestrator.createATFRecords();
+    if (result.suiteId) {
+        gs.addInfoMessage(
+            'ATF records created. <a href="sys_atf_suite.do?sys_id=' + result.suiteId + '">View ATF Suite</a>'
+        );
+    } else {
+        gs.addErrorMessage('ATF record creation failed. Ensure AI: Generate Test Steps has been run first.');
+    }
+    action.setRedirectURL(current);
+})();]]></script>
+    <show_insert>false</show_insert>
+    <show_multiple_update>false</show_multiple_update>
+    <show_query>false</show_query>
+    <show_update>true</show_update>
+    <table>rm_story</table>
+    <ui11_compatible>false</ui11_compatible>
+    <ui16_compatible/>
+  </sys_ui_action>
+</record_update>
+
+<record_update table="sys_ui_action">
+  <sys_ui_action action="INSERT_OR_UPDATE">
+    <sys_id>f6d67c74e9194519aaa12676390de3a5</sys_id>
+    <sys_scope display_value="x_1676392_sdlc_a_0">e4c0cddd93e04310c7a5f3255d03d619</sys_scope>
+    <sys_update_name>sys_ui_action_f6d67c74e9194519aaa12676390de3a5</sys_update_name>
+    <action_name>ai_generate_test_steps</action_name>
+    <active>true</active>
+    <client/>
+    <client_script_v2/>
+    <comments/>
+    <condition>current.canWrite()</condition>
+    <form_button>false</form_button>
+    <form_button_v2>false</form_button_v2>
+    <form_context_menu>false</form_context_menu>
+    <form_link>true</form_link>
+    <form_menu_button_v2>false</form_menu_button_v2>
+    <form_style/>
+    <format_for_configurable_workspace>false</format_for_configurable_workspace>
+    <hint>Generate stakeholder test steps and Jasmine unit tests via AI</hint>
+    <isolate_script>false</isolate_script>
+    <list_banner_button>false</list_banner_button>
+    <list_button>false</list_button>
+    <list_choice>false</list_choice>
+    <list_context_menu>false</list_context_menu>
+    <list_link>false</list_link>
+    <list_save_with_form_button>false</list_save_with_form_button>
+    <list_style/>
+    <messages/>
+    <name>AI: Generate Test Steps</name>
+    <onclick/>
+    <order>202</order>
+    <overrides/>
+    <script><![CDATA[(function aiGenerateTestSteps() {
+    var orchestrator = new x_1676392_sdlc_a_0.AIOrchestrator(current);
+    orchestrator.generateStakeholderTestSteps();
+    orchestrator.generateUnitTests();
+    gs.addInfoMessage('Test steps and unit tests generated. View the Story Manifest.');
+    action.setRedirectURL(current);
+})();]]></script>
+    <show_insert>false</show_insert>
+    <show_multiple_update>false</show_multiple_update>
+    <show_query>false</show_query>
+    <show_update>true</show_update>
+    <table>rm_story</table>
+    <ui11_compatible>false</ui11_compatible>
+    <ui16_compatible/>
+  </sys_ui_action>
+</record_update>
+
+</unload>
