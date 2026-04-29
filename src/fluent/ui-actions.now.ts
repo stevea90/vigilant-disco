@@ -21,7 +21,6 @@ UiAction({
     } else {
         gs.addErrorMessage('Story uplift failed. Check the orchestration log in the Story Manifest.');
     }
-    action.setRedirectURL(current);
 })();`,
 })
 
@@ -45,7 +44,6 @@ UiAction({
     } else {
         gs.addErrorMessage('Code generation failed. Ensure AI: Uplift Story has been run first.');
     }
-    action.setRedirectURL(current);
 })();`,
 })
 
@@ -66,7 +64,6 @@ UiAction({
     orchestrator.generateStakeholderTestSteps();
     orchestrator.generateUnitTests();
     gs.addInfoMessage('Test steps and unit tests generated. View the Story Manifest.');
-    action.setRedirectURL(current);
 })();`,
 })
 
@@ -92,6 +89,5 @@ UiAction({
     } else {
         gs.addErrorMessage('ATF record creation failed. Ensure AI: Generate Test Steps has been run first.');
     }
-    action.setRedirectURL(current);
 })();`,
 })
