@@ -11,10 +11,15 @@ const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const PORT = process.env.PORT || 3000;
 
-// SSE client registry — each open browser tab registers here
+if (!ELEVENLABS_API_KEY) {
+  console.error('ERROR: ELEVENLABS_API_KEY is not set. Copy .env.example to .env and add your key.');
+  process.exit(1);
+}
+
+// SSE clients — each open browser tab
 let sseClients = [];
 
-// ── SSE stream (browser connects once, stays open) ───────────────────────────
+// ── SSE stream ────────────────────────────────────────────────────────────────
 app.get('/events', (req, res) => {
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
@@ -22,10 +27,9 @@ app.get('/events', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.flushHeaders();
 
-  // Heartbeat keeps the connection alive through mobile proxies
   const heartbeat = setInterval(() => res.write(': ping\n\n'), 25000);
-
   sseClients.push(res);
+
   req.on('close', () => {
     clearInterval(heartbeat);
     sseClients = sseClients.filter(c => c !== res);
@@ -37,41 +41,32 @@ function broadcast(event, payload) {
   sseClients.forEach(c => c.write(msg));
 }
 
-// ── TTS endpoint ──────────────────────────────────────────────────────────────
+// ── /speak — buffered (full audio, then plays) ────────────────────────────────
+// Good for short responses. Lower complexity.
 app.post('/speak', async (req, res) => {
   const { text, source } = req.body;
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
 
   const cleaned = sanitiseForVoice(text);
-  if (!cleaned) return res.json({ skipped: true, reason: 'nothing speakable after cleanup' });
+  if (!cleaned) return res.json({ skipped: true });
 
   try {
     const response = await axios.post(
       `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
       {
         text: cleaned,
-        model_id: 'eleven_turbo_v2_5',        // fastest model, low latency
-        voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.2 }
+        model_id: 'eleven_flash_v2_5',   // fastest model ~75ms latency
+        voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 }
       },
       {
-        headers: {
-          'xi-api-key': ELEVENLABS_API_KEY,
-          'Content-Type': 'application/json',
-          Accept: 'audio/mpeg'
-        },
+        headers: { 'xi-api-key': ELEVENLABS_API_KEY, Accept: 'audio/mpeg' },
         responseType: 'arraybuffer',
-        timeout: 15000
+        timeout: 20000
       }
     );
 
-    const audioBase64 = Buffer.from(response.data).toString('base64');
-    broadcast('speak', {
-      audio: `data:audio/mpeg;base64,${audioBase64}`,
-      text: cleaned,
-      source: source || 'manual',
-      ts: Date.now()
-    });
-
+    const audio = `data:audio/mpeg;base64,${Buffer.from(response.data).toString('base64')}`;
+    broadcast('speak', { audio, text: cleaned, source: source || 'api', ts: Date.now() });
     res.json({ ok: true, chars: cleaned.length, clients: sseClients.length });
   } catch (err) {
     const detail = err.response?.data
@@ -82,31 +77,93 @@ app.post('/speak', async (req, res) => {
   }
 });
 
-// ── Status endpoint (health check / debug) ────────────────────────────────────
+// ── /speak-stream — streaming (audio chunks arrive as they're generated) ──────
+// Noticeably faster first-sound latency. The browser stitches chunks together.
+// ElevenLabs streams MP3 chunks; we forward them as base64 SSE events.
+app.post('/speak-stream', async (req, res) => {
+  const { text, source } = req.body;
+  if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
+
+  const cleaned = sanitiseForVoice(text);
+  if (!cleaned) return res.json({ skipped: true });
+
+  // Tell the browser a stream is starting
+  broadcast('stream-start', { text: cleaned, ts: Date.now() });
+
+  res.json({ ok: true, chars: cleaned.length }); // respond to hook immediately
+
+  try {
+    const response = await axios.post(
+      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}/stream`,
+      {
+        text: cleaned,
+        model_id: 'eleven_flash_v2_5',
+        voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 },
+        // Optimise for latency: send audio as soon as the first chunk is ready
+        optimize_streaming_latency: 4
+      },
+      {
+        headers: { 'xi-api-key': ELEVENLABS_API_KEY, Accept: 'audio/mpeg' },
+        responseType: 'stream',
+        timeout: 30000
+      }
+    );
+
+    const chunks = [];
+    response.data.on('data', chunk => {
+      chunks.push(chunk);
+      // Broadcast each chunk so the browser can start buffering immediately
+      broadcast('stream-chunk', {
+        chunk: chunk.toString('base64'),
+        ts: Date.now()
+      });
+    });
+
+    response.data.on('end', () => {
+      const full = Buffer.concat(chunks);
+      broadcast('stream-end', {
+        audio: `data:audio/mpeg;base64,${full.toString('base64')}`,
+        ts: Date.now()
+      });
+    });
+
+    response.data.on('error', err => {
+      console.error('[stream error]', err.message);
+      broadcast('stream-error', { error: err.message });
+    });
+  } catch (err) {
+    console.error('[speak-stream error]', err.message);
+    broadcast('stream-error', { error: err.message });
+  }
+});
+
+// ── /status ───────────────────────────────────────────────────────────────────
 app.get('/status', (req, res) => {
-  res.json({ ok: true, clients: sseClients.length, voiceId: VOICE_ID });
+  res.json({ ok: true, clients: sseClients.length, voiceId: VOICE_ID, port: PORT });
 });
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-// Strip markdown so the TTS reads clean prose, not symbols
 function sanitiseForVoice(text) {
   return text
-    .replace(/```[\s\S]*?```/g, 'code block')  // fenced code → label
-    .replace(/`[^`]+`/g, '')                   // inline code → silence
-    .replace(/#{1,6}\s/g, '')                  // headings
-    .replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1')  // bold/italic
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')  // links → anchor text
-    .replace(/^\s*[-*+]\s/gm, '')             // bullets
-    .replace(/^\s*\d+\.\s/gm, '')            // numbered lists
-    .replace(/\n{2,}/g, '. ')               // paragraph breaks → pause
+    .replace(/```[\s\S]*?```/g, 'code block')
+    .replace(/`[^`]+`/g, '')
+    .replace(/#{1,6}\s/g, '')
+    .replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/^\s*[-*+]\s/gm, '')
+    .replace(/^\s*\d+\.\s/gm, '')
+    .replace(/\n{2,}/g, '. ')
     .replace(/\n/g, ' ')
     .trim()
-    .slice(0, 600);                         // cap length — keep voice snappy
+    .slice(0, 600);
 }
 
 app.listen(PORT, () => {
-  console.log(`Voice assistant running → http://localhost:${PORT}`);
-  console.log(`SSE endpoint            → http://localhost:${PORT}/events`);
-  console.log(`TTS endpoint            → POST http://localhost:${PORT}/speak`);
+  console.log('');
+  console.log('  Claude Voice Assistant');
+  console.log(`  Local:   http://localhost:${PORT}`);
+  console.log(`  Status:  http://localhost:${PORT}/status`);
+  console.log('');
+  console.log('  Waiting for Claude Code hook to fire...');
+  console.log('');
 });

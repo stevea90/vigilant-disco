@@ -1,67 +1,118 @@
-# Claude Voice Assistant
+# Jarvis — Claude Voice Assistant
 
-Voice playback layer for Claude Code. Claude speaks its responses back to you automatically.
+Claude speaks its responses back to you automatically via ElevenLabs TTS.
 
-## Quickstart (15 minutes)
+---
 
-### 1. Install & configure
+## Laptop quickstart (one-time setup, ~15 min)
+
+### Prerequisites
+- Node.js 18+ installed on your laptop
+- A free [ElevenLabs](https://elevenlabs.io) account (10k chars/month free)
+- Claude Code CLI installed on your laptop
+
+### Step 1 — Clone and run setup
+
+```bash
+git clone https://github.com/stevea90/vigilant-disco
+cd vigilant-disco
+bash voice-assistant/setup.sh
+```
+
+Setup will:
+- Install npm dependencies
+- Create your `.env` file
+- Write the correct absolute path into `.claude/settings.json`
+
+### Step 2 — Add your ElevenLabs API key
+
+Open `voice-assistant/.env` and paste your key:
+```
+ELEVENLABS_API_KEY=sk_...your_key_here...
+```
+
+### Step 3 — Start the voice server
 
 ```bash
 cd voice-assistant
-npm install
-cp .env.example .env
-# Edit .env — add your ElevenLabs API key
-```
-
-Get a free ElevenLabs key at https://elevenlabs.io (10,000 chars/month free).
-
-### 2. Start the server
-
-```bash
 npm start
-# → Voice assistant running on http://localhost:3000
 ```
 
-### 3. Expose to your phone
+You should see:
+```
+  Claude Voice Assistant
+  Local:   http://localhost:3000
+  Status:  http://localhost:3000/status
+```
+
+### Step 4 — Expose it to your phone
+
+Open a second terminal:
+```bash
+npx ngrok http 3000
+```
+
+Copy the `https://....ngrok-free.app` URL it gives you.
+
+### Step 5 — Open the player on your phone
+
+Open the ngrok URL in Chrome on your Android phone.
+Add it to your home screen: browser menu → **Add to Home Screen**.
+
+### Step 6 — Use Claude Code CLI on your laptop
 
 ```bash
-# Option A: ngrok (easiest)
+claude
+```
+
+Ask Claude anything. When it finishes responding, the Stop hook fires automatically and your phone speaks the response.
+
+**That's it.** The loop is:
+```
+You type/speak → Claude responds → Hook fires → ElevenLabs → 🔊 Phone speaks
+```
+
+---
+
+## Daily use (once it's set up)
+
+```bash
+# Terminal 1 — voice server (keep running)
+cd vigilant-disco/voice-assistant && npm start
+
+# Terminal 2 — expose to phone (keep running)
 npx ngrok http 3000
-# Copy the https URL, open it in your mobile browser
 
-# Option B: same WiFi network
-# Open http://<your-laptop-ip>:3000 on your phone
+# Terminal 3 — Claude Code
+claude
 ```
 
-### 4. Register the Claude Code hook
+Add the ngrok URL to your phone home screen once and it works every session (note: free ngrok URLs change each time you restart ngrok — upgrade to ngrok free account to get a fixed subdomain).
 
-The `.claude/settings.json` is already configured. Update the path if your
-repo lives somewhere other than `/home/user/vigilant-disco`:
+---
 
-```json
-{
-  "hooks": {
-    "Stop": [{
-      "matcher": "",
-      "hooks": [{
-        "type": "command",
-        "command": "node /path/to/voice-assistant/speak-hook.js"
-      }]
-    }]
-  }
-}
-```
+## Test without Claude Code
 
-### 5. Test it
-
-Keep the browser tab open on your phone. Ask Claude anything. It speaks back.
-
-To test the endpoint directly:
 ```bash
 curl -X POST http://localhost:3000/speak \
   -H "Content-Type: application/json" \
-  -d '{"text": "Hello, your voice assistant is working."}'
+  -d '{"text": "Jarvis online. Ready when you are."}'
 ```
+
+You should hear audio on your phone immediately.
+
+---
+
+## Jarvis evolution roadmap
+
+| Phase | What to add | Effort |
+|-------|------------|--------|
+| **Now** | Auto TTS after each Claude response | Done |
+| **2** | Streaming TTS — audio starts mid-response, lower latency | Done (use `/speak-stream`) |
+| **3** | Wake word in browser — say "Hey Claude" to replay/interrupt | ~2 hr |
+| **4** | Real-time voice loop — mic → Whisper → Claude API streaming → TTS | ~1 day |
+| **5** | Interruption — VAD detects you speaking and stops playback | +half day |
+| **6** | Avatar — D-ID or HeyGen animated face layer | ~1 day |
 
 ---
 
@@ -69,35 +120,36 @@ curl -X POST http://localhost:3000/speak \
 
 | File | Purpose |
 |------|---------|
-| `server.js` | Express server — TTS + SSE broadcast |
-| `speak-hook.js` | Claude Code Stop hook — reads transcript, triggers TTS |
-| `public/index.html` | Mobile web player with history + mute/replay |
-| `mcp-voice-bridge.js` | Spoken confirmations for GitHub/ServiceNow MCP actions |
-| `.env.example` | Environment variable template |
-
----
-
-## Voice Commands → Actions (with MCP)
-
-| Say | Claude does |
-|-----|-------------|
-| "Commit my changes with message: fix login" | git commit + push, speaks confirmation |
-| "Open a pull request for this branch" | Creates PR via GitHub MCP, speaks PR number |
-| "Create a ServiceNow ticket for the login bug" | Creates INC ticket, speaks ticket number |
-| "Deploy version 2 to production" | Triggers SN deployment, speaks result |
-| "What did you just do?" | Replays last spoken response |
-
----
-
-## Evolution Path
-
-- **Now**: Text → ElevenLabs → SSE → Mobile browser
-- **Next**: Add wake word detection (say "Hey Claude" to interrupt)
-- **Later**: WebRTC for real-time bidirectional voice
-- **Avatar**: Add D-ID or HeyGen for animated face layer
+| `voice-assistant/server.js` | Express server — TTS + SSE broadcast to browser |
+| `voice-assistant/speak-hook.js` | Claude Code Stop hook — reads transcript, calls server |
+| `voice-assistant/public/index.html` | Jarvis mobile web player |
+| `voice-assistant/mcp-voice-bridge.js` | Spoken confirmations for GitHub/ServiceNow MCP actions |
+| `voice-assistant/setup.sh` | One-time setup script |
+| `.claude/settings.json` | Auto-generated by setup.sh — registers the Stop hook |
 
 ---
 
 ## Architecture
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for a full diagram.
+```
+Claude Code CLI (laptop)
+        │
+        │ Stop hook fires
+        ▼
+  speak-hook.js
+        │
+        │ POST /speak
+        ▼
+  server.js (Node/Express)
+        │
+        │ ElevenLabs API
+        ▼
+  MP3 audio
+        │
+        │ SSE broadcast
+        ▼
+  Mobile browser (index.html)
+        │
+        ▼
+  🔊 Audio plays
+```
