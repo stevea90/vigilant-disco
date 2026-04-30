@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /home/user/vigilant-disco/voice-assistant/speak-hook.js"
+          }
+        ]
+      }
+    ]
+  }
+}
