@@ -196,8 +196,11 @@ ATFBuilder.prototype = {
     initialize: function() {},
 
     build: function(stepDefs) {
-        if (!GlidePluginManager.isActive('com.snc.test_management2')) {
-            return { suiteId: null, testId: null, error: 'ATF plugin (com.snc.test_management2) is not active on this instance' };
+        var atfActive = GlidePluginManager.isActive('com.snc.test_management2') ||
+                        GlidePluginManager.isActive('com.snc.test_management.2.0') ||
+                        GlidePluginManager.isActive('com.snc.test_management.2.0.atf');
+        if (!atfActive) {
+            return { suiteId: null, testId: null, error: 'ATF plugin is not active on this instance' };
         }
 
         var suiteId = this._createSuite();

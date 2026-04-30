@@ -435,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:6f1fc433-3311-4ae0-9858-7cf5fc1b2c25",
+  "serialNumber": "urn:uuid:12d94f81-5dd4-45e2-940f-8f8bcf926f35",
   "metadata": {
-    "timestamp": "2026-04-30T09:41:48.120Z",
+    "timestamp": "2026-04-30T10:07:13.056Z",
     "tools": {
       "components": [
         {
@@ -1706,8 +1706,11 @@ ATFBuilder.prototype = {
     initialize: function() {},
 
     build: function(stepDefs) {
-        if (!GlidePluginManager.isActive('com.snc.test_management2')) {
-            return { suiteId: null, testId: null, error: 'ATF plugin (com.snc.test_management2) is not active on this instance' };
+        var atfActive = GlidePluginManager.isActive('com.snc.test_management2') ||
+                        GlidePluginManager.isActive('com.snc.test_management.2.0') ||
+                        GlidePluginManager.isActive('com.snc.test_management.2.0.atf');
+        if (!atfActive) {
+            return { suiteId: null, testId: null, error: 'ATF plugin is not active on this instance' };
         }
 
         var suiteId = this._createSuite();
