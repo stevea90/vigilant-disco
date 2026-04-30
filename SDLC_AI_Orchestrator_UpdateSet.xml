@@ -435,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:3dbe1167-8cc8-433b-af27-21b0fcb40c8a",
+  "serialNumber": "urn:uuid:bb8f6265-bbe0-417d-89bd-9635d2d756cf",
   "metadata": {
-    "timestamp": "2026-04-30T08:37:59.438Z",
+    "timestamp": "2026-04-30T08:48:56.824Z",
     "tools": {
       "components": [
         {
@@ -1299,7 +1299,7 @@ AIOrchestrator.prototype = {
     &lt;read_roles/&gt;
     &lt;suffix&gt;llm_max_tokens&lt;/suffix&gt;
     &lt;type&gt;integer&lt;/type&gt;
-    &lt;value&gt;4000&lt;/value&gt;
+    &lt;value&gt;16000&lt;/value&gt;
     &lt;write_roles/&gt;
   &lt;/sys_properties&gt;
 &lt;/record_update&gt;</payload>
@@ -1872,6 +1872,9 @@ LLMAPIClient.prototype = {
         }
 
         var parsed = JSON.parse(body);
+        if (parsed.stop_reason === 'max_tokens') {
+            return { content: null, model: parsed.model, tokens: 0, error: 'Response truncated: max_tokens limit reached. Increase x_1676392_sdlc_a_0.llm_max_tokens (current: ' + this.maxTokens + ').' };
+        }
         var content = this._stripMarkdownFences(parsed.content[0].text);
         return {
             content: content,
@@ -1908,6 +1911,9 @@ LLMAPIClient.prototype = {
         }
 
         var parsed = JSON.parse(body);
+        if (parsed.choices[0].finish_reason === 'length') {
+            return { content: null, model: parsed.model, tokens: 0, error: 'Response truncated: max_tokens limit reached. Increase x_1676392_sdlc_a_0.llm_max_tokens (current: ' + this.maxTokens + ').' };
+        }
         var content = this._stripMarkdownFences(parsed.choices[0].message.content);
         return {
             content: content,

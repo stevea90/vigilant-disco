@@ -110,6 +110,9 @@ LLMAPIClient.prototype = {
         }
 
         var parsed = JSON.parse(body);
+        if (parsed.stop_reason === 'max_tokens') {
+            return { content: null, model: parsed.model, tokens: 0, error: 'Response truncated: max_tokens limit reached. Increase x_1676392_sdlc_a_0.llm_max_tokens (current: ' + this.maxTokens + ').' };
+        }
         var content = this._stripMarkdownFences(parsed.content[0].text);
         return {
             content: content,
@@ -146,6 +149,9 @@ LLMAPIClient.prototype = {
         }
 
         var parsed = JSON.parse(body);
+        if (parsed.choices[0].finish_reason === 'length') {
+            return { content: null, model: parsed.model, tokens: 0, error: 'Response truncated: max_tokens limit reached. Increase x_1676392_sdlc_a_0.llm_max_tokens (current: ' + this.maxTokens + ').' };
+        }
         var content = this._stripMarkdownFences(parsed.choices[0].message.content);
         return {
             content: content,

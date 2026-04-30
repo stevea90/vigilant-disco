@@ -44,7 +44,7 @@ Property({
 Property({
     $id: Now.ID['prop_llm_max_tokens'],
     name: 'x_1676392_sdlc_a_0.llm_max_tokens',
-    value: '4000',
+    value: '16000',
     type: 'integer',
     description: 'Maximum tokens to request per LLM call',
 })
