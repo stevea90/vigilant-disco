@@ -1,17 +1,36 @@
 # Jarvis — Claude Voice Assistant
 
-Claude speaks its responses back to you automatically via ElevenLabs TTS.
+Claude Code speaks its responses through your laptop speakers automatically.
 
 ---
 
-## Laptop quickstart (one-time setup, ~15 min)
+## How it works
 
-### Prerequisites
-- Node.js 18+ installed on your laptop
-- A free [ElevenLabs](https://elevenlabs.io) account (10k chars/month free)
-- Claude Code CLI installed on your laptop
+```
+You type → Claude Code CLI responds → Stop hook fires → ElevenLabs TTS → 🔊 Laptop speakers
+```
 
-### Step 1 — Clone and run setup
+No phone. No browser. No ngrok. Just your laptop.
+
+---
+
+## Setup (one time, ~10 min)
+
+### 1. Prerequisites
+
+Install a system audio player if you don't have one:
+
+```bash
+# macOS — nothing needed, afplay is built in
+
+# Ubuntu / Debian
+sudo apt install mpg123
+
+# Arch
+sudo pacman -S mpg123
+```
+
+### 2. Clone and run setup
 
 ```bash
 git clone https://github.com/stevea90/vigilant-disco
@@ -19,79 +38,40 @@ cd vigilant-disco
 bash voice-assistant/setup.sh
 ```
 
-Setup will:
-- Install npm dependencies
-- Create your `.env` file
-- Write the correct absolute path into `.claude/settings.json`
+### 3. Add your ElevenLabs API key
 
-### Step 2 — Add your ElevenLabs API key
-
-Open `voice-assistant/.env` and paste your key:
+Open `voice-assistant/.env`:
 ```
 ELEVENLABS_API_KEY=sk_...your_key_here...
 ```
 
-### Step 3 — Start the voice server
+Get a free key at [elevenlabs.io](https://elevenlabs.io) — 10k chars/month is plenty.
+
+### 4. Start the voice server
 
 ```bash
 cd voice-assistant
 npm start
 ```
 
-You should see:
+You'll see:
 ```
-  Claude Voice Assistant
-  Local:   http://localhost:3000
-  Status:  http://localhost:3000/status
+  Jarvis is ready.
+  Listening on http://localhost:3000
 ```
 
-### Step 4 — Expose it to your phone
+### 5. Use Claude Code CLI
 
 Open a second terminal:
 ```bash
-npx ngrok http 3000
-```
-
-Copy the `https://....ngrok-free.app` URL it gives you.
-
-### Step 5 — Open the player on your phone
-
-Open the ngrok URL in Chrome on your Android phone.
-Add it to your home screen: browser menu → **Add to Home Screen**.
-
-### Step 6 — Use Claude Code CLI on your laptop
-
-```bash
 claude
 ```
 
-Ask Claude anything. When it finishes responding, the Stop hook fires automatically and your phone speaks the response.
-
-**That's it.** The loop is:
-```
-You type/speak → Claude responds → Hook fires → ElevenLabs → 🔊 Phone speaks
-```
+Ask Claude anything. When it finishes, audio plays through your speakers automatically.
 
 ---
 
-## Daily use (once it's set up)
-
-```bash
-# Terminal 1 — voice server (keep running)
-cd vigilant-disco/voice-assistant && npm start
-
-# Terminal 2 — expose to phone (keep running)
-npx ngrok http 3000
-
-# Terminal 3 — Claude Code
-claude
-```
-
-Add the ngrok URL to your phone home screen once and it works every session (note: free ngrok URLs change each time you restart ngrok — upgrade to ngrok free account to get a fixed subdomain).
-
----
-
-## Test without Claude Code
+## Test it without Claude Code
 
 ```bash
 curl -X POST http://localhost:3000/speak \
@@ -99,20 +79,33 @@ curl -X POST http://localhost:3000/speak \
   -d '{"text": "Jarvis online. Ready when you are."}'
 ```
 
-You should hear audio on your phone immediately.
+---
+
+## Daily use
+
+Two terminals. That's it.
+
+```
+Terminal 1:  cd vigilant-disco/voice-assistant && npm start
+Terminal 2:  claude
+```
 
 ---
 
 ## Jarvis evolution roadmap
 
-| Phase | What to add | Effort |
-|-------|------------|--------|
-| **Now** | Auto TTS after each Claude response | Done |
-| **2** | Streaming TTS — audio starts mid-response, lower latency | Done (use `/speak-stream`) |
-| **3** | Wake word in browser — say "Hey Claude" to replay/interrupt | ~2 hr |
-| **4** | Real-time voice loop — mic → Whisper → Claude API streaming → TTS | ~1 day |
-| **5** | Interruption — VAD detects you speaking and stops playback | +half day |
-| **6** | Avatar — D-ID or HeyGen animated face layer | ~1 day |
+All on the laptop, end to end.
+
+| Phase | Feature | What to add |
+|-------|---------|-------------|
+| **Now** | Auto TTS after each response | Done |
+| **2** | Faster response — stream audio as Claude types | ElevenLabs streaming + pipe to `mpg123 -` |
+| **3** | Wake word — say "Hey Jarvis" to trigger | `porcupine` wake word library |
+| **4** | Full voice loop — mic → Whisper → Claude API → TTS | `node-microphone` + OpenAI Whisper + Claude streaming API |
+| **5** | Interruption — speak to stop Jarvis mid-sentence | VAD (voice activity detection) kills playback |
+| **6** | Persistent memory — Jarvis remembers context between sessions | Summarise + store in local file |
+
+Phase 4 is the real Jarvis moment — continuous voice conversation, no typing needed.
 
 ---
 
@@ -120,36 +113,8 @@ You should hear audio on your phone immediately.
 
 | File | Purpose |
 |------|---------|
-| `voice-assistant/server.js` | Express server — TTS + SSE broadcast to browser |
-| `voice-assistant/speak-hook.js` | Claude Code Stop hook — reads transcript, calls server |
-| `voice-assistant/public/index.html` | Jarvis mobile web player |
-| `voice-assistant/mcp-voice-bridge.js` | Spoken confirmations for GitHub/ServiceNow MCP actions |
-| `voice-assistant/setup.sh` | One-time setup script |
-| `.claude/settings.json` | Auto-generated by setup.sh — registers the Stop hook |
-
----
-
-## Architecture
-
-```
-Claude Code CLI (laptop)
-        │
-        │ Stop hook fires
-        ▼
-  speak-hook.js
-        │
-        │ POST /speak
-        ▼
-  server.js (Node/Express)
-        │
-        │ ElevenLabs API
-        ▼
-  MP3 audio
-        │
-        │ SSE broadcast
-        ▼
-  Mobile browser (index.html)
-        │
-        ▼
-  🔊 Audio plays
-```
+| `voice-assistant/server.js` | Express server — calls ElevenLabs, plays audio locally |
+| `voice-assistant/speak-hook.js` | Claude Code Stop hook — sends transcript to server |
+| `voice-assistant/setup.sh` | One-time setup — installs deps, writes hook path |
+| `voice-assistant/public/index.html` | Optional browser status/test page at localhost:3000 |
+| `.claude/settings.json` | Auto-generated by setup.sh |

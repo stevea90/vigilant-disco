@@ -2,370 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Jarvis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarvis — Status</title>
   <style>
-    :root {
-      --bg: #080810;
-      --surface: #12121e;
-      --border: #1e1e30;
-      --accent: #6d28d9;
-      --accent-hi: #8b5cf6;
-      --glow: #6d28d944;
-      --text: #e2e2f0;
-      --muted: #6060a0;
-      --green: #22c55e;
-      --amber: #f59e0b;
-      --red: #ef4444;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-    html, body {
-      height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      overflow: hidden;
-    }
-
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: 48px 24px 36px;
-      gap: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+      background: #0d0d0d; color: #ccc;
+      max-width: 480px; margin: 60px auto; padding: 0 20px;
     }
-
-    /* ── Header ─────────────────────────────────────────────────── */
-    header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    h1 { color: #8b5cf6; font-size: 20px; margin-bottom: 4px; }
+    p  { color: #555; font-size: 13px; margin-bottom: 32px; }
+    .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #1a1a1a; font-size: 14px; }
+    .label { color: #666; }
+    .value { color: #e2e2e2; }
+    .ok    { color: #22c55e; }
+    .busy  { color: #f59e0b; }
+    textarea {
+      width: 100%; margin-top: 32px; padding: 12px; border-radius: 8px;
+      background: #111; border: 1px solid #222; color: #e2e2e2;
+      font-size: 14px; resize: vertical; min-height: 80px;
     }
-
-    .wordmark { font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
-
-    .conn-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 4px 10px;
+    button {
+      margin-top: 10px; padding: 10px 24px; border-radius: 6px;
+      background: #6d28d9; border: none; color: white;
+      font-size: 14px; cursor: pointer;
     }
-    .conn-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--muted);
-      transition: background 0.4s, box-shadow 0.4s;
-    }
-    .conn-dot.live  { background: var(--green); box-shadow: 0 0 6px var(--green); }
-    .conn-dot.busy  { background: var(--amber); box-shadow: 0 0 6px var(--amber); animation: throb 0.7s infinite; }
-    .conn-dot.error { background: var(--red); }
-
-    /* ── Orb ────────────────────────────────────────────────────── */
-    .orb-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-    }
-
-    .orb-ring {
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-
-    /* Rotating gradient ring — only visible while speaking */
-    .orb-ring::before {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 50%;
-      background: conic-gradient(var(--accent-hi), transparent 60%, var(--accent-hi));
-      opacity: 0;
-      transition: opacity 0.4s;
-      animation: spin 2s linear infinite;
-    }
-    .orb-ring.speaking::before { opacity: 1; }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes throb { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
-
-    .orb {
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 38% 32%, #a78bfa, var(--accent) 55%, #2d1260);
-      box-shadow: 0 0 60px var(--glow), inset 0 0 40px #00000040;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.4s;
-      user-select: none;
-      position: relative;
-      z-index: 1;
-    }
-
-    .orb:active { transform: scale(0.96); }
-
-    .orb.speaking {
-      animation: orbBreath 1.4s ease-in-out infinite alternate;
-      box-shadow: 0 0 80px #7c3aed66, inset 0 0 40px #00000040;
-    }
-
-    @keyframes orbBreath {
-      from { transform: scale(1); }
-      to   { transform: scale(1.06); }
-    }
-
-    /* Sound wave bars inside orb */
-    .wave {
-      display: flex; gap: 5px; align-items: center;
-    }
-    .wave span {
-      width: 4px;
-      border-radius: 2px;
-      background: rgba(255,255,255,0.85);
-      height: 12px;
-      transition: height 0.2s;
-    }
-    .orb.speaking .wave span:nth-child(1) { animation: bar 0.8s ease-in-out infinite alternate; }
-    .orb.speaking .wave span:nth-child(2) { animation: bar 0.6s ease-in-out 0.1s infinite alternate; }
-    .orb.speaking .wave span:nth-child(3) { animation: bar 0.9s ease-in-out 0.05s infinite alternate; }
-    .orb.speaking .wave span:nth-child(4) { animation: bar 0.7s ease-in-out 0.15s infinite alternate; }
-    .orb.speaking .wave span:nth-child(5) { animation: bar 0.85s ease-in-out infinite alternate; }
-
-    @keyframes bar {
-      from { height: 8px; }
-      to   { height: 36px; }
-    }
-
-    .state-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ── Transcript ──────────────────────────────────────────────── */
-    .transcript-wrap {
-      width: 100%;
-      max-width: 360px;
-    }
-
-    .transcript {
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--text);
-      text-align: center;
-      min-height: 60px;
-      opacity: 0.85;
-      /* Fade in when text changes */
-      transition: opacity 0.3s;
-    }
-    .transcript.updating { opacity: 0; }
-
-    /* ── Controls ────────────────────────────────────────────────── */
-    .controls {
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      padding: 11px 22px;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-      letter-spacing: 0.3px;
-    }
-    .btn:hover { color: var(--text); border-color: var(--accent); }
-    .btn:active { background: #1e1e2e; }
-    .btn.active { color: var(--red); border-color: var(--red); }
-
-    audio { display: none; }
+    button:hover { background: #7c3aed; }
+    #result { margin-top: 12px; font-size: 13px; color: #555; }
   </style>
 </head>
 <body>
+  <h1>Jarvis</h1>
+  <p>Voice assistant status — audio plays through laptop speakers.</p>
 
-  <header>
-    <span class="wordmark">Jarvis</span>
-    <div class="conn-pill">
-      <div class="conn-dot" id="connDot"></div>
-      <span id="connLabel">Connecting</span>
-    </div>
-  </header>
-
-  <div class="orb-area">
-    <div class="orb-ring" id="orbRing">
-      <div class="orb" id="orb">
-        <div class="wave">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
-    <p class="state-label" id="stateLabel">Waiting for Claude</p>
+  <div id="rows">
+    <div class="row"><span class="label">Server</span><span class="value" id="srvStatus">checking…</span></div>
+    <div class="row"><span class="label">Voice ID</span><span class="value" id="voiceId">—</span></div>
+    <div class="row"><span class="label">Playing</span><span class="value" id="playing">—</span></div>
   </div>
 
-  <div class="transcript-wrap">
-    <p class="transcript" id="transcript">—</p>
-  </div>
-
-  <div class="controls">
-    <button class="btn" id="muteBtn">Mute</button>
-    <button class="btn" id="replayBtn" disabled>Replay</button>
-  </div>
-
-  <audio id="player"></audio>
+  <textarea id="txt" placeholder="Type something to test the voice…"></textarea>
+  <br>
+  <button onclick="speak()">Speak</button>
+  <p id="result"></p>
 
   <script>
-    const connDot   = document.getElementById('connDot');
-    const connLabel = document.getElementById('connLabel');
-    const orb       = document.getElementById('orb');
-    const orbRing   = document.getElementById('orbRing');
-    const stateLabel= document.getElementById('stateLabel');
-    const transcript= document.getElementById('transcript');
-    const player    = document.getElementById('player');
-    const muteBtn   = document.getElementById('muteBtn');
-    const replayBtn = document.getElementById('replayBtn');
-
-    let muted = false;
-    let lastAudio = null;
-    // Accumulate streaming chunks for replay
-    let streamChunks = [];
-
-    // ── State helpers ─────────────────────────────────────────────────────────
-    function setState(state) {
-      const states = {
-        idle: {
-          dot: 'live', conn: 'Connected',
-          orb: false, label: 'Waiting for Claude'
-        },
-        buffering: {
-          dot: 'busy', conn: 'Receiving',
-          orb: false, label: 'Processing…'
-        },
-        speaking: {
-          dot: 'busy', conn: 'Speaking',
-          orb: true, label: 'Speaking'
-        },
-        error: {
-          dot: 'error', conn: 'Error',
-          orb: false, label: 'Error — check server'
-        }
-      };
-      const s = states[state] || states.idle;
-      connDot.className = `conn-dot ${s.dot}`;
-      connLabel.textContent = s.conn;
-      stateLabel.textContent = s.label;
-      orb.classList.toggle('speaking', s.orb);
-      orbRing.classList.toggle('speaking', s.orb);
-    }
-
-    function setTranscript(text) {
-      transcript.classList.add('updating');
-      setTimeout(() => {
-        transcript.textContent = text || '—';
-        transcript.classList.remove('updating');
-      }, 200);
-    }
-
-    // ── Audio playback ────────────────────────────────────────────────────────
-    function playAudio(src) {
-      if (muted) return;
-      player.src = src;
-      const p = player.play();
-      if (p) {
-        p.catch(() => {
-          // Autoplay blocked — user must tap the orb once to unlock
-          stateLabel.textContent = 'Tap orb to play';
-          const unlock = () => { player.play(); orb.removeEventListener('click', unlock); };
-          orb.addEventListener('click', unlock);
-        });
+    async function poll() {
+      try {
+        const r = await fetch('/status').then(r => r.json());
+        document.getElementById('srvStatus').textContent = 'Online';
+        document.getElementById('srvStatus').className = 'value ok';
+        document.getElementById('voiceId').textContent = r.voiceId;
+        document.getElementById('playing').textContent = r.playing ? 'Yes' : 'Idle';
+        document.getElementById('playing').className = r.playing ? 'value busy' : 'value';
+      } catch {
+        document.getElementById('srvStatus').textContent = 'Offline';
+        document.getElementById('srvStatus').className = 'value';
       }
-      setState('speaking');
-      player.onended = () => setState('idle');
     }
 
-    // ── SSE connection ────────────────────────────────────────────────────────
-    function connect() {
-      const es = new EventSource('/events');
-
-      // Buffered (full audio at once)
-      es.addEventListener('speak', e => {
-        const { audio, text } = JSON.parse(e.data);
-        lastAudio = audio;
-        replayBtn.disabled = false;
-        setTranscript(text);
-        playAudio(audio);
-      });
-
-      // Streaming — server sends chunks as ElevenLabs generates them
-      es.addEventListener('stream-start', e => {
-        const { text } = JSON.parse(e.data);
-        streamChunks = [];
-        setTranscript(text);
-        setState('buffering');
-      });
-
-      es.addEventListener('stream-chunk', e => {
-        const { chunk } = JSON.parse(e.data);
-        streamChunks.push(chunk);
-      });
-
-      es.addEventListener('stream-end', e => {
-        const { audio } = JSON.parse(e.data);
-        lastAudio = audio;
-        replayBtn.disabled = false;
-        playAudio(audio);
-      });
-
-      es.addEventListener('stream-error', () => setState('error'));
-
-      es.onopen = () => setState('idle');
-
-      es.onerror = () => {
-        connDot.className = 'conn-dot';
-        connLabel.textContent = 'Reconnecting…';
-        stateLabel.textContent = 'Lost connection';
-        es.close();
-        setTimeout(connect, 3000);
-      };
+    async function speak() {
+      const text = document.getElementById('txt').value.trim();
+      if (!text) return;
+      document.getElementById('result').textContent = 'Sending…';
+      try {
+        const r = await fetch('/speak', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, source: 'status-page' })
+        }).then(r => r.json());
+        document.getElementById('result').textContent = r.ok ? 'Playing on laptop speakers.' : JSON.stringify(r);
+      } catch (e) {
+        document.getElementById('result').textContent = 'Error: ' + e.message;
+      }
     }
 
-    connect();
-
-    // ── Controls ──────────────────────────────────────────────────────────────
-    muteBtn.addEventListener('click', () => {
-      muted = !muted;
-      muteBtn.textContent = muted ? 'Unmute' : 'Mute';
-      muteBtn.classList.toggle('active', muted);
-      if (muted) { player.pause(); setState('idle'); }
-    });
-
-    replayBtn.addEventListener('click', () => {
-      if (lastAudio) playAudio(lastAudio);
-    });
-
-    // Tap orb to replay too
-    orb.addEventListener('click', () => {
-      if (lastAudio && !orb.classList.contains('speaking')) playAudio(lastAudio);
-    });
+    poll();
+    setInterval(poll, 5000);
   </script>
 </body>
 </html>

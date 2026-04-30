@@ -1,7 +1,7 @@
 {
-  "name": "claude-voice-assistant",
+  "name": "jarvis",
   "version": "1.0.0",
-  "description": "Voice playback layer for Claude Code responses",
+  "description": "Voice assistant layer for Claude Code — plays responses through laptop speakers",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,8 @@
   "dependencies": {
     "axios": "^1.7.0",
     "dotenv": "^16.4.0",
-    "express": "^4.19.0"
+    "express": "^4.19.0",
+    "play-sound": "^1.1.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

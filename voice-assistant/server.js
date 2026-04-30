@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const player = require('play-sound')();
+const fs = require('fs');
+const os = require('os');
 const path = require('path');
 
 const app = express();
@@ -12,37 +15,13 @@ const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const PORT = process.env.PORT || 3000;
 
 if (!ELEVENLABS_API_KEY) {
-  console.error('ERROR: ELEVENLABS_API_KEY is not set. Copy .env.example to .env and add your key.');
+  console.error('\nERROR: ELEVENLABS_API_KEY not set.\nCopy .env.example to .env and add your key.\n');
   process.exit(1);
 }
 
-// SSE clients — each open browser tab
-let sseClients = [];
+let currentPlayback = null; // track active playback so we can interrupt later
 
-// ── SSE stream ────────────────────────────────────────────────────────────────
-app.get('/events', (req, res) => {
-  res.setHeader('Content-Type', 'text/event-stream');
-  res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.flushHeaders();
-
-  const heartbeat = setInterval(() => res.write(': ping\n\n'), 25000);
-  sseClients.push(res);
-
-  req.on('close', () => {
-    clearInterval(heartbeat);
-    sseClients = sseClients.filter(c => c !== res);
-  });
-});
-
-function broadcast(event, payload) {
-  const msg = `event: ${event}\ndata: ${JSON.stringify(payload)}\n\n`;
-  sseClients.forEach(c => c.write(msg));
-}
-
-// ── /speak — buffered (full audio, then plays) ────────────────────────────────
-// Good for short responses. Lower complexity.
+// ── POST /speak — convert text to speech and play on laptop speakers ──────────
 app.post('/speak', async (req, res) => {
   const { text, source } = req.body;
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
@@ -50,12 +29,17 @@ app.post('/speak', async (req, res) => {
   const cleaned = sanitiseForVoice(text);
   if (!cleaned) return res.json({ skipped: true });
 
+  console.log(`\n[${source || 'api'}] Speaking: ${cleaned.slice(0, 80)}${cleaned.length > 80 ? '…' : ''}\n`);
+
+  // Respond immediately — don't make the hook wait for TTS
+  res.json({ ok: true, chars: cleaned.length });
+
   try {
     const response = await axios.post(
       `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
       {
         text: cleaned,
-        model_id: 'eleven_flash_v2_5',   // fastest model ~75ms latency
+        model_id: 'eleven_flash_v2_5',  // ~75ms latency, lowest available
         voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 }
       },
       {
@@ -65,81 +49,31 @@ app.post('/speak', async (req, res) => {
       }
     );
 
-    const audio = `data:audio/mpeg;base64,${Buffer.from(response.data).toString('base64')}`;
-    broadcast('speak', { audio, text: cleaned, source: source || 'api', ts: Date.now() });
-    res.json({ ok: true, chars: cleaned.length, clients: sseClients.length });
+    // Write to a temp file and play via system audio
+    const tmpFile = path.join(os.tmpdir(), `jarvis-${Date.now()}.mp3`);
+    fs.writeFileSync(tmpFile, Buffer.from(response.data));
+
+    // Stop any currently playing audio before starting new
+    if (currentPlayback) {
+      try { currentPlayback.kill(); } catch {}
+    }
+
+    currentPlayback = player.play(tmpFile, err => {
+      currentPlayback = null;
+      try { fs.unlinkSync(tmpFile); } catch {}
+      if (err) console.error('[playback error]', err.message);
+    });
   } catch (err) {
     const detail = err.response?.data
       ? Buffer.from(err.response.data).toString()
       : err.message;
     console.error('[TTS error]', detail);
-    res.status(502).json({ error: 'ElevenLabs request failed', detail });
   }
 });
 
-// ── /speak-stream — streaming (audio chunks arrive as they're generated) ──────
-// Noticeably faster first-sound latency. The browser stitches chunks together.
-// ElevenLabs streams MP3 chunks; we forward them as base64 SSE events.
-app.post('/speak-stream', async (req, res) => {
-  const { text, source } = req.body;
-  if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
-
-  const cleaned = sanitiseForVoice(text);
-  if (!cleaned) return res.json({ skipped: true });
-
-  // Tell the browser a stream is starting
-  broadcast('stream-start', { text: cleaned, ts: Date.now() });
-
-  res.json({ ok: true, chars: cleaned.length }); // respond to hook immediately
-
-  try {
-    const response = await axios.post(
-      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}/stream`,
-      {
-        text: cleaned,
-        model_id: 'eleven_flash_v2_5',
-        voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 },
-        // Optimise for latency: send audio as soon as the first chunk is ready
-        optimize_streaming_latency: 4
-      },
-      {
-        headers: { 'xi-api-key': ELEVENLABS_API_KEY, Accept: 'audio/mpeg' },
-        responseType: 'stream',
-        timeout: 30000
-      }
-    );
-
-    const chunks = [];
-    response.data.on('data', chunk => {
-      chunks.push(chunk);
-      // Broadcast each chunk so the browser can start buffering immediately
-      broadcast('stream-chunk', {
-        chunk: chunk.toString('base64'),
-        ts: Date.now()
-      });
-    });
-
-    response.data.on('end', () => {
-      const full = Buffer.concat(chunks);
-      broadcast('stream-end', {
-        audio: `data:audio/mpeg;base64,${full.toString('base64')}`,
-        ts: Date.now()
-      });
-    });
-
-    response.data.on('error', err => {
-      console.error('[stream error]', err.message);
-      broadcast('stream-error', { error: err.message });
-    });
-  } catch (err) {
-    console.error('[speak-stream error]', err.message);
-    broadcast('stream-error', { error: err.message });
-  }
-});
-
-// ── /status ───────────────────────────────────────────────────────────────────
+// ── GET /status — health check ────────────────────────────────────────────────
 app.get('/status', (req, res) => {
-  res.json({ ok: true, clients: sseClients.length, voiceId: VOICE_ID, port: PORT });
+  res.json({ ok: true, voiceId: VOICE_ID, playing: !!currentPlayback });
 });
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -159,11 +93,8 @@ function sanitiseForVoice(text) {
 }
 
 app.listen(PORT, () => {
-  console.log('');
-  console.log('  Claude Voice Assistant');
-  console.log(`  Local:   http://localhost:${PORT}`);
-  console.log(`  Status:  http://localhost:${PORT}/status`);
-  console.log('');
-  console.log('  Waiting for Claude Code hook to fire...');
-  console.log('');
+  console.log('\n  Jarvis is ready.');
+  console.log(`  Listening on http://localhost:${PORT}`);
+  console.log('\n  Use Claude Code CLI — responses will play through your speakers.');
+  console.log('  Test: curl -X POST http://localhost:3000/speak -H "Content-Type: application/json" -d \'{"text":"Jarvis online."}\'\n');
 });
