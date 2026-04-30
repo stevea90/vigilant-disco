@@ -22,7 +22,7 @@ PromptTemplates.prototype = {
     },
 
     getCodeGenSystem: function() {
-        return 'You are a ServiceNow platform expert. Generate production-ready ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Follow ServiceNow best practices and scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
+        return 'You are a ServiceNow platform expert. Generate concise, skeleton ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Provide minimal, functional implementations — structure and key methods only, no verbose comments. Maximum 3 artifacts, each under 60 lines. Follow scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
     },
 
     getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
@@ -30,7 +30,7 @@ PromptTemplates.prototype = {
     },
 
     getUnitTestSystem: function() {
-        return 'You are a ServiceNow test automation expert. Generate Jasmine unit tests for ServiceNow Script Includes using the ATF server-side test framework. Return ONLY valid JSON. No markdown code fences, no preamble.';
+        return 'You are a ServiceNow test automation expert. Generate concise Jasmine unit tests for ServiceNow Script Includes — 3 to 5 test cases maximum, minimal setup. Return ONLY valid JSON. No markdown code fences, no preamble.';
     },
 
     getUnitTestUser: function(generatedCode) {

@@ -435,9 +435,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:bb8f6265-bbe0-417d-89bd-9635d2d756cf",
+  "serialNumber": "urn:uuid:4fea0bad-4c0b-4b28-a72f-d57c612dc951",
   "metadata": {
-    "timestamp": "2026-04-30T08:48:56.824Z",
+    "timestamp": "2026-04-30T08:55:30.102Z",
     "tools": {
       "components": [
         {
@@ -1299,7 +1299,7 @@ AIOrchestrator.prototype = {
     &lt;read_roles/&gt;
     &lt;suffix&gt;llm_max_tokens&lt;/suffix&gt;
     &lt;type&gt;integer&lt;/type&gt;
-    &lt;value&gt;16000&lt;/value&gt;
+    &lt;value&gt;8000&lt;/value&gt;
     &lt;write_roles/&gt;
   &lt;/sys_properties&gt;
 &lt;/record_update&gt;</payload>
@@ -1993,7 +1993,7 @@ PromptTemplates.prototype = {
     },
 
     getCodeGenSystem: function() {
-        return 'You are a ServiceNow platform expert. Generate production-ready ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Follow ServiceNow best practices and scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
+        return 'You are a ServiceNow platform expert. Generate concise, skeleton ServiceNow JavaScript artifacts (Business Rules, Script Includes, Client Scripts) based on user stories. Provide minimal, functional implementations — structure and key methods only, no verbose comments. Maximum 3 artifacts, each under 60 lines. Follow scoped app patterns. Return ONLY valid JSON. No markdown code fences, no preamble.';
     },
 
     getCodeGenUser: function(upliftedStory, acceptanceCriteria) {
@@ -2001,7 +2001,7 @@ PromptTemplates.prototype = {
     },
 
     getUnitTestSystem: function() {
-        return 'You are a ServiceNow test automation expert. Generate Jasmine unit tests for ServiceNow Script Includes using the ATF server-side test framework. Return ONLY valid JSON. No markdown code fences, no preamble.';
+        return 'You are a ServiceNow test automation expert. Generate concise Jasmine unit tests for ServiceNow Script Includes — 3 to 5 test cases maximum, minimal setup. Return ONLY valid JSON. No markdown code fences, no preamble.';
     },
 
     getUnitTestUser: function(generatedCode) {
