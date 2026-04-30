@@ -26,9 +26,51 @@ const anthropic = process.env.ANTHROPIC_API_KEY
 
 const conversationHistory = [];
 
-let currentPlayback = null; // track active playback so we can interrupt later
+// ── Audio queue — TTS calls run in parallel, playback stays in order ──────────
+// Each queueSpeech() call fires a fetchTTS() immediately (parallel network),
+// then chains onto playbackChain so audio plays sequentially.
+let activeProc = null;
+let playbackChain = Promise.resolve();
 
-// ── POST /speak — convert text to speech and play on laptop speakers ──────────
+function queueSpeech(text) {
+  const ttsPromise = fetchTTS(text);  // starts immediately, doesn't wait for previous
+  playbackChain = playbackChain.then(async () => {
+    try {
+      const buf = await ttsPromise;
+      await playBufferAsync(buf);
+    } catch (err) {
+      console.error('[TTS queue]', err.message);
+    }
+  });
+}
+
+async function fetchTTS(text) {
+  const r = await axios.post(
+    `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
+    { text, model_id: 'eleven_flash_v2_5', voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 } },
+    { headers: { 'xi-api-key': ELEVENLABS_API_KEY, Accept: 'audio/mpeg' }, responseType: 'arraybuffer', timeout: 20000 }
+  );
+  return Buffer.from(r.data);
+}
+
+function playBufferAsync(buf) {
+  return new Promise(resolve => {
+    const tmp = path.join(os.tmpdir(), `jarvis-${Date.now()}.mp3`);
+    fs.writeFileSync(tmp, buf);
+    activeProc = playFile(tmp, () => {
+      activeProc = null;
+      try { fs.unlinkSync(tmp); } catch {}
+      resolve();
+    });
+  });
+}
+
+function interruptPlayback() {
+  if (activeProc) { try { activeProc.kill(); } catch {} activeProc = null; }
+  playbackChain = Promise.resolve();  // discard queued items
+}
+
+// ── POST /speak — Claude Code stop hook ───────────────────────────────────────
 app.post('/speak', async (req, res) => {
   const { text, source } = req.body;
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
@@ -36,13 +78,14 @@ app.post('/speak', async (req, res) => {
   const cleaned = sanitiseForVoice(text);
   if (!cleaned) return res.json({ skipped: true });
 
-  // Respond immediately — don't make the hook wait for TTS
   res.json({ ok: true, chars: cleaned.length });
 
-  speakText(cleaned, source || 'api');
+  interruptPlayback();
+  console.log(`\n[${source || 'api'}] Speaking: ${cleaned.slice(0, 80)}${cleaned.length > 80 ? '…' : ''}\n`);
+  queueSpeech(cleaned);
 });
 
-// ── POST /chat — voice input → Claude → TTS → speakers ───────────────────────
+// ── POST /chat — streaming: Claude tokens → sentence chunks → ElevenLabs ──────
 app.post('/chat', async (req, res) => {
   if (!anthropic) {
     return res.status(503).json({ error: 'ANTHROPIC_API_KEY not set. Add it to .env and restart.' });
@@ -51,94 +94,93 @@ app.post('/chat', async (req, res) => {
   const { text } = req.body;
   if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
 
+  interruptPlayback();
+
+  // SSE — browser reads tokens as they arrive
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('X-Accel-Buffering', 'no');
+
   conversationHistory.push({ role: 'user', content: text });
 
+  let fullText = '';
+  let sentenceBuf = '';
+
+  function flushSentences(force = false) {
+    if (force) {
+      const t = sentenceBuf.trim();
+      sentenceBuf = '';
+      if (t) queueIfCleaned(t);
+      return;
+    }
+    let sentence;
+    while ((sentence = extractSentence(sentenceBuf)) !== null) {
+      sentenceBuf = sentenceBuf.slice(sentence.length).replace(/^\s+/, '');
+      queueIfCleaned(sentence);
+    }
+  }
+
+  function queueIfCleaned(chunk) {
+    const cleaned = sanitiseForVoice(chunk);
+    if (cleaned) {
+      console.log(`\n[chat] Queuing: ${cleaned.slice(0, 70)}`);
+      queueSpeech(cleaned);
+    }
+  }
+
   try {
-    const message = await anthropic.messages.create({
+    const stream = anthropic.messages.stream({
       model: 'claude-opus-4-7',
       max_tokens: 1024,
       system: 'You are Jarvis, a voice assistant running on a laptop. Keep responses concise and conversational — two or three sentences maximum unless the question genuinely requires more. Avoid bullet points, markdown, and code blocks in your replies; speak in plain prose.',
       messages: conversationHistory
     });
 
-    const reply = message.content[0].text;
-    conversationHistory.push({ role: 'assistant', content: reply });
+    for await (const event of stream) {
+      if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+        const token = event.delta.text;
+        fullText += token;
+        sentenceBuf += token;
+        res.write(`data: ${JSON.stringify({ token })}\n\n`);
+        flushSentences();
+      }
+    }
 
-    // Send text back to browser immediately, then speak async
-    res.json({ ok: true, response: reply });
+    flushSentences(true);  // speak any trailing fragment
 
-    // Play via ElevenLabs in the background
-    const cleaned = sanitiseForVoice(reply);
-    if (cleaned) speakText(cleaned, 'chat');
+    conversationHistory.push({ role: 'assistant', content: fullText });
+    res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+    res.end();
   } catch (err) {
-    // Roll back the user message so history stays consistent
     conversationHistory.pop();
     console.error('[chat error]', err.message);
-    res.status(500).json({ error: err.message });
+    res.write(`data: ${JSON.stringify({ error: err.message })}\n\n`);
+    res.end();
   }
 });
 
-// ── POST /chat/reset — clear conversation memory ──────────────────────────────
+// ── POST /chat/reset ──────────────────────────────────────────────────────────
 app.post('/chat/reset', (_req, res) => {
   conversationHistory.length = 0;
   res.json({ ok: true });
 });
 
-// ── GET /status — health check ────────────────────────────────────────────────
-app.get('/status', (req, res) => {
-  res.json({ ok: true, voiceId: VOICE_ID, playing: !!currentPlayback, chatReady: !!anthropic });
+// ── GET /status ───────────────────────────────────────────────────────────────
+app.get('/status', (_req, res) => {
+  res.json({ ok: true, voiceId: VOICE_ID, playing: !!activeProc, chatReady: !!anthropic });
 });
-
-// ── speakText — shared TTS helper used by /speak and /chat ───────────────────
-async function speakText(cleaned, source) {
-  console.log(`\n[${source || 'api'}] Speaking: ${cleaned.slice(0, 80)}${cleaned.length > 80 ? '…' : ''}\n`);
-  try {
-    const response = await axios.post(
-      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
-      {
-        text: cleaned,
-        model_id: 'eleven_flash_v2_5',
-        voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 }
-      },
-      {
-        headers: { 'xi-api-key': ELEVENLABS_API_KEY, Accept: 'audio/mpeg' },
-        responseType: 'arraybuffer',
-        timeout: 20000
-      }
-    );
-
-    const tmpFile = path.join(os.tmpdir(), `jarvis-${Date.now()}.mp3`);
-    fs.writeFileSync(tmpFile, Buffer.from(response.data));
-
-    if (currentPlayback) {
-      try { currentPlayback.kill(); } catch {}
-    }
-
-    currentPlayback = playFile(tmpFile, () => {
-      currentPlayback = null;
-      try { fs.unlinkSync(tmpFile); } catch {}
-    });
-  } catch (err) {
-    const detail = err.response?.data
-      ? Buffer.from(err.response.data).toString()
-      : err.message;
-    console.error('[TTS error]', detail);
-  }
-}
 
 // ── Audio playback (cross-platform, no extra install on Windows/Mac) ──────────
 function playFile(filePath, onDone) {
   let proc;
-
   if (process.platform === 'win32') {
-    // PowerShell MediaPlayer — built into every Windows 10/11 machine, no install needed
     const ps = [
       '-NoProfile', '-NonInteractive', '-Command',
       `Add-Type -AssemblyName presentationCore;` +
       `$p = [System.Windows.Media.MediaPlayer]::new();` +
       `$p.Open([uri]::new('${filePath.replace(/\\/g, '\\\\')}'));` +
       `$p.Play();` +
-      `Start-Sleep -Milliseconds 500;` +                 // give it time to load
+      `Start-Sleep -Milliseconds 500;` +
       `while ($p.NaturalDuration.HasTimeSpan -eq $false) { Start-Sleep -Milliseconds 50 };` +
       `Start-Sleep -Seconds ($p.NaturalDuration.TimeSpan.TotalSeconds + 0.5);` +
       `$p.Close()`
@@ -149,20 +191,23 @@ function playFile(filePath, onDone) {
   } else {
     proc = spawn('mpg123', ['-q', filePath], { stdio: 'ignore' });
   }
-
   proc.on('close', onDone);
   proc.on('error', err => {
     console.error(`[audio] playback failed: ${err.message}`);
-    if (process.platform === 'linux') {
-      console.error('[audio] Fix: sudo apt install mpg123');
-    }
+    if (process.platform === 'linux') console.error('[audio] Fix: sudo apt install mpg123');
     onDone();
   });
-
   return proc;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+// Match first sentence: at least 20 chars, ending in . ! ? followed by whitespace
+function extractSentence(text) {
+  const m = text.match(/^.{20,}?[.!?]+(?=\s)/s);
+  return m ? m[0] : null;
+}
+
 function sanitiseForVoice(text) {
   return text
     .replace(/```[\s\S]*?```/g, 'code block')
