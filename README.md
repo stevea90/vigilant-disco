@@ -18,20 +18,22 @@ No phone. No browser. No ngrok. Just your laptop.
 
 ### 1. Prerequisites
 
-Install a system audio player if you don't have one:
-
-```bash
-# macOS — nothing needed, afplay is built in
-
-# Ubuntu / Debian
-sudo apt install mpg123
-
-# Arch
-sudo pacman -S mpg123
-```
+| OS | Audio player | Action needed |
+|----|-------------|---------------|
+| **Windows 10/11** | PowerShell MediaPlayer | Nothing — built in |
+| **macOS** | afplay | Nothing — built in |
+| **Linux** | mpg123 | `sudo apt install mpg123` |
 
 ### 2. Clone and run setup
 
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/stevea90/vigilant-disco
+cd vigilant-disco
+.\voice-assistant\setup.ps1
+```
+
+**macOS / Linux (bash):**
 ```bash
 git clone https://github.com/stevea90/vigilant-disco
 cd vigilant-disco

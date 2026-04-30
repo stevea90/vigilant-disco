@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
-const player = require('play-sound')();
+const { spawn } = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -58,10 +58,9 @@ app.post('/speak', async (req, res) => {
       try { currentPlayback.kill(); } catch {}
     }
 
-    currentPlayback = player.play(tmpFile, err => {
+    currentPlayback = playFile(tmpFile, () => {
       currentPlayback = null;
       try { fs.unlinkSync(tmpFile); } catch {}
-      if (err) console.error('[playback error]', err.message);
     });
   } catch (err) {
     const detail = err.response?.data
@@ -75,6 +74,42 @@ app.post('/speak', async (req, res) => {
 app.get('/status', (req, res) => {
   res.json({ ok: true, voiceId: VOICE_ID, playing: !!currentPlayback });
 });
+
+// ── Audio playback (cross-platform, no extra install on Windows/Mac) ──────────
+function playFile(filePath, onDone) {
+  let proc;
+
+  if (process.platform === 'win32') {
+    // PowerShell MediaPlayer — built into every Windows 10/11 machine, no install needed
+    const ps = [
+      '-NoProfile', '-NonInteractive', '-Command',
+      `Add-Type -AssemblyName presentationCore;` +
+      `$p = [System.Windows.Media.MediaPlayer]::new();` +
+      `$p.Open([uri]::new('${filePath.replace(/\\/g, '\\\\')}'));` +
+      `$p.Play();` +
+      `Start-Sleep -Milliseconds 500;` +                 // give it time to load
+      `while ($p.NaturalDuration.HasTimeSpan -eq $false) { Start-Sleep -Milliseconds 50 };` +
+      `Start-Sleep -Seconds ($p.NaturalDuration.TimeSpan.TotalSeconds + 0.5);` +
+      `$p.Close()`
+    ];
+    proc = spawn('powershell', ps, { stdio: 'ignore' });
+  } else if (process.platform === 'darwin') {
+    proc = spawn('afplay', [filePath], { stdio: 'ignore' });
+  } else {
+    proc = spawn('mpg123', ['-q', filePath], { stdio: 'ignore' });
+  }
+
+  proc.on('close', onDone);
+  proc.on('error', err => {
+    console.error(`[audio] playback failed: ${err.message}`);
+    if (process.platform === 'linux') {
+      console.error('[audio] Fix: sudo apt install mpg123');
+    }
+    onDone();
+  });
+
+  return proc;
+}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function sanitiseForVoice(text) {
