@@ -412,7 +412,7 @@ AIOrchestrator.prototype = {
                 return false;
             }
 
-            var parsed = JSON.parse(result.content);
+            var parsed = this._parseJson(result.content);
             this.manifestGR.setValue('uplifted_story', parsed.uplifted_story || '');
             this.manifestGR.setValue('uplifted_acceptance_criteria', parsed.uplifted_acceptance_criteria || '');
             this.manifestGR.setValue('llm_model_used', result.model || '');
@@ -453,7 +453,7 @@ AIOrchestrator.prototype = {
                 return false;
             }
 
-            var parsed = JSON.parse(result.content);
+            var parsed = this._parseJson(result.content);
             var codeBlocks = '';
             if (parsed.artifacts && parsed.artifacts.length > 0) {
                 for (var i = 0; i < parsed.artifacts.length; i++) {
@@ -501,7 +501,7 @@ AIOrchestrator.prototype = {
                 return false;
             }
 
-            var parsed = JSON.parse(result.content);
+            var parsed = this._parseJson(result.content);
             this.manifestGR.setValue('generated_unit_tests', parsed.unit_tests || '');
             this._addTokens(result.tokens);
             this.manifestGR.update();
@@ -541,7 +541,7 @@ AIOrchestrator.prototype = {
                 return false;
             }
 
-            var parsed = JSON.parse(result.content);
+            var parsed = this._parseJson(result.content);
             this.manifestGR.setValue('stakeholder_test_steps', parsed.test_steps || '');
             this._addTokens(result.tokens);
             this.manifestGR.update();
@@ -574,7 +574,7 @@ AIOrchestrator.prototype = {
                 return { suiteId: null, testId: null };
             }
 
-            var parsed = JSON.parse(result.content);
+            var parsed = this._parseJson(result.content);
             var stepDefs = parsed.steps || [];
 
             var builder = new x_1676392_sdlc_a_0.ATFBuilder();
@@ -598,6 +598,27 @@ AIOrchestrator.prototype = {
             this._setStatus('failed');
             this._log('ATF exception: ' + e.message);
             return { suiteId: null, testId: null };
+        }
+    },
+
+    _parseJson: function(str) {
+        try { return JSON.parse(str); } catch(e1) {
+            var nl = String.fromCharCode(10);
+            var cr = String.fromCharCode(13);
+            var bs = String.fromCharCode(92);
+            var out = '';
+            var inStr = false;
+            var esc = false;
+            for (var i = 0; i < str.length; i++) {
+                var c = str.charAt(i);
+                if (esc) { out += c; esc = false; }
+                else if (c === bs) { out += c; esc = true; }
+                else if (c === '"') { out += c; inStr = !inStr; }
+                else if (inStr && c === nl) { out += bs + 'n'; }
+                else if (inStr && c === cr) { out += bs + 'r'; }
+                else { out += c; }
+            }
+            return JSON.parse(out);
         }
     },
 
