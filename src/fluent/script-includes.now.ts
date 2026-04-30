@@ -496,9 +496,10 @@ AIOrchestrator.prototype = {
         this._log('Starting unit test generation...');
 
         try {
+            var codeInput = generatedCode.substring(0, 3000);
             var result = this.llmClient.sendMessage(
                 this.prompts.getUnitTestSystem(),
-                this.prompts.getUnitTestUser(generatedCode)
+                this.prompts.getUnitTestUser(codeInput)
             );
 
             if (result.error) {
@@ -569,6 +570,7 @@ AIOrchestrator.prototype = {
 
         try {
             var testSteps = this.manifestGR.getValue('stakeholder_test_steps') || '';
+            testSteps = testSteps.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 2500);
             var result = this.llmClient.sendMessage(
                 this.prompts.getATFStepSystem(),
                 this.prompts.getATFStepUser(testSteps)
