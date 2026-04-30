@@ -111,6 +111,7 @@
     <span><span class="dot" id="srvDot"></span><span id="srvLabel">checking…</span></span>
     <span><span class="dot" id="chatDot"></span>Claude</span>
     <span><span class="dot" id="playDot"></span><span id="playLabel">idle</span></span>
+    <span>🧠 <span id="memLabel">—</span></span>
   </div>
 
   <button id="micBtn" title="Click to speak">
@@ -229,6 +230,10 @@
             if (data.done) {
               finalizeStreamingBubble(jarvisBubble);
               setState(STATES.IDLE);
+              if (data.memoryMessages) {
+                const m = data.memoryMessages;
+                document.getElementById('memLabel').textContent = `${Math.floor(m / 2)} exchanges`;
+              }
             }
             if (data.error) {
               addBubble('jarvis', 'Error: ' + data.error);
@@ -310,6 +315,8 @@
         document.getElementById('chatDot').className   = r.chatReady ? 'dot green' : 'dot amber';
         document.getElementById('playDot').className   = r.playing   ? 'dot purple' : 'dot';
         document.getElementById('playLabel').textContent = r.playing  ? 'playing' : 'idle';
+        const m = r.memoryMessages || 0;
+        document.getElementById('memLabel').textContent = m ? `${Math.floor(m / 2)} exchanges` : 'fresh';
       } catch {
         document.getElementById('srvDot').className    = 'dot';
         document.getElementById('srvLabel').textContent = 'Offline';

@@ -24,7 +24,26 @@ const anthropic = process.env.ANTHROPIC_API_KEY
   ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
   : null;
 
+const MEMORY_FILE = path.join(__dirname, 'memory.json');
+const MAX_HISTORY = 40;  // 20 user+assistant pairs
+
 const conversationHistory = [];
+loadMemory();
+
+function loadMemory() {
+  try {
+    const raw = fs.readFileSync(MEMORY_FILE, 'utf8');
+    const msgs = JSON.parse(raw);
+    if (Array.isArray(msgs) && msgs.length) {
+      conversationHistory.push(...msgs);
+    }
+  } catch {}  // file missing or corrupt — start fresh
+}
+
+function saveMemory() {
+  const toSave = conversationHistory.slice(-MAX_HISTORY);
+  fs.writeFileSync(MEMORY_FILE, JSON.stringify(toSave, null, 2));
+}
 
 // ── Audio queue — TTS calls run in parallel, playback stays in order ──────────
 // Each queueSpeech() call fires a fetchTTS() immediately (parallel network),
@@ -132,7 +151,7 @@ app.post('/chat', async (req, res) => {
     const stream = anthropic.messages.stream({
       model: 'claude-opus-4-7',
       max_tokens: 1024,
-      system: 'You are Jarvis, a voice assistant running on a laptop. Keep responses concise and conversational — two or three sentences maximum unless the question genuinely requires more. Avoid bullet points, markdown, and code blocks in your replies; speak in plain prose.',
+      system: 'You are Jarvis, a voice assistant running on a laptop. You have persistent memory — the conversation history includes previous sessions with the user, so you can refer back to things they have told you before. Keep responses concise and conversational — two or three sentences maximum unless the question genuinely requires more. Avoid bullet points, markdown, and code blocks in your replies; speak in plain prose.',
       messages: conversationHistory
     });
 
@@ -149,7 +168,8 @@ app.post('/chat', async (req, res) => {
     flushSentences(true);  // speak any trailing fragment
 
     conversationHistory.push({ role: 'assistant', content: fullText });
-    res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+    saveMemory();
+    res.write(`data: ${JSON.stringify({ done: true, memoryMessages: conversationHistory.length })}\n\n`);
     res.end();
   } catch (err) {
     conversationHistory.pop();
@@ -162,12 +182,13 @@ app.post('/chat', async (req, res) => {
 // ── POST /chat/reset ──────────────────────────────────────────────────────────
 app.post('/chat/reset', (_req, res) => {
   conversationHistory.length = 0;
+  try { fs.writeFileSync(MEMORY_FILE, '[]'); } catch {}
   res.json({ ok: true });
 });
 
 // ── GET /status ───────────────────────────────────────────────────────────────
 app.get('/status', (_req, res) => {
-  res.json({ ok: true, voiceId: VOICE_ID, playing: !!activeProc, chatReady: !!anthropic });
+  res.json({ ok: true, voiceId: VOICE_ID, playing: !!activeProc, chatReady: !!anthropic, memoryMessages: conversationHistory.length });
 });
 
 // ── Audio playback (cross-platform, no extra install on Windows/Mac) ──────────
@@ -226,6 +247,11 @@ function sanitiseForVoice(text) {
 app.listen(PORT, () => {
   console.log('\n  Jarvis is ready.');
   console.log(`  Listening on http://localhost:${PORT}`);
+  if (conversationHistory.length) {
+    console.log(`  Memory: ${conversationHistory.length} messages loaded from previous session.`);
+  } else {
+    console.log('  Memory: starting fresh.');
+  }
   console.log('\n  Use Claude Code CLI — responses will play through your speakers.');
   console.log('  Test: curl -X POST http://localhost:3000/speak -H "Content-Type: application/json" -d \'{"text":"Jarvis online."}\'\n');
 });
