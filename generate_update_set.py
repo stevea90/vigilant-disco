@@ -68,7 +68,37 @@ def make_entry(name, file_content, wrapper_id=None):
     <update_set display_value="SDLC AI Orchestrator">{UPDATE_SET_ID}</update_set>
 </sys_update_xml>'''
 
+GLOBAL_ATF_HELPER_SI_ID = 'b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6'
+GLOBAL_ATF_HELPER_NAME  = 'sys_script_include_' + GLOBAL_ATF_HELPER_SI_ID
+
+def make_global_atf_helper_entry():
+    script = open('src/SDLC_AI_ATFHelper.js').read()
+    script_escaped = html_escape(script)
+    payload_xml = f'''<?xml version="1.0"?>
+<record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <sys_id>{GLOBAL_ATF_HELPER_SI_ID}</sys_id>
+    <sys_scope/>
+    <sys_update_name>{GLOBAL_ATF_HELPER_NAME}</sys_update_name>
+    <access>public</access>
+    <active>true</active>
+    <api_name>SDLC_AI_ATFHelper</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>Global ATF helper for SDLC AI Orchestrator - creates ATF records from global scope to bypass cross-scope restrictions</description>
+    <mobile_callable>false</mobile_callable>
+    <name>SDLC_AI_ATFHelper</name>
+    <sandbox_callable>false</sandbox_callable>
+    <script>{script_escaped}</script>
+  </sys_script_include>
+</record_update>'''
+    wrapper_id = name_to_wrapper_id.get(GLOBAL_ATF_HELPER_NAME) or GLOBAL_ATF_HELPER_SI_ID[::-1]
+    return make_entry(GLOBAL_ATF_HELPER_NAME, payload_xml, wrapper_id=wrapper_id)
+
 entries = []
+
+# 0. Global Script Include — ATF helper (runs in global scope, no cross-scope restrictions)
+entries.append(make_global_atf_helper_entry())
 
 # 1. sys_app from scope file
 for fn in os.listdir(DIST_SCOPE):

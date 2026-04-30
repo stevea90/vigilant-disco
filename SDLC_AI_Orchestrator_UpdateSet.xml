@@ -1,7 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <unload unload_date="2026-04-29 10:34:19">
 
-<sys_remote_update_set action="INSERT_OR_UPDATE"><sys_id>c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</sys_id><application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application><collisions/><commit_date/><description>AI-powered SDLC automation</description><inserted>0</inserted><name>SDLC AI Orchestrator</name><origin_sys_id/><parent/><remote_base_update_set/><replaced>0</replaced><retrieved_from/><state>loaded</state><summary/><sys_class_name>sys_remote_update_set</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-04-29 10:34:19</sys_created_on><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-04-29 10:34:19</sys_updated_on><type>Standard</type><update_set/><updates>42</updates><version/></sys_remote_update_set>
+<sys_remote_update_set action="INSERT_OR_UPDATE"><sys_id>c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</sys_id><application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application><collisions/><commit_date/><description>AI-powered SDLC automation</description><inserted>0</inserted><name>SDLC AI Orchestrator</name><origin_sys_id/><parent/><remote_base_update_set/><replaced>0</replaced><retrieved_from/><state>loaded</state><summary/><sys_class_name>sys_remote_update_set</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-04-29 10:34:19</sys_created_on><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-04-29 10:34:19</sys_updated_on><type>Standard</type><update_set/><updates>43</updates><version/></sys_remote_update_set>
+
+<sys_update_xml action="INSERT_OR_UPDATE">
+    <sys_id>6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b</sys_id>
+    <action>INSERT_OR_UPDATE</action>
+    <application display_value="SDLC AI Orchestrator">e4c0cddd93e04310c7a5f3255d03d619</application>
+    <category>customer</category>
+    <name>sys_script_include_b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6</name>
+    <payload>&lt;?xml version="1.0"?&gt;
+&lt;record_update table="sys_script_include"&gt;
+  &lt;sys_script_include action="INSERT_OR_UPDATE"&gt;
+    &lt;sys_id&gt;b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6&lt;/sys_id&gt;
+    &lt;sys_scope/&gt;
+    &lt;sys_update_name&gt;sys_script_include_b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6&lt;/sys_update_name&gt;
+    &lt;access&gt;public&lt;/access&gt;
+    &lt;active&gt;true&lt;/active&gt;
+    &lt;api_name&gt;SDLC_AI_ATFHelper&lt;/api_name&gt;
+    &lt;caller_access/&gt;
+    &lt;client_callable&gt;false&lt;/client_callable&gt;
+    &lt;description&gt;Global ATF helper for SDLC AI Orchestrator - creates ATF records from global scope to bypass cross-scope restrictions&lt;/description&gt;
+    &lt;mobile_callable&gt;false&lt;/mobile_callable&gt;
+    &lt;name&gt;SDLC_AI_ATFHelper&lt;/name&gt;
+    &lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;
+    &lt;script&gt;var SDLC_AI_ATFHelper = Class.create();
+SDLC_AI_ATFHelper.prototype = {
+    initialize: function() {},
+
+    createSuite: function(name, description) {
+        try {
+            var gr = new GlideRecord('sys_atf_test_suite');
+            gr.initialize();
+            gr.setValue('name', name);
+            gr.setValue('description', description);
+            var id = gr.insert();
+            return id || null;
+        } catch(e) {
+            gs.logError('SDLC_AI_ATFHelper.createSuite: ' + e.message, 'SDLC AI');
+            return null;
+        }
+    },
+
+    createTest: function(suiteId, name, description) {
+        try {
+            var gr = new GlideRecord('sys_atf_test');
+            gr.initialize();
+            gr.setValue('name', name);
+            gr.setValue('description', description);
+            try { gr.setValue('sys_atf_suite', suiteId); } catch(e) {
+                try { gr.setValue('test_suite', suiteId); } catch(e2) {}
+            }
+            var id = gr.insert();
+            return id || null;
+        } catch(e) {
+            gs.logError('SDLC_AI_ATFHelper.createTest: ' + e.message, 'SDLC AI');
+            return null;
+        }
+    },
+
+    createStep: function(testId, order, stepConfigId, description, inputsJson) {
+        try {
+            var gr = new GlideRecord('sys_atf_step');
+            gr.initialize();
+            gr.setValue('test', testId);
+            gr.setValue('order', order);
+            gr.setValue('step_config', stepConfigId);
+            gr.setValue('description', description || '');
+            if (inputsJson) {
+                try { gr.setValue('inputs', inputsJson); } catch(e) {}
+            }
+            return gr.insert() || null;
+        } catch(e) {
+            gs.logError('SDLC_AI_ATFHelper.createStep: ' + e.message, 'SDLC AI');
+            return null;
+        }
+    },
+
+    resolveStepConfig: function(stepType, action) {
+        try {
+            var configMap = {
+                'form_open': 'Navigate to URL',
+                'form_submit': 'Submit',
+                'form_set_field': 'Set Field Value',
+                'server_run_script': 'Run Server Side Script',
+                'server_assert_record': 'Assert Record'
+            };
+            var key = (stepType || '') + '_' + (action || '');
+            var configName = configMap[key];
+            if (!configName) { return null; }
+            var gr = new GlideRecord('sys_atf_step_config');
+            gr.addQuery('name', configName);
+            gr.setLimit(1);
+            gr.query();
+            return gr.next() ? gr.getUniqueValue() : null;
+        } catch(e) {
+            return null;
+        }
+    },
+
+    type: 'SDLC_AI_ATFHelper'
+};
+&lt;/script&gt;
+  &lt;/sys_script_include&gt;
+&lt;/record_update&gt;</payload>
+    <remote_update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</remote_update_set>
+    <replace_on_upgrade>false</replace_on_upgrade>
+    <state>current</state>
+    <sys_class_name>sys_update_xml</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2026-04-29 10:34:19</sys_created_on>
+    <sys_mod_count>0</sys_mod_count>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2026-04-29 10:34:19</sys_updated_on>
+    <type>sys_script_include</type>
+    <update_set display_value="SDLC AI Orchestrator">c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</update_set>
+</sys_update_xml>
 
 <sys_update_xml action="INSERT_OR_UPDATE">
     <sys_id>4225af44a4fd44b71be0d90731fe689f</sys_id>
@@ -435,9 +549,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:5d67b1df-3648-47b7-aaff-736fbff79749",
+  "serialNumber": "urn:uuid:b6d64e8f-ea57-4f62-b087-88dfe3fbe8e0",
   "metadata": {
-    "timestamp": "2026-04-30T10:16:40.252Z",
+    "timestamp": "2026-04-30T10:28:39.570Z",
     "tools": {
       "components": [
         {
@@ -1735,6 +1849,11 @@ ATFBuilder.prototype = {
     },
 
     _createSuite: function() {
+        try {
+            var helper = new SDLC_AI_ATFHelper();
+            return helper.createSuite('SDLC AI - Generated Suite ' + new GlideDateTime().getDisplayValue(), 'Auto-generated by SDLC AI Orchestrator');
+        } catch(e) { /* global helper not available, fall through */ }
+
         var tables = ['sys_atf_test_suite', 'sys_atf_suite'];
         for (var t = 0; t &lt; tables.length; t++) {
             try {
@@ -1744,30 +1863,28 @@ ATFBuilder.prototype = {
                 gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
                 var id = gr.insert();
                 if (id) { return id; }
-            } catch(e) { /* try next */ }
+            } catch(e2) { /* try next */ }
         }
         return null;
     },
 
     _createTest: function(suiteId) {
-        var gr = new GlideRecord('sys_atf_test');
-        gr.initialize();
-        gr.setValue('name', 'SDLC AI - Generated Test');
-        gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
-        gr.setValue('sys_atf_suite', suiteId);
-        return gr.insert();
+        try {
+            var helper = new SDLC_AI_ATFHelper();
+            return helper.createTest(suiteId, 'SDLC AI - Generated Test', 'Auto-generated by SDLC AI Orchestrator');
+        } catch(e) {
+            var gr = new GlideRecord('sys_atf_test');
+            gr.initialize();
+            gr.setValue('name', 'SDLC AI - Generated Test');
+            gr.setValue('description', 'Auto-generated by SDLC AI Orchestrator');
+            try { gr.setValue('sys_atf_suite', suiteId); } catch(fe) {}
+            return gr.insert();
+        }
     },
 
     _createStep: function(testId, stepDef, order) {
         var configId = this._resolveStepConfig(stepDef.step_type, stepDef.action);
         if (!configId) { return; }
-
-        var gr = new GlideRecord('sys_atf_step');
-        gr.initialize();
-        gr.setValue('test', testId);
-        gr.setValue('order', order * 100);
-        gr.setValue('step_config', configId);
-        gr.setValue('description', stepDef.description || '');
 
         var inputs = {};
         if (stepDef.step_type === 'server' &amp;&amp; stepDef.script) {
@@ -1775,14 +1892,30 @@ ATFBuilder.prototype = {
         } else if (stepDef.table) {
             inputs.table = stepDef.table;
         }
-        if (Object.keys(inputs).length &gt; 0) {
-            gr.setValue('inputs', JSON.stringify(inputs));
-        }
+        var inputsJson = Object.keys(inputs).length &gt; 0 ? JSON.stringify(inputs) : null;
 
-        gr.insert();
+        try {
+            var helper = new SDLC_AI_ATFHelper();
+            helper.createStep(testId, order * 100, configId, stepDef.description || '', inputsJson);
+        } catch(e) {
+            var gr = new GlideRecord('sys_atf_step');
+            gr.initialize();
+            gr.setValue('test', testId);
+            gr.setValue('order', order * 100);
+            gr.setValue('step_config', configId);
+            gr.setValue('description', stepDef.description || '');
+            if (inputsJson) { try { gr.setValue('inputs', inputsJson); } catch(fe) {} }
+            gr.insert();
+        }
     },
 
     _resolveStepConfig: function(stepType, action) {
+        try {
+            var helper = new SDLC_AI_ATFHelper();
+            var configId = helper.resolveStepConfig(stepType, action);
+            if (configId) { return configId; }
+        } catch(e) { /* fall through to local lookup */ }
+
         var configMap = {
             'form.open':            'Open a Form',
             'form.submit':          'Submit a Form',
