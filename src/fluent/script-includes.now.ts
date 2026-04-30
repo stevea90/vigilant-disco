@@ -603,22 +603,28 @@ AIOrchestrator.prototype = {
 
     _parseJson: function(str) {
         try { return JSON.parse(str); } catch(e1) {
+            var bs = String.fromCharCode(92);
             var nl = String.fromCharCode(10);
             var cr = String.fromCharCode(13);
-            var bs = String.fromCharCode(92);
+            var tab = String.fromCharCode(9);
             var out = '';
             var inStr = false;
             var esc = false;
             for (var i = 0; i < str.length; i++) {
                 var c = str.charAt(i);
+                var cc = str.charCodeAt(i);
                 if (esc) { out += c; esc = false; }
                 else if (c === bs) { out += c; esc = true; }
                 else if (c === '"') { out += c; inStr = !inStr; }
-                else if (inStr && c === nl) { out += bs + 'n'; }
-                else if (inStr && c === cr) { out += bs + 'r'; }
+                else if (inStr && cc < 32) {
+                    if (c === nl) { out += bs + 'n'; }
+                    else if (c === cr) { out += bs + 'r'; }
+                    else if (c === tab) { out += bs + 't'; }
+                    else { out += bs + 'u00' + (cc < 16 ? '0' : '') + cc.toString(16); }
+                }
                 else { out += c; }
             }
-            return JSON.parse(out);
+            try { return JSON.parse(out); } catch(e2) { throw new Error('JSON parse failed: ' + e2.message + ' | raw: ' + str.substring(0, 200)); }
         }
     },
 
