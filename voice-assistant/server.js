@@ -149,7 +149,7 @@ app.post('/chat', async (req, res) => {
 
   try {
     const stream = anthropic.messages.stream({
-      model: 'claude-opus-4-7',
+      model: 'claude-sonnet-4-6',
       max_tokens: 1024,
       system: 'You are Jarvis, a voice assistant running on a laptop. You have persistent memory — the conversation history includes previous sessions with the user, so you can refer back to things they have told you before. Keep responses concise and conversational — two or three sentences maximum unless the question genuinely requires more. Avoid bullet points, markdown, and code blocks in your replies; speak in plain prose.',
       messages: conversationHistory

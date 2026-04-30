@@ -10,6 +10,7 @@
  */
 
 const http = require('http');
+const fs = require('fs');
 
 const VOICE_PORT = process.env.VOICE_PORT || 3000;
 const MAX_CHARS = 600;
@@ -28,17 +29,42 @@ process.stdin.on('end', () => {
   }
 });
 
+function readTranscript(transcriptPath) {
+  try {
+    const lines = fs.readFileSync(transcriptPath, 'utf8').trim().split('\n');
+    return lines.map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
 function extractLastAssistantText(event) {
-  // Claude Code Stop hook provides { transcript: [...] } or { messages: [...] }
-  const messages = event.transcript ?? event.messages ?? [];
-  const last = [...messages].reverse().find(m => m.role === 'assistant');
+  // Claude Code Stop hook sends { transcript_path } pointing to a JSONL file
+  const entries = event.transcript_path
+    ? readTranscript(event.transcript_path)
+    : (event.transcript ?? event.messages ?? []);
+
+  const last = [...entries].reverse().find(e => {
+    const role = e.role ?? e.message?.role;
+    const type = e.type;
+    if (type === 'assistant' || role === 'assistant') {
+      const content = (e.message ?? e).content;
+      return Array.isArray(content)
+        ? content.some(b => b.type === 'text')
+        : typeof content === 'string' && content.length > 0;
+    }
+    return false;
+  });
   if (!last) return '';
 
+  const msg = last.message ?? last;
+  const content = msg.content;
+
   let text = '';
-  if (typeof last.content === 'string') {
-    text = last.content;
-  } else if (Array.isArray(last.content)) {
-    text = last.content
+  if (typeof content === 'string') {
+    text = content;
+  } else if (Array.isArray(content)) {
+    text = content
       .filter(b => b.type === 'text')
       .map(b => b.text)
       .join(' ');
