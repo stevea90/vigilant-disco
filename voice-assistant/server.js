@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const Anthropic = require('@anthropic-ai/sdk');
 const { spawn } = require('child_process');
 const fs = require('fs');
 const os = require('os');
@@ -19,6 +20,12 @@ if (!ELEVENLABS_API_KEY) {
   process.exit(1);
 }
 
+const anthropic = process.env.ANTHROPIC_API_KEY
+  ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  : null;
+
+const conversationHistory = [];
+
 let currentPlayback = null; // track active playback so we can interrupt later
 
 // ── POST /speak — convert text to speech and play on laptop speakers ──────────
@@ -29,17 +36,68 @@ app.post('/speak', async (req, res) => {
   const cleaned = sanitiseForVoice(text);
   if (!cleaned) return res.json({ skipped: true });
 
-  console.log(`\n[${source || 'api'}] Speaking: ${cleaned.slice(0, 80)}${cleaned.length > 80 ? '…' : ''}\n`);
-
   // Respond immediately — don't make the hook wait for TTS
   res.json({ ok: true, chars: cleaned.length });
 
+  speakText(cleaned, source || 'api');
+});
+
+// ── POST /chat — voice input → Claude → TTS → speakers ───────────────────────
+app.post('/chat', async (req, res) => {
+  if (!anthropic) {
+    return res.status(503).json({ error: 'ANTHROPIC_API_KEY not set. Add it to .env and restart.' });
+  }
+
+  const { text } = req.body;
+  if (!text?.trim()) return res.status(400).json({ error: 'text is required' });
+
+  conversationHistory.push({ role: 'user', content: text });
+
+  try {
+    const message = await anthropic.messages.create({
+      model: 'claude-opus-4-7',
+      max_tokens: 1024,
+      system: 'You are Jarvis, a voice assistant running on a laptop. Keep responses concise and conversational — two or three sentences maximum unless the question genuinely requires more. Avoid bullet points, markdown, and code blocks in your replies; speak in plain prose.',
+      messages: conversationHistory
+    });
+
+    const reply = message.content[0].text;
+    conversationHistory.push({ role: 'assistant', content: reply });
+
+    // Send text back to browser immediately, then speak async
+    res.json({ ok: true, response: reply });
+
+    // Play via ElevenLabs in the background
+    const cleaned = sanitiseForVoice(reply);
+    if (cleaned) speakText(cleaned, 'chat');
+  } catch (err) {
+    // Roll back the user message so history stays consistent
+    conversationHistory.pop();
+    console.error('[chat error]', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /chat/reset — clear conversation memory ──────────────────────────────
+app.post('/chat/reset', (_req, res) => {
+  conversationHistory.length = 0;
+  res.json({ ok: true });
+});
+
+// ── GET /status — health check ────────────────────────────────────────────────
+app.get('/status', (req, res) => {
+  res.json({ ok: true, voiceId: VOICE_ID, playing: !!currentPlayback, chatReady: !!anthropic });
+});
+
+// ── speakText — shared TTS helper used by /speak and /chat ───────────────────
+async function speakText(cleaned, source) {
+  console.log(`\n[${source || 'api'}] Speaking: ${cleaned.slice(0, 80)}${cleaned.length > 80 ? '…' : ''}\n`);
   try {
     const response = await axios.post(
       `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
       {
         text: cleaned,
-        model_id: 'eleven_flash_v2_5',  // ~75ms latency, lowest available
+        model_id: 'eleven_flash_v2_5',
         voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.15 }
       },
       {
@@ -49,11 +107,9 @@ app.post('/speak', async (req, res) => {
       }
     );
 
-    // Write to a temp file and play via system audio
     const tmpFile = path.join(os.tmpdir(), `jarvis-${Date.now()}.mp3`);
     fs.writeFileSync(tmpFile, Buffer.from(response.data));
 
-    // Stop any currently playing audio before starting new
     if (currentPlayback) {
       try { currentPlayback.kill(); } catch {}
     }
@@ -68,12 +124,7 @@ app.post('/speak', async (req, res) => {
       : err.message;
     console.error('[TTS error]', detail);
   }
-});
-
-// ── GET /status — health check ────────────────────────────────────────────────
-app.get('/status', (req, res) => {
-  res.json({ ok: true, voiceId: VOICE_ID, playing: !!currentPlayback });
-});
+}
 
 // ── Audio playback (cross-platform, no extra install on Windows/Mac) ──────────
 function playFile(filePath, onDone) {
